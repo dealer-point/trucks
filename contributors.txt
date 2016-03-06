@@ -1,1 +1,4 @@
 IT DealerPoint
+
+Contributors:
+1. Kasparov I. <ikasparov.dev@gmail.com>
