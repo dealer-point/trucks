@@ -1,6 +1,6 @@
-import './style.scss';
+import "./style.scss";
 
-var template: string = require('./template.html');
+let template : string  = require("./template.html");
 
 export class User implements ng.IComponentOptions {
   public template: string = template;
@@ -8,5 +8,5 @@ export class User implements ng.IComponentOptions {
 }
 
 class UserController {
-  public text: string = 'Hello world!';
+  public text: string = "Hello world!";
 }

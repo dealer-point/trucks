@@ -1,7 +1,7 @@
 //var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var Promise = require('es6-promise').Promise;
 module.exports = [
-  { test: /\.ts(x?)$/, exclude: /node_modules/, loader: 'babel-loader!ts-loader' },
+  { test: /\.ts(x?)$/, exclude: /node_modules/, loader: 'babel-loader!ts-loader!tslint-loader' },
   { test: /\.js$/, loader: 'babel-loader' },
 
   //{ test: /\.css$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader') },
