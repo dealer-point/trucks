@@ -26,3 +26,9 @@ config/secrets.yml
 
 /node_modules
 npm-debug.log
+
+# Ignore rvm/rbenv .ruby-version file
+.ruby-version
+
+# Ignore TODO file
+TODO
