@@ -1,1 +1,2 @@
-declare function require(string: string): string;
+// Require jade template
+declare function require(string: string): Function;
