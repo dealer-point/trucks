@@ -3,8 +3,9 @@
 IT DealerPoint
 
 Contributors:
-> 1. Kasparov I. <ikasparov.dev@gmail.com>
-> 2. Dmitry Y. <hds101@gmail.com>
+> Anikin D. <mr.ads@yandex.ru>
+> Kasparov I. <ikasparov.dev@gmail.com>
+> Dmitry Y. <hds101@gmail.com>
 
 
 Ruby version - 2.3.0
@@ -72,3 +73,35 @@ RSpec.describe Post, type: :model do
   end
 end
 ```
+# Дилеры
+
+Модель Dealer - дилерские центры
+
+## Создание дилера
+   Для разграничения данных дилеров используется гем [apartment](https://github.com/influitive/apartment)
+   Каждый дилер находится в своем изолированном пространстве и данные не пересекаются
+    
+   Для создание дилера можно воспользоваться соответствующей фабрикой:
+ ```
+ FactoryGirl.create(:dealer)
+ ```
+ или создать командой:
+ ```
+ my_dealer = Dealer.create!(sumdomain: 'example_subdomain_', title: 'MyDealer')
+ ```
+## Переключение на дилера 
+ Для работы с моделями дилера вам необходимо переключится на его пространство
+ ```
+  my_dealer.switch!
+ ```
+ или
+ ```
+  Dealer.switch! 'example_subdomain_'
+ ```
+ так же можно переключится по ID дилер, например `ID = 1`
+  ```
+   Dealer.switch! 1
+  ```
+ 
+ 
+ 

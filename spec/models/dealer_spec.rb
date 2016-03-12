@@ -18,32 +18,30 @@ require 'rails_helper'
 
 RSpec.describe Dealer, type: :model do
   it 'has a valid factory' do
-    create(:dealer).should be_valid
+    dealer = create(:dealer)
+    expect(dealer).to be_valid
   end
 
   it 'invalid without a subdomain' do
-    build(:dealer, subdomain: nil).should_not be_valid
+    dealer = build(:dealer, subdomain: nil)
+    expect(dealer).to_not be_valid
   end
 
   it 'invalid with wrong format' do
-    build(:dealer, subdomain: 't_1').should_not be_valid
-    build(:dealer, subdomain: '-').should_not be_valid
+    dealer = build(:dealer, subdomain: 't_1')
+    expect(dealer).to_not be_valid
+    dealer = build(:dealer, subdomain: '-')
+    expect(dealer).to_not be_valid
   end
 
   it 'does not allow duplicate subdomain' do
     create(:dealer, subdomain: 'mytest')
-    build(:dealer, subdomain: 'mytest').should_not be_valid
+    dealer2 = build(:dealer, subdomain: 'mytest')
+    expect(dealer2).to_not be_valid
   end
 
   it 'is invalid without a title' do
-    build(:dealer, title: nil).should_not be_valid
-  end
-
-  it 'returns a array of active dealers' do
-    dealer1 = create(:dealer, active: true)
-    dealer2 = create(:dealer, active: true)
-    create(:dealer, active: false)
-
-    Dealer.active.should == [dealer1, dealer2]
+    dealer = build(:dealer, title: nil)
+    expect(dealer).to_not be_valid
   end
 end

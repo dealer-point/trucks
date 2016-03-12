@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: dealers
+# Table name: public.dealers
 #
 #  id         :integer          not null, primary key
 #  title      :string
@@ -19,4 +19,25 @@ class Dealer < ApplicationRecord
   validates :subdomain, presence: true, format: /\A[a-z\d]+(-[a-z\d]+)?\z/i, uniqueness: true
 
   scope :active, -> { where(active: true) }
+
+  after_create :create_tenant
+  after_destroy :drop_tenant
+
+  def switch!
+    Apartment::Tenant.switch! subdomain
+  end
+
+  def self.switch!(value)
+    value.is_a?(String) ? Apartment::Tenant.switch!(value) : find(value).try(:switch!)
+  end
+
+  private
+
+  def create_tenant
+    Apartment::Tenant.create(subdomain)
+  end
+
+  def drop_tenant
+    Apartment::Tenant.drop(subdomain)
+  end
 end

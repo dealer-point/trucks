@@ -5,6 +5,7 @@ gem 'pg'
 gem 'puma'
 gem 'jbuilder', '~> 2.0'
 gem 'pundit'
+gem 'apartment'
 
 group :development, :test do
   gem 'byebug'
