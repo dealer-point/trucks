@@ -21,13 +21,13 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'pry-rails'
-  gem 'annotate'
   gem 'rubocop', require: false
   gem 'guard'
   gem 'guard-migrate'
   gem 'guard-bundler'
   gem 'guard-rspec', require: false
   gem 'guard-rubocop'
+  gem 'guard-annotate'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

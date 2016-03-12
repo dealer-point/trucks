@@ -7,8 +7,10 @@ AllCops:
   Exclude:
     - 'bin/**/*'
     - 'config/**/*'
-    - 'db/schema.rb'
+    - 'node_modules/**/*'
+    - 'app/frontend/**/*'
     - 'spec/*_helper.rb'
+    - 'db/schema.rb'
 
 Metrics/LineLength:
   Enabled: false

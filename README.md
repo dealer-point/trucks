@@ -4,6 +4,7 @@ IT DealerPoint
 
 Contributors:
 > 1. Kasparov I. <ikasparov.dev@gmail.com>
+> 2. Dmitry Y. <hds101@gmail.com>
 
 
 Ruby version - 2.3.0
@@ -25,25 +26,24 @@ production:
 development:
   adapter: postgresql
   encoding: utf8
-  database: truckpoint
-  username: dbuser
-  password: dbpass
+  database: truckpoint_development
+  username: postgres
+  password: postgres
   pool: 5
   host: localhost
   port: 5432
 test:
   adapter: postgresql
   encoding: utf8
-  database: truckpoint
-  username: dbuser
-  password: dbpass
+  database: truckpoint_test
+  username: postgres
+  password: postgres
   pool: 5
   host: localhost
   port: 5432
 
 ```
-4. Устанавливаем foreman `gem install foreman`
-5. Запускаем `foreman start`
+4. Запускаем `foreman start`
 
 
 ## Тестирование
