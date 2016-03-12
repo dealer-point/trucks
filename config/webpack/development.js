@@ -1,12 +1,13 @@
 var loaders = require("./loaders");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var webpack = require('webpack');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   entry: './app/frontend/app.ts',
   output: {
     path: './public',
-    filename: 'js/bundle.js'
+    filename: 'built/js/bundle.js'
   },
   resolve: {
     root: __dirname,
@@ -28,6 +29,18 @@ module.exports = {
       favicon: 'public/favicon.ico',
       inject: 'body',
       hash: true
-    })
+    }),
+    new ExtractTextPlugin('built/css/app.css'),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+      'window.jQuery': 'jquery',
+      'window.jquery': 'jquery'
+    }),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   warning: false,
+    //   mangle: true,
+    //   comments: false
+    // })
   ]
 };
