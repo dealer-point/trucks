@@ -27,8 +27,17 @@ class Dealer < ApplicationRecord
     Apartment::Tenant.switch! subdomain
   end
 
+  def fill_demo!
+    switch!
+    # TODO: тут должна быть генерация демо данных
+  end
+
   def self.switch!(value)
     value.is_a?(String) ? Apartment::Tenant.switch!(value) : find(value).try(:switch!)
+  end
+
+  def self.current
+    @current ||= find_by_subdomain(Apartment::Tenant.current)
   end
 
   private
