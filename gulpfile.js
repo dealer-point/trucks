@@ -70,5 +70,40 @@ gulp.task('common_js', function () {
     .pipe(plugins.size({
       showFiles: true
     }))
-    .pipe(gulp.dest('assets/js/'));
+    .pipe(gulp.dest('public/built/js/'));
+});
+
+// custom uikit
+gulp.task('uikit_js', function () {
+  return gulp.src([
+    // // uikit core
+    "node_modules/uikit/dist/js/uikit.js",
+    // // uikit components
+    "node_modules/uikit/dist/js/components/accordion.js",
+    "node_modules/uikit/dist/js/components/autocomplete.js",
+    "app/frontend/assets/javascripts/plugins/uikit_datepicker.js",
+    "node_modules/uikit/dist/js/components/form-password.js",
+    "node_modules/uikit/dist/js/components/form-select.js",
+    "node_modules/uikit/dist/js/components/grid.js",
+    "node_modules/uikit/dist/js/components/lightbox.js",
+    "node_modules/uikit/dist/js/components/nestable.js",
+    "node_modules/uikit/dist/js/components/notify.js",
+    "node_modules/uikit/dist/js/components/slideshow.js",
+    "node_modules/uikit/dist/js/components/sortable.js",
+    "node_modules/uikit/dist/js/components/sticky.js",
+    "node_modules/uikit/dist/js/components/tooltip.js",
+    "app/frontend/assets/javascripts/plugins/uikit_timepicker.js",
+    "node_modules/uikit/dist/js/components/upload.js",
+    "app/frontend/assets/javascripts/plugins/uikit_beforeready.js"
+  ])
+    .pipe(plugins.concat('uikit_custom.js'))
+    .pipe(gulp.dest('public/built/js/'))
+    .pipe(plugins.uglify({
+        mangle: true
+    }))
+    .pipe(plugins.rename('uikit_custom.min.js'))
+    .pipe(plugins.size({
+        showFiles: true
+    }))
+    .pipe(gulp.dest('public/built/js/'));
 });
