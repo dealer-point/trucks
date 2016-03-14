@@ -31,12 +31,12 @@ module.exports = {
       hash: true
     }),
     new ExtractTextPlugin('built/css/app.css'),
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery',
-      'window.jquery': 'jquery'
-    }),
+    // new webpack.ProvidePlugin({
+    //   $: 'jquery',
+    //   jQuery: 'jquery',
+    //   'window.jQuery': 'jquery',
+    //   'window.jquery': 'jquery'
+    // }),
     // new webpack.optimize.UglifyJsPlugin({
     //   warning: false,
     //   mangle: true,
