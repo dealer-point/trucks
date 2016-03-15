@@ -29,7 +29,7 @@ class Dealer < ApplicationRecord
 
   def fill_demo!
     switch!
-    # TODO: тут должна быть генерация демо данных
+    # TODO: Demo generation will be here
   end
 
   def self.switch!(value)
