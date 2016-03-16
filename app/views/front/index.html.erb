@@ -1,0 +1,5 @@
+<h1>ng-front</h1>
+<hr>
+<p><span>current_user: </span><strong><%= current_user.name || current_user.email %></strong></p>
+<!-- We cannot use rails link_to delete without jquery, fallback to form -->
+<%= form_tag(sessions_path, method: :delete) { submit_tag t('sessions.logout') } %>
