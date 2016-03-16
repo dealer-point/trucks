@@ -7,9 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "start": "webpack --config ./config/webpack/development.js --color --progress",
-    "build": "webpack --config ./config/webpack/production.js",
-    "postinstall": "typings i && gulp common_js && gulp uikit_js"
+    "start": "gulp build && webpack --config ./config/webpack/development.js --color --progress",
+    "build": "gulp build && webpack --config ./config/webpack/production.js",
+    "postinstall": "typings i && gulp build"
   },
   "repository": {
     "type": "git",
@@ -69,6 +69,13 @@
     "url-loader": "~0.5.7",
     "velocity-animate": "^1.2.3",
     "waypoints": "^4.0.0",
-    "webpack": "~1.12.14"
+    "webpack": "~1.12.14",
+    "run-sequence": "~1.1.5",
+    "angular-sanitize": "~1.5.1",
+    "angular-animate": "~1.5.1",
+    "angular-ui-router": "~0.2.18",
+    "oclazyload": "~1.0.9",
+    "angular-retina": "~0.3.11",
+    "angular-breadcrumb": "~0.4.1"
   }
 }

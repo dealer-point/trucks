@@ -7,7 +7,7 @@ var gulp = require('gulp'),
     plugins = require("gulp-load-plugins")({
         // config: 'package.json',
         scope: ['devDependencies'],
-        pattern: ['gulp-*', 'gulp.*'],
+        pattern: ['gulp-*', 'gulp.*', 'run-sequence'],
         replaceString: /\bgulp[\-.]/
     });
 
@@ -27,7 +27,8 @@ var chalk_error = chalk.bold.red;
 // commmon
 gulp.task('common_js', function () {
   return gulp.src([
-    "app/frontend/assets/javascripts/plugins/modernizr.js",
+    "app/frontend/assets/template/js/modernizr.js",
+    // jquery
     "node_modules/jquery/dist/jquery.js",
     // moment
     "node_modules/moment/moment.js",
@@ -49,9 +50,9 @@ gulp.task('common_js', function () {
     // hammerjs
     "node_modules/hammerjs/hammer.js",
     // scrollbar width
-    "app/frontend/assets/javascripts/plugins/jquery.scrollbarWidth.js",
+    "app/frontend/assets/template/js/jquery.scrollbarWidth.js",
     // jquery.debouncedresize
-    "app/frontend/assets/javascripts/plugins/jquery.debouncedresize.js",
+    "app/frontend/assets/template/js/jquery.debouncedresize.js",
     // screenfull
     "node_modules/screenfull/dist/screenfull.js",
     // waves
@@ -62,7 +63,7 @@ gulp.task('common_js', function () {
       console.log(chalk_error(err.message));
       this.emit('end');
     })
-    .pipe(gulp.dest('public/built/js/'))
+    .pipe(gulp.dest('public/built/template/js/'))
     .pipe(plugins.uglify({
       mangle: true
     }))
@@ -70,7 +71,7 @@ gulp.task('common_js', function () {
     .pipe(plugins.size({
       showFiles: true
     }))
-    .pipe(gulp.dest('public/built/js/'));
+    .pipe(gulp.dest('public/built/template/js/'));
 });
 
 // custom uikit
@@ -81,7 +82,7 @@ gulp.task('uikit_js', function () {
     // // uikit components
     "node_modules/uikit/dist/js/components/accordion.js",
     "node_modules/uikit/dist/js/components/autocomplete.js",
-    "app/frontend/assets/javascripts/plugins/uikit_datepicker.js",
+    "app/frontend/assets/template/js/uikit_datepicker.js",
     "node_modules/uikit/dist/js/components/form-password.js",
     "node_modules/uikit/dist/js/components/form-select.js",
     "node_modules/uikit/dist/js/components/grid.js",
@@ -92,12 +93,12 @@ gulp.task('uikit_js', function () {
     "node_modules/uikit/dist/js/components/sortable.js",
     "node_modules/uikit/dist/js/components/sticky.js",
     "node_modules/uikit/dist/js/components/tooltip.js",
-    "app/frontend/assets/javascripts/plugins/uikit_timepicker.js",
+    "app/frontend/assets/template/js/uikit_timepicker.js",
     "node_modules/uikit/dist/js/components/upload.js",
-    "app/frontend/assets/javascripts/plugins/uikit_beforeready.js"
+    "app/frontend/assets/template/js/uikit_beforeready.js"
   ])
     .pipe(plugins.concat('uikit_custom.js'))
-    .pipe(gulp.dest('public/built/js/'))
+    .pipe(gulp.dest('public/built/template/js/'))
     .pipe(plugins.uglify({
         mangle: true
     }))
@@ -105,5 +106,38 @@ gulp.task('uikit_js', function () {
     .pipe(plugins.size({
         showFiles: true
     }))
-    .pipe(gulp.dest('public/built/js/'));
+    .pipe(gulp.dest('public/built/template/js/'));
 });
+
+// angular common
+gulp.task('angular_common', function () {
+  return gulp.src([
+    "node_modules/angular/angular.js",
+    "node_modules/angular-sanitize/angular-sanitize.js",
+    "node_modules/angular-animate/angular-animate.js",
+    "node_modules/angular-ui-router/release/angular-ui-router.js",
+    "node_modules/oclazyload/dist/ocLazyLoad.js",
+    "app/frontend/assets/template/js/angular-retina.js",
+    "node_modules/angular-breadcrumb/dist/angular-breadcrumb.js"
+  ])
+    .pipe(plugins.concat('angular_common.js'))
+    .pipe(gulp.dest('public/built/template/js/'))
+    .pipe(plugins.uglify({
+        mangle: true
+    }))
+    .pipe(plugins.rename('angular_common.min.js'))
+    .pipe(plugins.size({
+        showFiles: true
+    }))
+    .pipe(gulp.dest('public/built/template/js/'));
+});
+
+
+gulp.task('build', function(callback) {
+    return plugins.runSequence(
+        ['common_js', 'uikit_js', 'angular_common'],
+        callback
+    );
+});
+
+

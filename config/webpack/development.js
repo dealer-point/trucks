@@ -7,7 +7,7 @@ module.exports = {
   entry: './app/frontend/app.ts',
   output: {
     path: './public',
-    filename: 'built/js/bundle.js'
+    filename: 'built/app/js/bundle.js'
   },
   resolve: {
     root: __dirname,
@@ -30,7 +30,7 @@ module.exports = {
       inject: 'body',
       hash: true
     }),
-    new ExtractTextPlugin('built/css/app.css'),
+    new ExtractTextPlugin('built/app/css/app.css'),
     // new webpack.ProvidePlugin({
     //   $: 'jquery',
     //   jQuery: 'jquery',

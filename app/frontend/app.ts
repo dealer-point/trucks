@@ -1,8 +1,10 @@
 "use strict";
 
-import "./assets/stylesheets/main.css";
-import "angular";
-import { User } from "./user";
+import "./assets/template/stylesheets/uikit.almost-flat.css";
+import "./assets/template/icons/flags/flags.css";
+import "./assets/template/stylesheets/main.css";
+
+import { User } from "./user/index";
 
 angular
   .module("trucksApp", [])
