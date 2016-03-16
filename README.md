@@ -18,7 +18,6 @@ Ruby version - 2.3.0
 sudo npm install --global webpack
 sudo npm install --global gulp
 sudo npm install --global typings
-sudo npm install --global webpack
 ```
 4. Установка npm-пакетов `npm install`
 

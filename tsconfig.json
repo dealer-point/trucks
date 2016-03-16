@@ -3,7 +3,7 @@
     "target": "es6",
     "removeComments": true,
     "sourceMap": true,
-    "outDir": "out"
+    "outDir": "tmp/out"
   },
   "exclude": [
     "out",
