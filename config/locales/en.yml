@@ -20,4 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  actions:
+    submit: 'Submit'
+  sessions:
+    logout: 'Logout'
+    invalid_login: 'Invalid login'

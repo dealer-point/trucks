@@ -1,0 +1,8 @@
+<% unless @error_message.blank? %>
+  <%= @error_message %>
+<% end %>
+<%= form_for @user, url: sessions_path, method: :post do |f| %>
+  <%= f.text_field :email, placeholder: true, required: true %>
+  <%= f.password_field :password, placeholder: true, required: true %>
+  <%= f.submit t('actions.submit') %>
+<% end%>

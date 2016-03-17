@@ -16,3 +16,7 @@ Metrics/LineLength:
   Enabled: false
 Style/Documentation:
   Enabled: false
+ClassAndModuleChildren:
+  Enabled: false
+AsciiComments:
+  Enabled: false

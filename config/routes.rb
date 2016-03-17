@@ -11,6 +11,14 @@ Rails.application.routes.draw do
   constraints SubdomainConstraint do
     # Serve websocket cable requests in-process
     # mount ActionCable.server => '/cable'
+    root "front#index"
+    resource :sessions, only: [:new, :create, :destroy]
+
+    namespace :api do
+      namespace :v1 do
+        resources :users, only: [:index, :show, :create, :update, :destroy]
+      end
+    end
   end
 
   # Административные маршруты

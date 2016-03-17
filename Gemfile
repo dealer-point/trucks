@@ -6,6 +6,7 @@ gem 'puma'
 gem 'jbuilder', '~> 2.0'
 gem 'pundit'
 gem 'apartment'
+gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do
   gem 'byebug'
