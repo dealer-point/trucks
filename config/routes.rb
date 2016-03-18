@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   constraints SubdomainConstraint do
     # Serve websocket cable requests in-process
     # mount ActionCable.server => '/cable'
-    root "front#index"
+    root 'front#index'
     resource :sessions, only: [:new, :create, :destroy]
 
     namespace :api do
