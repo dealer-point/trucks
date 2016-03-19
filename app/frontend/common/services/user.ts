@@ -1,12 +1,14 @@
 "use strict";
 
 export default class UserService {
-    static $inject = ['$http'];
-    constructor(private $http: ng.IHttpService) {
+    public static $inject: string[] = ["$http"];
+    constructor(
+        private $http: ng.IHttpService
+    ) {
 
     }
 
-    public current() {
-        return {"test": 'cock'}
+    public current(): string {
+        return "cock";
     }
 }
