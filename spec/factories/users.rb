@@ -16,13 +16,10 @@
 #  updated_at      :datetime         not null
 #
 
-class User < ApplicationRecord
-  has_secure_password
-  has_secure_token
-
-  validates :email, presence: true, uniqueness: true
-
-  has_and_belongs_to_many :roles
-
-  scope :active, -> { where(active: true) }
+FactoryGirl.define do
+  factory :user do
+    name 'test user'
+    password 'qwerty'
+    sequence(:email) { |n| "mail#{n}@example.com" }
+  end
 end

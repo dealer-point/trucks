@@ -20,3 +20,5 @@ ClassAndModuleChildren:
   Enabled: false
 AsciiComments:
   Enabled: false
+Rails/HasAndBelongsToMany:
+  Enabled: false

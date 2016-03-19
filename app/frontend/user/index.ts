@@ -1,5 +1,5 @@
 import "./style.scss";
-import UserService from "core/services/user"
+import UserService from "common/services/user"
 
 let template: Function = require("./template.jade");
 

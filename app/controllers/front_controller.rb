@@ -1,7 +1,9 @@
 class FrontController < ApplicationController
+  layout false
   before_action :authorize_user!
 
   def index
+    render file: './public/_index.html', layout: false
   end
 
   private
