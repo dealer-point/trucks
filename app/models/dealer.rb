@@ -40,6 +40,10 @@ class Dealer < ApplicationRecord
     @current ||= find_by_subdomain(Apartment::Tenant.current)
   end
 
+  def host
+    "#{subdomain}.dealerpoint.biz"
+  end
+
   private
 
   def create_tenant

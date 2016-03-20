@@ -25,4 +25,8 @@ class User < ApplicationRecord
   has_and_belongs_to_many :roles
 
   scope :active, -> { where(active: true) }
+
+  def activities
+    @activities ||= roles.select(:activities).distinct.map(&:activities).flatten
+  end
 end

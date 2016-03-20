@@ -8,6 +8,11 @@ class Api::V1::UsersController < Api::V1::BaseController
     render json: user, status: 200
   end
 
+  def current
+    authorize current_user
+    render json: current_user.as_json(methods: :activities), status: 200
+  end
+
   def create
     user = User.new user_params
     if user.save

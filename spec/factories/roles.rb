@@ -11,6 +11,9 @@
 
 FactoryGirl.define do
   factory :role do
-    title 'admin'
+    sequence(:title) { |n| "role#{n}" }
+    factory :role_with_activities do
+      activities %w(role:create role:show role:update role:destroy')
+    end
   end
 end

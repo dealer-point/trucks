@@ -1,5 +1,5 @@
 import "./style.scss";
-import UserService from "common/services/user";
+import CurrentUser from "common/services/current_user";
 
 let template: Function = require("./template.jade");
 
@@ -9,9 +9,9 @@ export class User implements ng.IComponentOptions {
 }
 
 class UserController {
-  public static $inject: string[] = ["UserService"];
-  constructor(private userService: UserService) {
-    console.log(curentUser.current());
+  public static $inject: string[] = ["CurrentUser"];
+  constructor(private curentUser: CurrentUser) {
+    console.log(curentUser);
   }
   public text: string = "Hello Kitty!";
 }
