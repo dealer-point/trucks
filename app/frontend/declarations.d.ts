@@ -1,3 +1,4 @@
+/// <reference path='common/services/user.d.ts' />
 // Declarerequire function
 declare function require(string: string): Function;
 
@@ -9,3 +10,7 @@ interface IWaves {
 }
 // declare module "waves" { }
 declare var Waves: IWaves;
+
+interface IAppRootScope extends ng.IRootScopeService {
+    currentUser: IUser
+}

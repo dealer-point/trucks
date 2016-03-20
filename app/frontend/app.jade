@@ -1,11 +1,14 @@
 doctype html
 html(data-ng-app="trucksApp")
-  head
-    title= htmlWebpackPlugin.options.title
-    link(href="http://fonts.googleapis.com/css?family=Roboto:400,300,500,700,400italic&amp;subset=latin" rel="stylesheet" media="all")
-    link(href="http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" rel="stylesheet" media="all")
-  body
-    user
-    script(src="built/template/js/common.min.js")
-    script(src="built/template/js/uikit_custom.min.js")
-    script(src="built/template/js/angular_common.min.js")
+    head
+        title= htmlWebpackPlugin.options.title
+        link(href="http://fonts.googleapis.com/css?family=Roboto:400,300,500,700,400italic&amp;subset=latin" rel="stylesheet" media="all")
+        link(href="http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" rel="stylesheet" media="all")
+    body
+        user
+        div(data-activity, data-only="['role:create']") Label only role:create
+        div(data-activity, data-except="['role:extra']") Label except role:extra
+
+        script(src="built/template/js/common.min.js")
+        script(src="built/template/js/uikit_custom.min.js")
+        script(src="built/template/js/angular_common.min.js")
