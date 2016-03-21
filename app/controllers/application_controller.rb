@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   # Globally rescue Authorization Errors in controller.
-  rescue_from Pundit::NotAuthorizedError, with: :permission_denied
+  rescue_from Pundit::NotAuthorizedError, with: :not_authorized
   # Enforces access right checks for individuals resources
   after_action :verify_authorized, except: :index
   # Enforces access right checks for collections
@@ -24,8 +24,15 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def permission_denied
-    # Returning 403 Forbidden if permission is denied
-    head 403
+  def not_authorized
+    policy_name = exception.policy.class.to_s.underscore
+    error_message = t("#{policy_name}.#{exception.query}", scope: 'pundit.messages', default: :default)
+    respond_to do |format|
+      format.html do
+        flash[:error] = error_message
+        redirect_to request.referrer || root_path
+      end
+      format.json { render json: { error: error_message }, status: :forbidden }
+    end
   end
 end
