@@ -1,0 +1,9 @@
+aside#sidebar_main(sidebar-primary custom-scrollbar)
+    .sidebar_main_header(data-ng-if="!fullHeaderActive")
+        .sidebar_logo
+            a(ui-sref="restricted.dashboard" data-ng-show="!miniSidebarActive")
+                img(src=require("../../assets/template/images/logo.png") alt="LLC DealerPoint" width="35")
+            //- a(ui-sref="restricted.dashboard" ng-show="miniSidebarActive")
+            //-     img(src=require("../../assets/template/images/logo_main_small.png") alt="" add-image-prop)
+        .sidebar_actions
+            selectize#lang_switcher(name="lang_switcher" config='langSwitcherConfig' options='langSwitcherOptions' ng-model="langSwitcherModel")

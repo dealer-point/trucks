@@ -2,5 +2,8 @@
   "ambientDevDependencies": {
     "angular": "github:DefinitelyTyped/DefinitelyTyped/angularjs/angular.d.ts#c2ae01b0b4c046a7f986183c792fbccedec0b1fc",
     "jquery": "github:DefinitelyTyped/DefinitelyTyped/jquery/jquery.d.ts#661fc869669af796c6048483e999dce5732eed72"
+  },
+  "ambientDependencies": {
+    "angular-ui-router": "github:DefinitelyTyped/DefinitelyTyped/angular-ui-router/angular-ui-router.d.ts#7de6c3dd94feaeb21f20054b9f30d5dabc5efabd"
   }
 }

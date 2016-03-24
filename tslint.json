@@ -3,7 +3,7 @@
     "align": [
       true,
       "parameters",
-      "arguments",
+      // "arguments",
       "statements"
     ],
     "ban": false,
@@ -35,7 +35,7 @@
       "static-before-instance",
       "variables-before-functions"
     ],
-    "no-any": true,
+    "no-any": false,
     "no-arg": true,
     "no-bitwise": true,
     "no-conditional-assignment": true,
@@ -69,12 +69,12 @@
     "no-use-before-declare": true,
     "no-var-keyword": true,
     "no-var-requires": false,
-    "object-literal-sort-keys": true,
+    "object-literal-sort-keys": false,
     "one-line": [
       true,
-      "check-open-brace",
+      // "check-open-brace",
       "check-catch",
-      "check-else",
+      // "check-else",
       "check-finally",
       "check-whitespace"
     ],
@@ -89,7 +89,7 @@
     "trailing-comma": [
       true,
       {
-        "multiline": "always",
+        "multiline": "never",
         "singleline": "never"
       }
     ],
