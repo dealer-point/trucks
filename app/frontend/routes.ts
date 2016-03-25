@@ -1,6 +1,6 @@
-let headerTpl: Function = require("./common/templates/header.jade");
-let sidebarPrimaryTpl: Function = require("./common/templates/sidebarPrimary.jade");
-let restrictedTpl: Function = require("./common/templates/restricted.jade");
+let headerTpl: Function = require("./environment/templates/header.jade");
+let sidebarPrimaryTpl: Function = require("./environment/templates/sidebarPrimary.jade");
+let restrictedTpl: Function = require("./environment/templates/restricted.jade");
 
 RoutesConfig.$inject = ["$stateProvider", "$urlRouterProvider"];
 export default function RoutesConfig(
@@ -41,7 +41,7 @@ export default function RoutesConfig(
 
         // Тестовая фигня. Этого тут не должно быть
         .state("restricted.welcome", {
-            url: "/",
+            url: "/welcome",
             template: "<div id=\"page_content\">test welcome template</div>"
         });
 }

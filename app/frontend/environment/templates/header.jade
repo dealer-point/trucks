@@ -2,6 +2,24 @@ header#header_main
     .header_main_content
         nav.uk-navbar
             sidebar-primary-toggle
-            //- .main_logo_top
-            //-     img(src=require("../../assets/template/images/logo.png") alt="LLC DealerPoint" width="35")
-
+            .uk-navbar-flip
+                ul.uk-navbar-nav.user_actions
+                    li
+                        main-search-show
+                    li(data-uk-dropdown="{mode:'click',pos:'bottom-right'}" aria-haspopup="true" aria-expanded="false")
+                        a.user_action_image(href="#")
+                            img.md-user-image(src="http://altair_app.tzdthemes.com/assets/img/avatars/avatar_11_tn.png" width="34" height="34")
+                        .uk-dropdown.uk-dropdown-small.uk-dropdown-bottom
+                            ul.uk-nav.js-uk-prevent
+                                li
+                                    a(ui-sref="restricted.pages.user_profile" href="#/pages/user_profile") My profile
+                                li
+                                    a(ui-sref="restricted.pages.settings" href="#/pages/settings") Settings
+                                li
+                                    a(ui-sref="login" href="/#/") Logout
+    .header_main_search_form
+        main-search-hide
+        form.uk-form
+            input.header_main_search_input(type="text")
+            button.header_main_search_btn.uk-button-link
+                i.md-icon.material-icons &#xE8B6;

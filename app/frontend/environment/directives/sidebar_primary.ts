@@ -30,7 +30,7 @@ export default function sidebarPrimary(
                 (<IJQuery>$this.next("ul"))
                     .velocity(slideToogle, {
                         duration: 400,
-                        easing: variables.easing_swiftOut,
+                        easing: variables.easingSwiftOut,
                         begin: (): void => {
                             if (slideToogle === "slideUp") {
                                 $(this)
@@ -41,7 +41,7 @@ export default function sidebarPrimary(
                                     $this.closest("li").siblings(".submenu_trigger").each((): void => {
                                         (<IJQuery>$(this).children("ul")).velocity("slideUp", {
                                             duration: 500,
-                                            easing: variables.easing_swiftOut,
+                                            easing: variables.easingSwiftOut,
                                             begin: (): void => {
                                                 $(this)
                                                     .closest(".submenu_trigger")
@@ -63,7 +63,7 @@ export default function sidebarPrimary(
 
                                 (<IJQuery>$this.closest(".act_section")).velocity("scroll", {
                                     duration: 500,
-                                    easing: variables.easing_swiftOut,
+                                    easing: variables.easingSwiftOut,
                                     container: scrollContainer
                                 });
                             }

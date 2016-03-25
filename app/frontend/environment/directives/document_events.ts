@@ -41,7 +41,7 @@ export default function documentEvents(
                     .children(".header_main_search_form"))
                     .velocity("transition.slideUpBigOut", {
                         duration: 280,
-                        easing: variables.easing_swiftOut,
+                        easing: variables.easingSwiftOut,
                         begin: (): void => {
                             $headerMain.velocity("reverse");
                             $rootScope.mainSearchActive = false;
@@ -51,7 +51,7 @@ export default function documentEvents(
                                 .children(".header_main_content"))
                                 .velocity("transition.slideDownBigIn", {
                                     duration: 280,
-                                    easing: variables.easing_swiftOut,
+                                    easing: variables.easingSwiftOut,
                                     complete: (): void => {
                                         $(".header_main_search_input").blur().val("");
                                     }
