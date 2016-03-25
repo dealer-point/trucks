@@ -16,6 +16,15 @@ truckApp.run(["$rootScope", "$state", "$stateParams", "$http", "$window", "$time
 
 truckApp.config(["$stateProvider", "$urlRouterProvider", RoutesConfig]);
 
+/*
+truckApp.config(["$locationProvider", function($locationProvider) {
+    $locationProvider.html5Mode({
+        enabled: true,
+        requireBase: false
+    });
+}]);
+*/
+
 import sidebarPrimaryToggle from "./common/directives/sidebar_primary_toggle";
 truckApp.directive("sidebarPrimaryToggle", sidebarPrimaryToggle);
 
@@ -24,6 +33,15 @@ truckApp.service("variables", variables);
 
 import sidebarPrimary from "./common/directives/sidebar_primary";
 truckApp.directive("sidebarPrimary", sidebarPrimary);
+
+import customScrollbar from "./common/directives/custom_scrollbar";
+truckApp.directive("customScrollbar", customScrollbar);
+
+import documentEvents from "./common/directives/document_events";
+truckApp.directive("documentEvents", documentEvents);
+
+import mainSidebar from "./common/controllers/main_sidebar";
+truckApp.controller("mainSidebar", mainSidebar);
 
 function RootConfig(
     $rootScope: IAppRootScopeService,
@@ -39,7 +57,6 @@ function RootConfig(
     $rootScope.$stateParams = $stateParams;
 
     $rootScope.$on("$stateChangeSuccess", () => {
-        console.log("cock state change");
 
         let animateParams: Object = {
             scrollTop: 0
@@ -76,7 +93,7 @@ function RootConfig(
         // top menu
         $rootScope.topMenuActive = false;
         // full header
-        $rootScope.fullHeaderActive = false;
+        $rootScope.fullHeaderActive  = false;
         // full height
         $rootScope.page_full_height = false;
         // secondary sidebar
@@ -117,6 +134,7 @@ function RootConfig(
 
 let headerTpl: Function = require("./common/templates/header.jade");
 let sidebarPrimaryTpl: Function = require("./common/templates/sidebarPrimary.jade");
+let restrictedTpl: Function = require("./common/templates/restricted.jade");
 
 function RoutesConfig($stateProvider: ng.ui.IStateProvider, $urlRouterProvider: ng.ui.IUrlRouterProvider): void
 {
@@ -143,12 +161,16 @@ function RoutesConfig($stateProvider: ng.ui.IStateProvider, $urlRouterProvider: 
                     template: headerTpl()
                 },
                 "main_sidebar": {
-                    template: sidebarPrimaryTpl()
+                    template: sidebarPrimaryTpl(),
+                    controller: "mainSidebar"
+                },
+                "": {
+                    template: restrictedTpl()
                 }
             }
         })
         .state("restricted.welcome", {
             url: "/",
-            template: "test welcome template"
+            template: "<div id=\"page_content\">test welcome template</div>"
         });
 }

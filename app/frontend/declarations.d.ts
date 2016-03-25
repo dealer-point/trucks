@@ -19,9 +19,14 @@ declare var FastClick: IFastClick;
 
 
 interface IModernizr {
+    touch: boolean;
 }
 declare var Modernizr: IModernizr;
 
+interface IUIkit {
+    tooltip(target: JQuery, object: Object): void;
+}
+declare var UIkit: IUIkit;
 
 
 interface IAppRootScopeService extends ng.IRootScopeService {
@@ -43,6 +48,12 @@ interface IAppRootScopeService extends ng.IRootScopeService {
     largeScreen: boolean;
     primarySidebarOpen: boolean;
     appInitialized: boolean;
+
+    styleSwitcherActive: boolean;
+
+    secondarySidebarActive: boolean;
+
+    miniSidebarActive: boolean;
 
     menuAccordionMode: boolean;
 
