@@ -41,7 +41,13 @@ export default function RoutesConfig(
 
         // Тестовая фигня. Этого тут не должно быть
         .state("restricted.welcome", {
-            url: "/welcome",
-            template: "<div id=\"page_content\">test welcome template</div>"
+            url: "/",
+            template: "<div id=\"page_content\">" +
+  "<button class=\"md-btn md-btn-success md-btn-wave-light waves-effect waves-button waves-light\" ng-click=\"showPreloader()\">" +
+  "Показать прелоадер</button><br /><br />" +
+  "<button class=\"md-btn md-btn-primary md-btn-wave-light waves-effect waves-button waves-light\" ng-click=\"hidePreloader()\">" +
+  "Спрятать прелоадер</button>" +
+  "</div>",
+            controller: "welcomeController"
         });
 }

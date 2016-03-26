@@ -1,5 +1,5 @@
 
-RootConfig.$inject = ["$rootScope", "$state", "$stateParams", "$http", "$window", "$timeout", "variables"];
+RootConfig.$inject = ["$rootScope", "$state", "$stateParams", "$http", "$window", "$timeout", "variables", "preloaders"];
 export default function RootConfig(
     $rootScope: IAppRootScopeService,
     $state: ng.ui.IStateProvider,
@@ -7,7 +7,8 @@ export default function RootConfig(
     $http: ng.IHttpService,
     $window: Window,
     $timeout: ng.ITimeoutService,
-    variables: any): void
+    variables: any,
+    preloaders: any): void
 {
     "use strict";
 

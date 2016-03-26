@@ -61,4 +61,7 @@ interface IAppRootScopeService extends ng.IRootScopeService {
 
     $state: ng.ui.IStateProvider;
     $stateParams: ng.ui.IStateParamsService;
+
+    content_preloader_show(style?: string, container?: JQuery): void;
+    content_preloader_hide(style?: string, container?: JQuery): void;
 }

@@ -8,10 +8,13 @@ import documentEvents from "./directives/document_events";
 import mainSearchShow from "./directives/main_search_show";
 import mainSearchHide from "./directives/main_search_hide";
 import mainSidebar from "./controllers/main_sidebar";
+import preloaders from "./services/preloaders";
+import welcomeController from "./controllers/welcome_controller";
 import "./modules/selectize";
 
 export default angular.module("environment", ["selectize"])
     .service("variables", variables)
+    .service("preloaders", preloaders)
     .directive("sidebarPrimaryToggle", sidebarPrimaryToggle)
     .directive("sidebarPrimary", sidebarPrimary)
     .directive("customScrollbar", customScrollbar)
@@ -19,4 +22,5 @@ export default angular.module("environment", ["selectize"])
     .directive("mainSearchShow", mainSearchShow)
     .directive("mainSearchHide", mainSearchHide)
     .controller("mainSidebar", mainSidebar)
+    .controller("welcomeController", welcomeController)
     .name;
