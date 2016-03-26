@@ -9,6 +9,10 @@ export default function RoutesConfig(
 {
     "use strict";
 
+    $urlRouterProvider
+        .when("/welcome", "/")
+        .otherwise("/");
+
     $stateProvider
         .state("error", {
             url: "/error",
