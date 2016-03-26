@@ -33,24 +33,24 @@ export default function sidebarPrimary(
                         easing: variables.easingSwiftOut,
                         begin: (): void => {
                             if (slideToogle === "slideUp") {
-                                $(this)
+                                $this
                                     .closest(".submenu_trigger")
                                     .removeClass("act_section");
                             } else {
                                 if ($rootScope.menuAccordionMode) {
                                     $this.closest("li").siblings(".submenu_trigger").each((): void => {
-                                        (<IJQuery>$(this).children("ul")).velocity("slideUp", {
+                                        (<IJQuery>$this.children("ul")).velocity("slideUp", {
                                             duration: 500,
                                             easing: variables.easingSwiftOut,
                                             begin: (): void => {
-                                                $(this)
+                                                $this
                                                     .closest(".submenu_trigger")
                                                     .removeClass("act_section");
                                             }
                                         });
                                     });
                                 }
-                                $(this).closest(".submenu_trigger").addClass("act_section");
+                                $this.closest(".submenu_trigger").addClass("act_section");
                             }
                         },
                         complete: (): void => {
