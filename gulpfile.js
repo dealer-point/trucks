@@ -56,7 +56,10 @@ gulp.task('common_js', function () {
     // screenfull
     "node_modules/screenfull/dist/screenfull.js",
     // waves
-    "node_modules/node-waves/dist/waves.js"
+    "node_modules/node-waves/dist/waves.js",
+
+    // selectize
+    "node_modules/selectize/dist/js/standalone/selectize.js"
   ])
     .pipe(plugins.concat('common.js'))
     .on('error', function(err) {

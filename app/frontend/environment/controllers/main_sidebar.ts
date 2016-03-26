@@ -2,6 +2,7 @@
 
 interface IScope extends ng.IScope {
     $ctrl: MainSidebarController;
+    langSwitcherConfig: Object;
     someMethod(): void;
 }
 
@@ -9,22 +10,21 @@ export default class MainSidebarController {
 
     public static $inject: string[] = ["$rootScope", "$scope", "$timeout"];
 
-    // public langSwitcherModel: string = "gb";
+    public langSwitcherModel: string = "gb";
 
-    // public langSwitcherOptions: Object[] = [
-    //     { id: 1, title: "English", value: "gb" },
-    //     { id: 2, title: "French", value: "fr" },
-    //     { id: 3, title: "Chinese", value: "cn" },
-    //     { id: 4, title: "Dutch", value: "nl" },
-    //     { id: 5, title: "Italian", value: "it" },
-    //     { id: 6, title: "Spanish", value: "es" },
-    //     { id: 7, title: "German", value: "de" },
-    //     { id: 8, title: "Polish", value: "pl" }
-    // ];
-    // private langData: Object[] = this.langSwitcherOptions;
+    public langSwitcherOptions: Object[] = [
+        { id: 1, title: "English", value: "gb" },
+        { id: 2, title: "French", value: "fr" },
+        { id: 3, title: "Chinese", value: "cn" },
+        { id: 4, title: "Dutch", value: "nl" },
+        { id: 5, title: "Italian", value: "it" },
+        { id: 6, title: "Spanish", value: "es" },
+        { id: 7, title: "German", value: "de" },
+        { id: 8, title: "Polish", value: "pl" }
+    ];
 
     constructor($rootScope: IAppRootScopeService, $scope: IScope, $timeout: ng.ITimeoutService) {
-        console.log("test controller");
+
         $scope.$ctrl = this;
 
         $scope.$on("onLastRepeat", (scope: any, element: any, attrs: any) => {
@@ -44,6 +44,28 @@ export default class MainSidebarController {
                 }
             });
         });
+
+        $scope.langSwitcherConfig = {
+            maxItems: 1,
+            render: {
+                option: (langData: any, escape: any): string => {
+                    return "<div class=\"option\">" +
+                        "<i class=\"item-icon flag-" + escape(langData.value).toUpperCase() + "\"></i>" +
+                        "<span>" + escape(langData.title) + "</span>" +
+                        "</div>";
+                },
+                item: (langData: any, escape: any): string => {
+                    return "<div class=\"item\"><i class=\"item-icon flag-" + escape(langData.value).toUpperCase() + "\"></i></div>";
+                }
+            },
+            valueField: "value",
+            labelField: "title",
+            searchField: "title",
+            create: false,
+            onInitialize: (selectize: any): void => {
+                $("#lang_switcher").next().children(".selectize-input").find("input").attr("readonly", "true");
+            }
+        };
     }
 
 

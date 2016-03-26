@@ -6,7 +6,7 @@ aside#sidebar_main.uk-height-1-1(sidebar-primary custom-scrollbar)
             //- a(ui-sref="restricted.dashboard" ng-show="miniSidebarActive")
             //-     img(src=require("../../assets/template/images/logo_main_small.png") alt="" add-image-prop)
         .sidebar_actions
-            selectize#lang_switcher(name="lang_switcher" config='langSwitcherConfig' options='langSwitcherOptions' data-ng-model="langSwitcherModel")
+            selectize#lang_switcher(name="lang_switcher" config='langSwitcherConfig' options='$ctrl.langSwitcherOptions' data-ng-model="$ctrl.langSwitcherModel")
     .menu_section
         ul
             li(ui-sref-active="current_section" ng-repeat="section in $ctrl.sections" ng-switch="section.link.length > 0" ng-class="{'submenu_trigger': (section.submenu.length > 0) && !miniSidebarActive, 'sidebar_submenu': (section.submenu.length > 0) && miniSidebarActive}" on-last-repeat)

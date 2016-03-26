@@ -8,8 +8,9 @@ import documentEvents from "./directives/document_events";
 import mainSearchShow from "./directives/main_search_show";
 import mainSearchHide from "./directives/main_search_hide";
 import mainSidebar from "./controllers/main_sidebar";
+import "./modules/selectize";
 
-export default angular.module("environment", [])
+export default angular.module("environment", ["selectize"])
     .service("variables", variables)
     .directive("sidebarPrimaryToggle", sidebarPrimaryToggle)
     .directive("sidebarPrimary", sidebarPrimary)

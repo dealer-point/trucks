@@ -76,6 +76,7 @@
     "angular-ui-router": "~0.2.18",
     "oclazyload": "~1.0.9",
     "angular-retina": "~0.3.11",
-    "angular-breadcrumb": "~0.4.1"
+    "angular-breadcrumb": "~0.4.1",
+    "selectize": "~0.12.1"
   }
 }
