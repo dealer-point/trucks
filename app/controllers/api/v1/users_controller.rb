@@ -10,7 +10,7 @@ class Api::V1::UsersController < Api::V1::BaseController
 
   def current
     authorize current_user
-    render json: current_user.as_json(methods: :activities), status: 200
+    render json: current_user, status: 200
   end
 
   def create

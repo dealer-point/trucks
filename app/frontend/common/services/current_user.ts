@@ -13,8 +13,8 @@ export default class CurrentUser extends User {
 
     public load(): ng.IPromise<CurrentUser> {
         let scope: CurrentUser = this;
-        return this.$http.get("/api/v1/users/current").success(function(userData: IUser): IUser {
-            angular.extend(scope, userData);
+        return this.$http.get("/api/v1/users/current").success(function(response: any): IUser {
+            angular.extend(scope, response['user']);
             scope.$rootScope.currentUser = scope;
             return scope;
         });

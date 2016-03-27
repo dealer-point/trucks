@@ -30,15 +30,18 @@ class ActivityController {
     constructor(
         private $scope: ng.IScope,
         private $element: ng.IAugmentedJQuery,
-        private currentUser: IUser
-    ) {
+        private currentUser: IUser ) {
+
         let ctrl: ActivityController = this;
 
         $scope.$watchGroup(["currentUser.activities", "activity.only", "activity.except"],
-            function(): void {
+            (): void => {
                 try {
-                    if (ctrl.check()) { $element.removeClass("ng-hide");
-                    } else { $element.addClass("ng-hide"); }
+                    if (ctrl.check()) {
+                        $element.removeClass("ng-hide");
+                    } else {
+                        $element.addClass("ng-hide");
+                    }
                 } catch (e) {
                     $element.addClass("ng-hide");
                     console.error(e);
@@ -52,15 +55,19 @@ class ActivityController {
         if (ctrl.currentUser && ctrl.currentUser.activities) {
             if (ctrl.except) {
                 let count: number = 0;
-                angular.forEach(ctrl.except, function (activity: string): void {
-                    if (ctrl.currentUser.activities.indexOf(activity) >= 0) { count++; }
+                angular.forEach(ctrl.except, (activity: string): void => {
+                    if (ctrl.currentUser.activities.indexOf(activity) >= 0) {
+                        count++;
+                    }
                 });
                 if (count > 0) { return false; }
             }
             if (ctrl.only) {
                 let count: number = ctrl.only.length;
-                angular.forEach(this.only, function(activity: string): void {
-                    if (ctrl.currentUser.activities.indexOf(activity) >= 0) { count--; }
+                angular.forEach(this.only, (activity: string): void => {
+                    if (ctrl.currentUser.activities.indexOf(activity) >= 0) {
+                        count--;
+                    }
                 });
                 return count === 0;
             }

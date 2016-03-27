@@ -10,3 +10,6 @@ RspecApiDocumentation.configure do |config|
   config.api_name = 'DealerPoint Trucks API'
 end
 
+RSpec.configure do |config|
+  config.include Requests::JsonHelpers
+end

@@ -9,13 +9,13 @@ resource 'Users' do
   let(:token) { user.token }
 
   get '/api/v1/users/current' do
+    before(:each) { do_request }
     example 'Current user detail' do
-      do_request
       expect(status).to be 200
-
-      user_json = JSON.parse(response_body)
-      expect(user_json['id']).to eq user.id
-      expect(user_json['activities']).to eq user.activities
+      json_user = json['user']
+      expect(json_user).to be
+      expect(json_user['id']).to eq user.id
+      expect(json_user['activities']).to eq user.activities
     end
   end
 end

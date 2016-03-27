@@ -7,6 +7,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'pundit'
 gem 'apartment'
 gem 'bcrypt', '~> 3.1.7'
+gem 'active_model_serializers'
 
 group :development, :test do
   gem 'byebug'
