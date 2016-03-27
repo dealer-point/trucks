@@ -72,84 +72,84 @@ export default class MainSidebarController {
     public sections: Object[] = [
         {
             id: 0,
-            title: "Dashboard",
+            title: "Welcome",
             icon: "&#xE871;",
-            link: "restricted.dashboard"
-        },
-        {
-            id: 1,
-            title: "Mailbox",
-            icon: "&#xE158;",
-            link: "restricted.pages.mailbox"
-        },
-        {
-            id: 2,
-            title: "Invoices",
-            icon: "&#xE53E;",
-            link: "restricted.pages.invoices.list"
-        },
-        {
-            id: 7,
-            title: "Forms",
-            icon: "&#xE8D2;",
-            submenu: [
-                {
-                    title: "Regular Elements",
-                    link: "restricted.forms.regular"
-                },
-                {
-                    title: "Advanced Elements",
-                    link: "restricted.forms.advanced"
-                },
-                {
-                    title: "File Input",
-                    link: "restricted.welcome"
-                },
-                {
-                    title: "File Upload",
-                    link: "restricted.forms.file_upload"
-                },
-                {
-                    title: "Validation",
-                    link: "restricted.forms.validation"
-                },
-                {
-                    title: "Wizard",
-                    link: "restricted.forms.wizard"
-                },
-                {
-                    title: "CKeditor",
-                    link: "restricted.forms.wysiwyg_ckeditor",
-                    group: "WYSIWYG Editors"
-                },
-                {
-                    title: "TinyMCE",
-                    link: "restricted.forms.wysiwyg_tinymce"
-                },
-                {
-                    title: "Inline",
-                    link: "restricted.forms.wysiwyg_inline"
-                }
-            ]
-        },
-        {
-            id: 8,
-            title: "Layout",
-            icon: "&#xE8F1;",
-            submenu: [
-                {
-                    title: "Top Menu",
-                    link: "restricted.layout.top_menu"
-                },
-                {
-                    title: "Full Header",
-                    link: "restricted.layout.full_header"
-                }
-            ]
+            link: "restricted.welcome"
         }
     ];
 
 
 }
 
-// angular.module("fbSomeFeature").controller("mainSidebar", MainSidebarController);
+// ,
+// {
+//     id: 1,
+//     title: "Mailbox",
+//     icon: "&#xE158;",
+//     link: "restricted.pages.mailbox"
+// },
+// {
+//     id: 2,
+//     title: "Invoices",
+//     icon: "&#xE53E;",
+//     link: "restricted.pages.invoices.list"
+// },
+// {
+//     id: 7,
+//     title: "Forms",
+//     icon: "&#xE8D2;",
+//     submenu: [
+//         {
+//             title: "Regular Elements",
+//             link: "restricted.forms.regular"
+//         },
+//         {
+//             title: "Advanced Elements",
+//             link: "restricted.forms.advanced"
+//         },
+//         {
+//             title: "File Input",
+//             link: "restricted.welcome"
+//         },
+//         {
+//             title: "File Upload",
+//             link: "restricted.forms.file_upload"
+//         },
+//         {
+//             title: "Validation",
+//             link: "restricted.forms.validation"
+//         },
+//         {
+//             title: "Wizard",
+//             link: "restricted.forms.wizard"
+//         },
+//         {
+//             title: "CKeditor",
+//             link: "restricted.forms.wysiwyg_ckeditor",
+//             group: "WYSIWYG Editors"
+//         },
+//         {
+//             title: "TinyMCE",
+//             link: "restricted.forms.wysiwyg_tinymce"
+//         },
+//         {
+//             title: "Inline",
+//             link: "restricted.forms.wysiwyg_inline"
+//         }
+//     ]
+// },
+// {
+//     id: 8,
+//     title: "Layout",
+//     icon: "&#xE8F1;",
+//     submenu: [
+//         {
+//             title: "Top Menu",
+//             link: "restricted.layout.top_menu"
+//         },
+//         {
+//             title: "Full Header",
+//             link: "restricted.layout.full_header"
+//         }
+//     ]
+// }
