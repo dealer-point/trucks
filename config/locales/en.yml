@@ -35,3 +35,10 @@ en:
       role_policy:
         update?: 'You cannot edit this role!'
         create?: 'You cannot create roles!'
+  activerecord:
+    models:
+      role: 'Role'
+    attributes:
+      role:
+        title: 'Title'
+        activities: 'Activities'
