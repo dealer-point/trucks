@@ -9,7 +9,7 @@ indent_style = space
 indent_size = 4
 
 [*.{rb,yml}]
-tab_size: 2
+indent_size = 2
 
 # tab_size: 2,
 # translate_tabs_to_spaces: true,
