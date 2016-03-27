@@ -12,7 +12,7 @@ import preloaders from "./services/preloaders";
 import welcomeController from "./controllers/welcome_controller";
 import "./modules/selectize";
 
-export default angular.module("environment", ["selectize"])
+export default angular.module("main", ["selectize"])
     .service("variables", variables)
     .service("preloaders", preloaders)
     .directive("sidebarPrimaryToggle", sidebarPrimaryToggle)

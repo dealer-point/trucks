@@ -12,9 +12,9 @@ import "./assets/template/stylesheets/main.css";
 
 import RootConfig from "./config";
 import RoutesConfig from "./routes";
-import environment from "./environment/index";
+import main from "./main/index";
 
 angular
-    .module("trucksApp", ["ui.router", "ngSanitize", "ngAnimate", "ngRetina", "ncy-angular-breadcrumb", environment])
+    .module("trucksApp", ["ui.router", "ngSanitize", "ngAnimate", "ngRetina", "ncy-angular-breadcrumb", main])
     .run(RootConfig)
     .config(RoutesConfig);
