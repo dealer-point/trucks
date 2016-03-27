@@ -1,3 +1,4 @@
+/// <reference path='common/services/user.d.ts' />
 // Declarerequire function
 declare function require(string: string): Function;
 
@@ -28,8 +29,8 @@ interface IUIkit {
 }
 declare var UIkit: IUIkit;
 
-
 interface IAppRootScopeService extends ng.IRootScopeService {
+    currentUser: IUser
     mainSearchActive: boolean;
     headerDoubleHeightActive: boolean;
     toBarActive: boolean;

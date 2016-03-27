@@ -36,4 +36,6 @@ TODO
 
 /typings
 /public/index.html
+/public/_index.html
 /public/built
+/doc

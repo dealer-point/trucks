@@ -20,4 +20,25 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  actions:
+    submit: 'Submit'
+  sessions:
+    logout: 'Logout'
+    invalid_login: 'Invalid login'
+  pundit:
+    role_policy:
+      name: 'Role'
+      create?: 'Create roles'
+      update?: 'Edit roles'
+    messages:
+      default: 'You cannot perform this action.'
+      role_policy:
+        update?: 'You cannot edit this role!'
+        create?: 'You cannot create roles!'
+  activerecord:
+    models:
+      role: 'Role'
+    attributes:
+      role:
+        title: 'Title'
+        activities: 'Activities'

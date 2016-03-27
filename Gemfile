@@ -6,13 +6,18 @@ gem 'puma'
 gem 'jbuilder', '~> 2.0'
 gem 'pundit'
 gem 'apartment'
+gem 'bcrypt', '~> 3.1.7'
+gem 'active_model_serializers'
 
 group :development, :test do
   gem 'byebug'
-  gem 'rspec-rails'
+  gem 'rspec', '~> 3.5.0.beta2'
+  gem 'rspec-core', '~> 3.5.0.beta2'
+  gem 'rspec-rails', '~> 3.5.0.beta2'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'database_cleaner'
+  gem 'rspec_api_documentation'
 end
 
 group :development do
@@ -27,7 +32,7 @@ group :development do
   gem 'guard'
   gem 'guard-migrate'
   gem 'guard-bundler'
-  gem 'guard-rspec', require: false
+  gem 'guard-rspec', '~> 4.6', require: false
   gem 'guard-rubocop'
   gem 'guard-annotate'
 end

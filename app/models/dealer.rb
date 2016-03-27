@@ -29,7 +29,7 @@ class Dealer < ApplicationRecord
 
   def fill_demo!
     switch!
-    # TODO: тут должна быть генерация демо данных
+    # TODO: Demo generation will be here
   end
 
   def self.switch!(value)
@@ -38,6 +38,10 @@ class Dealer < ApplicationRecord
 
   def self.current
     @current ||= find_by_subdomain(Apartment::Tenant.current)
+  end
+
+  def host
+    "#{subdomain}.dealerpoint.biz"
   end
 
   private

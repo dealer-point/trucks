@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: dealers
+# Table name: public.dealers
 #
 #  id         :integer          not null, primary key
 #  title      :string
@@ -9,7 +9,7 @@
 #  country    :string
 #  language   :string
 #  timezone   :string           default("Europe/Moscow")
-#  active     :boolean
+#  active     :boolean          default(TRUE)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
@@ -18,7 +18,7 @@ require 'rails_helper'
 
 RSpec.describe Dealer, type: :model do
   it 'has a valid factory' do
-    dealer = create(:dealer)
+    dealer = build(:dealer)
     expect(dealer).to be_valid
   end
 

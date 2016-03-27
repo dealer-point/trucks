@@ -6,32 +6,20 @@ class ApplicationPolicy
     @record = record
   end
 
-  def index?
-    false
+  def user_activities
+    @user.activities
   end
 
-  def show?
-    scope.where(id: record.id).exists?
+  def inferred_activity(method)
+    "#{@record.class.name.downcase}:#{method}"
   end
 
-  def create?
-    false
-  end
-
-  def new?
-    create?
-  end
-
-  def update?
-    false
-  end
-
-  def edit?
-    update?
-  end
-
-  def destroy?
-    false
+  def method_missing(name, *args)
+    if name.to_s.last == '?'
+      user_activities.include?(inferred_activity(name.to_s.delete('?')))
+    else
+      super
+    end
   end
 
   def scope

@@ -25,7 +25,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './app/frontend/app.jade',
       title: 'TruckPoint CRM',
-      filename: 'index.html',
+      filename: '_index.html',
       favicon: 'public/favicon.ico',
       inject: 'body',
       hash: true
