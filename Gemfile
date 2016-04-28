@@ -21,6 +21,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'mina'
   gem 'foreman'
   gem 'web-console', '~> 3.0'
   gem 'listen', '~> 3.0.5'
