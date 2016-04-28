@@ -1,3 +1,4 @@
+
 "use strict";
 
 import User from "./user";
@@ -29,5 +30,10 @@ export default class CurrentUser extends User {
     public can(activity: string): boolean {
 
         return this.activities.indexOf(activity) >= 0;
+    }
+
+    public logout(): ng.IHttpPromise<CurrentUser> {
+
+        return this.$http.delete("/sessions");
     }
 }

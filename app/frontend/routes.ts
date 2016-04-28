@@ -1,6 +1,6 @@
-let headerTpl: Function = require("./main/templates/header.jade");
+let headerTpl: Function         = require("./main/templates/header.jade");
 let sidebarPrimaryTpl: Function = require("./main/templates/sidebarPrimary.jade");
-let restrictedTpl: Function = require("./main/templates/restricted.jade");
+let restrictedTpl: Function     = require("./main/templates/restricted.jade");
 
 RoutesConfig.$inject = ["$stateProvider", "$urlRouterProvider"];
 export default function RoutesConfig(
@@ -31,27 +31,17 @@ export default function RoutesConfig(
             url: "",
             views: {
                 "main_header": {
-                    template: headerTpl()
+                    template: headerTpl(),
+                    controller: "MainHeader",
+                    controllerAs: "$headerCtrl"
                 },
                 "main_sidebar": {
                     template: sidebarPrimaryTpl(),
-                    controller: "mainSidebar"
+                    controller: "MainSidebar"
                 },
                 "": {
                     template: restrictedTpl()
                 }
             }
-        })
-
-        // Тестовая фигня. Этого тут не должно быть
-        .state("restricted.welcome", {
-            url: "/",
-            template: "<div id=\"page_content\">" +
-  "<button class=\"md-btn md-btn-success md-btn-wave-light waves-effect waves-button waves-light\" ng-click=\"showPreloader()\">" +
-  "Показать прелоадер</button><br /><br />" +
-  "<button class=\"md-btn md-btn-primary md-btn-wave-light waves-effect waves-button waves-light\" ng-click=\"hidePreloader()\">" +
-  "Спрятать прелоадер</button>" +
-  "</div>",
-            controller: "welcomeController"
         });
 }

@@ -21,10 +21,10 @@
 
 en:
   actions:
-    submit: 'Submit'
+    submit: 'Sign in'
   sessions:
     logout: 'Logout'
-    invalid_login: 'Invalid login'
+    invalid_login: 'Invalid login or password'
   pundit:
     role_policy:
       name: 'Role'
@@ -42,3 +42,6 @@ en:
       role:
         title: 'Title'
         activities: 'Activities'
+  login_page:
+    username: 'Email'
+    password: 'Password'

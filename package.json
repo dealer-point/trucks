@@ -7,8 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "start": "gulp build && webpack --config ./config/webpack/development.js --color --progress",
-    "build": "gulp build && webpack --config ./config/webpack/production.js",
+    "start": "webpack --config ./config/webpack/development.js --color --progress",
+    "build": "webpack --config ./config/webpack/production.js",
     "postinstall": "typings i && gulp build"
   },
   "repository": {

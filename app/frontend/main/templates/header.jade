@@ -16,7 +16,7 @@ header#header_main
                                 li
                                     a(ui-sref="restricted.pages.settings" href="#/pages/settings") Settings
                                 li
-                                    a(ui-sref="login" href="/#/") Logout
+                                    a(data-ng-click="$headerCtrl.logout()") Logout
     .header_main_search_form
         main-search-hide
         form.uk-form

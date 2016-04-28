@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+
+  layout 'session'
+
   skip_after_action :verify_authorized
 
   def new

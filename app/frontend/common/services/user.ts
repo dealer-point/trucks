@@ -1,4 +1,6 @@
+
 "use strict";
+
 export default class User implements IUser {
     public name: string;
     public lastname: string;

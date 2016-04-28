@@ -14,12 +14,12 @@ export default function ActivityDirective(): ng.IDirective {
     return {
         bindToController: {
             except: "=",
-            only: "=",
+            only: "="
         },
         controller: ActivityController,
         controllerAs: "activity",
         restrict: "A",
-        scope: true,
+        scope: true
     };
 };
 
