@@ -8,6 +8,7 @@ gem 'pundit'
 gem 'apartment'
 gem 'bcrypt', '~> 3.1.7'
 gem 'active_model_serializers'
+gem 'unicorn'
 
 group :development, :test do
   gem 'byebug'
@@ -22,6 +23,7 @@ end
 
 group :development do
   gem 'mina'
+  gem 'mina-unicorn', :require => false
   gem 'foreman'
   gem 'web-console', '~> 3.0'
   gem 'listen', '~> 3.0.5'
