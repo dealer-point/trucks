@@ -9,6 +9,7 @@ gem 'apartment'
 gem 'bcrypt', '~> 3.1.7'
 gem 'active_model_serializers'
 gem 'unicorn'
+gem 'awesome_print'
 
 group :development, :test do
   gem 'byebug'
@@ -27,7 +28,6 @@ group :development do
   gem 'foreman'
   gem 'web-console', '~> 3.0'
   gem 'listen', '~> 3.0.5'
-  gem 'awesome_print'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'pry-rails'
