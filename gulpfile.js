@@ -6,7 +6,7 @@
 var gulp = require('gulp'),
     plugins = require("gulp-load-plugins")({
         // config: 'package.json',
-        scope: ['devDependencies'],
+        scope: ['dependencies'],
         pattern: ['gulp-*', 'gulp.*', 'run-sequence'],
         replaceString: /\bgulp[\-.]/
     });
