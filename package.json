@@ -17,7 +17,7 @@
   },
   "author": "DealerPoint",
   "license": "BSD-2-Clause",
-  "devDependencies": {
+  "dependencies": {
     "angular": "~1.5.0",
     "babel-core": "~6.6.5",
     "babel-loader": "~6.2.4",

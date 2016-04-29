@@ -3,6 +3,7 @@ require 'mina/rails'
 require 'mina/git'
 # require 'mina/rbenv'  # for rbenv support. (http://rbenv.org)
 require 'mina/rvm'    # for rvm support. (http://rvm.io)
+require 'mina/npm'
 require 'mina/unicorn'
 
 # Basic settings:
@@ -17,7 +18,7 @@ set :deploy_to, '/srv/truckpoint'
 set :repository, 'git@bitbucket.org:itDealerPoint/truckpoint.git'
 set :branch, 'testcake'
 set :forward_agent, true     # SSH forward_agent.
-set :shared_paths, ['config/database.yml', 'config/secrets.yml', 'log']
+set :shared_paths, ['config/database.yml', 'config/secrets.yml', 'log', 'tmp']
 
 task :environment do
   invoke :'rvm:use[2.3.0]'
@@ -33,6 +34,12 @@ task :setup => :environment do
   queue! %[touch "#{deploy_to}/#{shared_path}/config/database.yml"]
   queue! %[touch "#{deploy_to}/#{shared_path}/config/secrets.yml"]
   queue  %[echo "-----> Be sure to edit '#{deploy_to}/#{shared_path}/config/database.yml' and 'secrets.yml'."]
+
+  queue! %[mkdir -p "#{deploy_to}/shared/tmp/pids/"]
+  queue! %[chmod g+rx,u+rwx "#{deploy_to}/shared/tmp/pids"]
+
+  queue! %[mkdir -p "#{deploy_to}/shared/tmp/sockets/"]
+  queue! %[chmod g+rx,u+rwx "#{deploy_to}/shared/tmp/sockets"]
 
   if repository
     repo_host = repository.split(%r{@|://}).last.split(%r{:|\/}).first
@@ -59,7 +66,14 @@ task :deploy => :environment do
     invoke :'bundle:install'
     invoke :'rails:db_migrate'
     invoke :'rails:assets_precompile'
+    invoke :'npm:install'
+    queue! %[npm run build]
     invoke :'deploy:cleanup'
+
+
+    # queue! 'npm install'
+    # queue! 'gulp build'
+    # queue! 'npm run build'
 
     to :launch do
       # queue "mkdir -p #{deploy_to}/#{current_path}/tmp/"
