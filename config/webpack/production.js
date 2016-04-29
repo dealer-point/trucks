@@ -44,6 +44,11 @@ module.exports = {
           inject: 'body',
           hash: true
         }),
-        new ExtractTextPlugin('built/app/css/app.css')
+        new ExtractTextPlugin('built/app/css/app.css'),
+        new webpack.optimize.UglifyJsPlugin({
+          warning: false,
+          mangle: true,
+          comments: false
+        })
     ]
 };

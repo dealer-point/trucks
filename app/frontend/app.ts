@@ -24,11 +24,11 @@ angular
         main])
     .run(RootConfig)
     .config(RoutesConfig)
-    .config(['$httpProvider', function($httpProvider) {
+    .config(["$httpProvider", ($httpProvider: any): void => {
         $httpProvider.defaults.headers.common = {};
         $httpProvider.defaults.headers.post = { "Content-Type": "application/json" };
         $httpProvider.defaults.headers.put = { "Content-Type": "application/json" };
-        $httpProvider.defaults.headers.patch = { "Content-Type": "application/json" };
+        $httpProvider.defaults.headers.patch = { "Content-Type": "<ap></ap>plication/json" };
 
         let authToken: string = $("meta[name=\"csrf-token\"]").attr("content");
         $httpProvider.defaults.headers.common["X-CSRF-TOKEN"] = authToken;
