@@ -3,8 +3,8 @@ app_dir = File.expand_path('../../', __FILE__)
 shared_dir = File.expand_path('../../../shared/', __FILE__)
 
 # Set unicorn options
-worker_processes 2
-listen 8080, :tcp_nopush => true
+worker_processes 8
+preload_app true
 timeout 30
 
 # Fill path to your app
@@ -20,27 +20,23 @@ stdout_path "#{shared_dir}/log/unicorn.stdout.log"
 # Set master PID location
 pid "#{shared_dir}/tmp/pids/unicorn.pid"
 
-preload_app true
-GC.respond_to?(:copy_on_write_friendly=) and
-  GC.copy_on_write_friendly = true
-
-check_client_connection false
-
-# local variable to guard against running a hook multiple times
-run_once = true
-
 before_fork do |server, worker|
-
-  defined?(ActiveRecord::Base) and
-    ActiveRecord::Base.connection.disconnect!
-
-  if run_once
-    # do_something_once_here ...
-    run_once = false # prevent from firing again
+  defined?(ActiveRecord::Base) and ActiveRecord::Base.connection.disconnect!
+  old_pid = "#{server.config[:pid]}.oldbin"
+  if File.exists?(old_pid) && server.pid != old_pid
+    begin
+      sig = (worker.nr + 1) >= server.worker_processes ? :QUIT : :TTOU
+      Process.kill(sig, File.read(old_pid).to_i)
+    rescue Errno::ENOENT, Errno::ESRCH
+      # someone else did our job for us
+    end
   end
-
 end
 
 after_fork do |server, worker|
   defined?(ActiveRecord::Base) and ActiveRecord::Base.establish_connection
+end
+
+before_exec do |server|
+  ENV['BUNDLE_GEMFILE'] = "#{app_dir}/Gemfile"
 end
