@@ -12,7 +12,9 @@ Rails.application.routes.draw do
     # Serve websocket cable requests in-process
     # mount ActionCable.server => '/cable'
     root 'front#index'
-    resource :sessions, only: [:new, :create, :destroy]
+    resource :sessions, only: [:new, :create] do
+      get :logout, on: :collection
+    end
 
     namespace :api do
       namespace :v1 do

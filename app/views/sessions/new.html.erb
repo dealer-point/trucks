@@ -17,13 +17,13 @@
                         <%= I18n.t('login_page.username')%>
                     </label>
                     <!-- (@error_message.present? ? 'md-input md-input-danger' : 'md-input') -->
-                    <%= f.text_field :email, required: true, id: 'login_username', class: 'md-input' %>
+                    <%= f.text_field :email, required: true, id: 'login_username', class: 'md-input', type: 'text' %>
                 </div>
                 <div class="uk-form-row">
                     <label for="login_password">
                         <%= I18n.t('login_page.password')%>
                     </label>
-                    <%= f.password_field :password, required: true, id: 'login_password', class: 'md-input' %>
+                    <%= f.password_field :password, required: true, id: 'login_password', class: 'md-input', autocomplete: 'off' %>
                 </div>
                 <div class="uk-margin-medium-top">
                     <%= f.submit t('actions.submit'), class: 'md-btn md-btn-primary md-btn-block md-btn-large' %>

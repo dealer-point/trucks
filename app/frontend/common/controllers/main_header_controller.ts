@@ -15,13 +15,13 @@ export default class MainHeaderController {
         // todo something
     }
 
-    public logout(): void {
-        this.$rootScope
-            .currentUser
-            .logout()
-            .success((): void => {
-                this.$location.url("/sessions/new");
-            });
-    }
+    // public logout(): void {
+    //     this.$rootScope
+    //         .currentUser
+    //         .logout()
+    //         .success((): void => {
+    //             // this.$location.
+    //         });
+    // }
 
 }

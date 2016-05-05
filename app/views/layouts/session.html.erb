@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Truckpoint</title>
     <!-- < % = csrf_meta_tags %> -->
     <!-- < % = action_cable_meta_tag %> -->
@@ -11,70 +11,80 @@
     <link href="http://fonts.googleapis.com/css?family=Roboto:400,300,500,700,400italic&amp;subset=latin" rel="stylesheet" media="all" />
     <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" rel="stylesheet" media="all" />
     <link href="/built/app/css/app.css" rel="stylesheet" media="all" />
+</head>
 
-  </head>
-
-  <body class="login_page">
+<body class="login_page">
     <div class="main_view">
-      <%= yield %>
+        <%= yield %>
     </div>
     <script src="/built/template/js/common.min.js"></script>
     <script>
-      function mdInput(elem) {
-        function updateInput() {
-            elem
-                .closest(".md-input-wrapper")
-                .removeClass("md-input-wrapper-danger md-input-wrapper-success md-input-wrapper-disabled");
+        function mdInput(elem) {
+            function updateInput() {
+                elem
+                    .closest(".md-input-wrapper")
+                    .removeClass("md-input-wrapper-danger md-input-wrapper-success md-input-wrapper-disabled");
 
-            if (elem.hasClass("md-input-danger")) {
-                elem.closest(".md-input-wrapper").addClass("md-input-wrapper-danger");
-            }
-            if (elem.hasClass("md-input-success")) {
-                elem.closest(".md-input-wrapper").addClass("md-input-wrapper-success");
-            }
-            if (elem.prop("disabled")) {
-                elem.closest(".md-input-wrapper").addClass("md-input-wrapper-disabled");
-            }
-            if (elem.hasClass("label-fixed")) {
-                elem.closest(".md-input-wrapper").addClass("md-input-filled");
-            }
-            if (elem.val() !== "") {
-                elem.closest(".md-input-wrapper").addClass("md-input-filled");
-            }
-        };
+                    if (elem.hasClass("md-input-danger")) {
+                        elem.closest(".md-input-wrapper").addClass("md-input-wrapper-danger");
+                    }
+                    if (elem.hasClass("md-input-success")) {
+                        elem.closest(".md-input-wrapper").addClass("md-input-wrapper-success");
+                    }
+                    if (elem.prop("disabled")) {
+                        elem.closest(".md-input-wrapper").addClass("md-input-wrapper-disabled");
+                    }
+                    if (elem.hasClass("label-fixed")) {
+                        elem.closest(".md-input-wrapper").addClass("md-input-filled");
+                    }
+                    if (elem.val() !== "") {
+                        elem.closest(".md-input-wrapper").addClass("md-input-filled");
+                    }
+                };
 
-        // Вызыватор
-        if (!elem.hasClass("md-input-processed")) {
-            if (elem.prev("label").length) {
-                elem.prev("label").andSelf().wrapAll("<div class=\"md-input-wrapper\"/>");
-            } else if (elem.siblings("[data-uk-form-password]").length) {
-                elem.siblings("[data-uk-form-password]").andSelf().wrapAll("<div class=\"md-input-wrapper\"/>");
-            } else {
-                elem.wrap("<div class=\"md-input-wrapper\"/>");
-            }
-            elem
-                .addClass("md-input-processed")
-                .closest(".md-input-wrapper")
-                .append("<span class=\"md-input-bar\"/>");
-        }
-        updateInput();
+                // Вызыватор
+                if (!elem.hasClass("md-input-processed")) {
+                    if (elem.prev("label").length) {
+                        elem.prev("label").andSelf().wrapAll("<div class=\"md-input-wrapper\"/>");
+                    } else if (elem.siblings("[data-uk-form-password]").length) {
+                        elem.siblings("[data-uk-form-password]").andSelf().wrapAll("<div class=\"md-input-wrapper\"/>");
+                    } else {
+                        elem.wrap("<div class=\"md-input-wrapper\"/>");
+                    }
+                    elem
+                        .addClass("md-input-processed")
+                        .closest(".md-input-wrapper")
+                        .append("<span class=\"md-input-bar\"/>");
+                }
+                updateInput();
 
-        elem
-            .on("focus", function() {
-                elem.closest(".md-input-wrapper").addClass("md-input-focus");
-            })
-            .on("blur", function() {
-              elem.closest(".md-input-wrapper").removeClass("md-input-focus");
-              if (elem.val() === "") {
-                  elem.closest(".md-input-wrapper").removeClass("md-input-filled");
-              } else {
-                  elem.closest(".md-input-wrapper").addClass("md-input-filled");
-              }
+                elem
+                    .on("change", function() {
+                        elem.closest(".md-input-wrapper").addClass("md-input-focus");
+                    })
+                    .on("focus", function() {
+                        elem.closest(".md-input-wrapper").addClass("md-input-focus");
+                    })
+                    .on("blur", function() {
+                      elem.closest(".md-input-wrapper").removeClass("md-input-focus");
+                      if (elem.val() === "") {
+                          elem.closest(".md-input-wrapper").removeClass("md-input-filled");
+                      } else {
+                          elem.closest(".md-input-wrapper").addClass("md-input-filled");
+                      }
+                    });
+            }
+            // mdInput($('[md-input]')[0]);
+
+            $(window).load(function() {
+                mdInput($('#login_username'));
+                mdInput($('#login_password'));
             });
-      }
-      // mdInput($('[md-input]')[0]);
-      mdInput($('#login_username'));
-      mdInput($('#login_password'));
-    </script>
-  </body>
+
+        // setTimeout(function() {
+        //     mdInput($('#login_username'));
+        //     mdInput($('#login_password'));
+        // }, 600)
+        </script>
+    </body>
 </html>
