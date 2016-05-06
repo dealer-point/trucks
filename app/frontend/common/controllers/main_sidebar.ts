@@ -75,6 +75,12 @@ export default class MainSidebarController {
             title: "Welcome",
             icon: "&#xE871;",
             link: "restricted.welcome"
+        },
+        {
+            id: 1,
+            title: "Welcome 2",
+            icon: "&#xE84D;",
+            link: "restricted.welcome2"
         }
     ];
 

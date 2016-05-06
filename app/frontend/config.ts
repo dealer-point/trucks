@@ -82,7 +82,7 @@ export default function RootConfig(
     });
 
     // show/hide main menu on page load
-    $rootScope.primarySidebarOpen = false; //= ($rootScope.largeScreen) ? true : false;
+    $rootScope.primarySidebarOpen = false; // = ($rootScope.largeScreen) ? true : false;
 
     $rootScope.pageLoading = true;
 

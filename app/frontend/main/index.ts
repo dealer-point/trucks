@@ -1,5 +1,7 @@
 "use strict";
 
+import "./style.scss";
+
 // services
 import variables  from "./services/variables";
 import preloaders from "./services/preloaders";

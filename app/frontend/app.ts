@@ -7,6 +7,7 @@
 import "./assets/template/stylesheets/uikit.almost-flat.css";
 import "./assets/template/icons/flags/flags.css";
 import "./assets/template/stylesheets/main.css";
+import "./app.scss";
 
 import RootConfig   from "./config";
 import RoutesConfig from "./routes";
