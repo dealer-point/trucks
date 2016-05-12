@@ -10,8 +10,7 @@ export default class MainHeaderController {
 
     constructor(
         private $rootScope: IAppRootScopeService,
-        private $scope: IScope,
-        private $location: ng.ILocationService) {
+        private $scope: IScope) {
         // todo something
     }
 

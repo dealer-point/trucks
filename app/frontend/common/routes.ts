@@ -16,5 +16,10 @@ export default function RoutesConfig(
             url: "/welcome2",
             template: require("./templates/welcome2.jade")(),
             controller: "welcomeController"
-    });
+        })
+        .state("restricted.companies", {
+            url: "/companies",
+            template: require("./templates/companies.jade")(),
+            // controller: "companiesController"
+        });
 }

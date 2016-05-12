@@ -8,19 +8,19 @@ interface IScope extends ng.IScope {
 
 export default class MainSidebarController {
 
-    public static $inject: string[] = ["$rootScope", "$scope", "$timeout"];
+    public static $inject: Array<string> = ["$rootScope", "$scope", "$timeout"];
 
     public langSwitcherModel: string = "gb";
 
-    public langSwitcherOptions: Object[] = [
+    public langSwitcherOptions: Array<Object> = [
         { id: 1, title: "English", value: "gb" },
-        { id: 2, title: "French", value: "fr" },
+        { id: 2, title: "French",  value: "fr" },
         { id: 3, title: "Chinese", value: "cn" },
-        { id: 4, title: "Dutch", value: "nl" },
+        { id: 4, title: "Dutch",   value: "nl" },
         { id: 5, title: "Italian", value: "it" },
         { id: 6, title: "Spanish", value: "es" },
-        { id: 7, title: "German", value: "de" },
-        { id: 8, title: "Polish", value: "pl" }
+        { id: 7, title: "German",  value: "de" },
+        { id: 8, title: "Polish",  value: "pl" }
     ];
 
     constructor($rootScope: IAppRootScopeService, $scope: IScope, $timeout: ng.ITimeoutService) {
@@ -81,6 +81,12 @@ export default class MainSidebarController {
             title: "Welcome 2",
             icon: "&#xE84D;",
             link: "restricted.welcome2"
+        },
+        {
+            id: 1,
+            title: "Companies",
+            icon: "&#xE7FC;",
+            link: "restricted.companies"
         }
     ];
 

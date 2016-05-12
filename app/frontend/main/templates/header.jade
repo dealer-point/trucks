@@ -4,18 +4,18 @@ header#header_main
             sidebar-primary-toggle
             .uk-navbar-flip
                 ul.uk-navbar-nav.user_actions
-                    //- li
-                    //-     main-search-show
+                    li
+                        main-search-show
                     li(data-uk-dropdown="{mode:'click',pos:'bottom-right'}" aria-haspopup="true" aria-expanded="false")
                         a.user_action_image(href="#")
                             //- img.md-user-image(src="http://altair_app.tzdthemes.com/assets/img/avatars/avatar_11_tn.png" width="34" height="34")
                             img.md-user-image(src="/built/images/user.png" width="34" height="34")
                         .uk-dropdown.uk-dropdown-small.uk-dropdown-bottom
                             ul.uk-nav.js-uk-prevent
-                                li
-                                    a(ui-sref="restricted.pages.user_profile" href="#/pages/user_profile") My profile
-                                li
-                                    a(ui-sref="restricted.pages.settings" href="#/pages/settings") Settings
+                                //- li
+                                //-     a(ui-sref="restricted.pages.user_profile" href="#/pages/user_profile") My profile
+                                //- li
+                                //-     a(ui-sref="restricted.pages.settings" href="#/pages/settings") Settings
                                 li
                                     a(href="/sessions/logout") Logout
     .header_main_search_form
