@@ -24,13 +24,15 @@ export default function ActivityDirective(): ng.IDirective {
 };
 
 class ActivityController {
-    public static $inject: string[] = ["$scope", "$element", "CurrentUser"];
-    public only: string[];
-    public except: string[];
+    public static $inject: Array<string> = ["$scope", "$element", "CurrentUser"];
+    public only: Array<string>;
+    public except: Array<string>;
+
     constructor(
         private $scope: ng.IScope,
         private $element: ng.IAugmentedJQuery,
-        private currentUser: IUser ) {
+        private currentUser: IUser)
+    {
 
         let ctrl: ActivityController = this;
 

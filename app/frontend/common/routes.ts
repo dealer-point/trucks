@@ -20,6 +20,7 @@ export default function RoutesConfig(
         .state("restricted.companies", {
             url: "/companies",
             template: require("./templates/companies.jade")(),
-            // controller: "companiesController"
+            controller: "companiesController",
+            controllerAs: "$ctrl"
         });
 }
