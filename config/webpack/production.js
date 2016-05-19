@@ -45,10 +45,11 @@ module.exports = {
           hash: true
         }),
         new ExtractTextPlugin('built/app/css/app.css'),
-        new webpack.optimize.UglifyJsPlugin({
-          warning: false,
-          mangle: true,
-          comments: false
-        })
+// Нет времени разбираться почему не работает упаковка
+        // new webpack.optimize.UglifyJsPlugin({
+        //   warning: false,
+        //   mangle: true,
+        //   comments: false
+        // })
     ]
 };
