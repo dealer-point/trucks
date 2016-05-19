@@ -9,7 +9,7 @@
   "scripts": {
     "start": "webpack --config ./config/webpack/development.js --color --progress",
     "build": "gulp build && webpack --config ./config/webpack/production.js",
-    "postinstall": "typings i && gulp build"
+    "postinstall": "typings i"
   },
   "repository": {
     "type": "git",
