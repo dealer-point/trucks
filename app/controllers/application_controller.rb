@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   # Enforces access right checks for individuals resources
   after_action :verify_authorized, except: :index
   # Enforces access right checks for collections
-  after_action :verify_policy_scoped, only: :index
+  # after_action :verify_policy_scoped, only: :index
 
   def current_user
     # Session auth

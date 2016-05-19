@@ -21,6 +21,6 @@ export default function RoutesConfig(
             url: "/companies",
             template: require("./templates/companies.jade")(),
             controller: "companiesController",
-            controllerAs: "$ctrl"
+            controllerAs: "$companiesCtrl"
         });
 }

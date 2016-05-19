@@ -1,6 +1,8 @@
 import RoutesConfig        from "./routes";
 
-import CurrentUser         from "./services/current_user";
+import CurrentUser         from "./services/current_user_service";
+import CompaniesService    from "./services/companies_service";
+
 import ActivityDirective   from "./directives/activity";
 
 import MainSidebar         from "./controllers/main_sidebar";
@@ -13,6 +15,7 @@ import companiesController from "./controllers/companies_controller";
 export default angular
     .module("app.common", [])
     .service("CurrentUser",    CurrentUser)
+    .service("Companies",      CompaniesService)
     .directive("activity",     ActivityDirective)
     .controller("MainSidebar", MainSidebar)
     .controller("MainHeader",  MainHeader)

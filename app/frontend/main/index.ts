@@ -23,7 +23,8 @@ import mdInput              from "./directives/md_input";
 // modules
 import "./modules/selectize";
 
-export default angular.module("main", ["selectize"])
+export default angular
+    .module("main", ["selectize"])
     .service("variables",              variables)
     .service("preloaders",             preloaders)
     .directive("sidebarPrimaryToggle", sidebarPrimaryToggle)
