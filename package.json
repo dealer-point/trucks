@@ -8,8 +8,8 @@
   },
   "scripts": {
     "start": "webpack --config ./config/webpack/development.js --color --progress",
-    "build": "gulp build && webpack --config ./config/webpack/production.js",
-    "postinstall": "typings i"
+    "build": "typings i && gulp build && webpack --config ./config/webpack/production.js",
+    "postinstall": ""
   },
   "repository": {
     "type": "git",
