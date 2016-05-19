@@ -15,7 +15,7 @@ require 'mina/unicorn'
 set :user, 'deploy'
 set :domain, '192.168.0.10'
 set :deploy_to, '/srv/truckpoint'
-set :repository, 'git@bitbucket.org:itDealerPoint/truckpoint.git'
+set :repository, 'git@github.com:dealer-point/trucks.git'
 set :branch, 'testcake'
 set :forward_agent, true     # SSH forward_agent.
 set :shared_paths, ['config/database.yml', 'config/secrets.yml', 'log', 'tmp']
