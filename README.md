@@ -135,8 +135,8 @@ declare var Waves: IWaves;
 
 ### Структура
 app/frontend
-|-- app.ts *Основная точка входа приложения**
-|-- declarations.d.ts *Файл описаний глобальных интерфейсов*
+|-- app.ts
+|-- declarations.d.ts
 |-- app.jade
 |-- config.ts
 |-- routes.ts
