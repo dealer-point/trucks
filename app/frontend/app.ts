@@ -11,7 +11,7 @@ import "./app.scss";
 
 import RootConfig   from "./config";
 import RoutesConfig from "./routes";
-import common       from "./common/module";
+import common       from "./common/index";
 import main         from "./main/index";
 
 angular
@@ -29,7 +29,7 @@ angular
         $httpProvider.defaults.headers.common = {};
         $httpProvider.defaults.headers.post = { "Content-Type": "application/json" };
         $httpProvider.defaults.headers.put = { "Content-Type": "application/json" };
-        $httpProvider.defaults.headers.patch = { "Content-Type": "<ap></ap>plication/json" };
+        $httpProvider.defaults.headers.patch = { "Content-Type": "application/json" };
 
         let authToken: string = $("meta[name=\"csrf-token\"]").attr("content");
         $httpProvider.defaults.headers.common["X-CSRF-TOKEN"] = authToken;

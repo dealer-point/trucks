@@ -11,7 +11,6 @@ import welcomeController   from "./controllers/welcome_controller";
 import companiesController from "./controllers/companies_controller";
 
 
-
 export default angular
     .module("app.common", [])
     .service("CurrentUser",    CurrentUser)
@@ -21,8 +20,8 @@ export default angular
     .controller("MainHeader",  MainHeader)
     .controller("welcomeController", welcomeController)
     .controller("companiesController", companiesController)
-    .run(["CurrentUser", function(currentUser: CurrentUser): void {
-        currentUser.load().then(function(): void {
+    .run(["CurrentUser", (currentUser: CurrentUser): void => {
+        currentUser.load().then((): void => {
             console.log(currentUser, currentUser.can("role:create"));
         });
     }])

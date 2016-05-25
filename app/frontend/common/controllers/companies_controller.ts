@@ -7,6 +7,8 @@ interface IScope extends ng.IScope {
     companies: Companies;
 }
 
+"use strict";
+
 export default class CompaniesController {
 
     public static $inject: Array<string> = ["$scope", "Companies"];
