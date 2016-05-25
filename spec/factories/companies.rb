@@ -13,9 +13,9 @@
 
 FactoryGirl.define do
   factory :company do
-    title Faker::Company.name
-    owner_name Faker::Name.name
-    website "http://#{Faker::Internet.domain_name}"
-    description Faker::Lorem.sentence
+    title { Faker::Company.name }
+    owner_name { Faker::Name.name }
+    website { "http://#{Faker::Internet.domain_name}" }
+    description { Faker::Lorem.sentence }
   end
 end

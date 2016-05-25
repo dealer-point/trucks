@@ -1,6 +1,6 @@
 div#page_content
     div#page_heading(data-uk-sticky="{ top: 48, media: 960 }")
-        div(style="width: 400px; float: right;")
+        div.uk-width-medium-1-2(style="float: right;")
             div.uk-input-group
                 span.uk-input-group-addon
                     .i.material-icons &#xE8B6;
@@ -8,6 +8,7 @@ div#page_content
                 input.md-input(type="text" data-ng-model="$companiesCtrl.search" md-input)
         h1(data-ng-bind="$companiesCtrl.listTitle")
         //- span.uk-text-upper.uk-text-small
+            //- | Customers
             //- a(href="#"){{project_name}}
     div#page_content_inner
         div.md-card
@@ -26,6 +27,7 @@ div#page_content
                                 //- th Created
                                 //- th Updated
                                 //- th Status
+                                th.uk-text-center Actions
                         tfoot
                             tr
                                 //- th.uk-text-center Key
@@ -38,9 +40,11 @@ div#page_content
                                 //- th Created
                                 //- th Updated
                                 //- th Status
+                                th.uk-text-center Actions
                         tbody
                             //- on-last-repeat
-                            tr(data-ng-repeat="company in $companiesCtrl.companies.collection | filter: $companiesCtrl.search" data-ng-class-odd="'odd'" data-ng-class-even="'even'")
+                            //- data-ng-class-odd="'odd'"
+                            tr(data-ng-repeat="company in $companiesCtrl.companies.collection | filter: $companiesCtrl.search" data-ng-class-even="'even'")
                                 td(data-ng-bind="company.id")
                                 td(data-ng-bind="company.title")
                                 td(data-ng-bind="company.owner_name")
@@ -48,6 +52,11 @@ div#page_content
                                 //-     a(href="mailto:{{company.email}}" data-ng-bind="company.email")
                                 td
                                     a(href="{{company.website}}" data-ng-bind="company.website" target="_blank")
+                                td.uk-text-center
+                                    a(data-ui-sref="restricted.ecommerce.product_details" href="#")
+                                        i.md-icon.material-icons.md-24 &#xE417;
+                                    a(href="#")
+                                        i.md-icon.material-icons.md-24 &#xE872;
                                 //- td.uk-text-center
                                 //-     span.uk-text-small.uk-text-muted.uk-text-nowrap
                                 //-         span(data-ng-bind="company.title")
@@ -86,3 +95,6 @@ div#page_content
                 //-             option(value="10") 10
                 //-             option(value="25") 25
                 //-             option(value="50") 50
+div.md-fab-wrapper
+    a.md-fab.md-fab-accent(href="#new_issue" data-uk-modal="{ center:true }")
+        i.material-icons &#xE145;

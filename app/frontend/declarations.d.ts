@@ -1,5 +1,5 @@
-/// <reference path='common/services/user.d.ts' />
-/// <reference path='common/services/company.d.ts' />
+/// <reference path='common/interfaces/user.d.ts' />
+/// <reference path='common/interfaces/company.d.ts' />
 
 // Declarerequire function
 declare function require(string: string): Function;

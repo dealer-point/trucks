@@ -4,5 +4,5 @@ interface IUser {
     lastname: string;
     phone: string;
     locale: string;
-    activities: string[];
+    activities: Array<string>;
 }
