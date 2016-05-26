@@ -21,7 +21,7 @@ export default class CurrentUser extends User {
 
         return this.$http.get("/api/v1/users/current")
             .success((response: Object): IUser => {
-                angular.extend(scope, response);
+                angular.extend(scope, response["user"]);
                 scope.$rootScope.currentUser = scope;
                 return scope;
             });

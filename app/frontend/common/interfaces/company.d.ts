@@ -1,10 +1,8 @@
 
 interface ICompany {
-    id:          number;
-    title:       string;
-    owner_name:  string;
-    website:     string;
+    id: number;
+    name: string;
+    city: string;
+    country: string;
     description: string;
-    created_at:  string;
-    updated_at:  string;
 }

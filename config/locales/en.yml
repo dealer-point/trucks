@@ -28,13 +28,31 @@ en:
   pundit:
     role_policy:
       name: 'Role'
+      index?: 'View roles'
+      show?: 'Show a role'
       create?: 'Create roles'
       update?: 'Edit roles'
+      destroy?: 'Delete roles'
+    company_policy:
+      index?: 'View companies'
+      show?: 'Show a company'
+      create?: 'Create companies'
+      update?: 'Edit companies'
+      destroy?: 'Delete companies'
     messages:
       default: 'You cannot perform this action.'
       role_policy:
-        update?: 'You cannot edit this role!'
         create?: 'You cannot create roles!'
+        index?: 'You cannot view roles!'
+        show?: 'You cannot view role!'
+        update?: 'You cannot edit this role!'
+        destroy?: 'You cannot delete this role!'
+      company_policy:
+        create?: 'You cannot create companies!'
+        index?: 'You cannot view companies!'
+        show?: 'You cannot view company!'
+        update?: 'You cannot edit this company!'
+        destroy?: 'You cannot delete this company!'
   activerecord:
     models:
       role: 'Role'

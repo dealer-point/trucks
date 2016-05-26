@@ -1,11 +1,22 @@
 class Api::V1::BaseController < ApplicationController
   protect_from_forgery with: :null_session
   before_action :authorize_user!
+  include Pundit
 
-  def current_user
-    @current_user ||= authorize_by_token || authorize_by_session
+  # Globally rescue Authorization Errors in controller.
+  rescue_from Pundit::NotAuthorizedError, with: :not_authorized
+  # Enforces access right checks for individuals resources
+  after_action :verify_authorized, except: :index
+  # Enforces access right checks for collections
+  after_action :verify_policy_scoped, only: :index
+
+  def meta_attributes(resource, extra_meta = {})
+    {
+      current_page: resource.current_page,
+      total_pages: resource.total_pages,
+      total_count: resource.total_count
+    }.merge(extra_meta)
   end
-  helper_method :current_user
 
   private
 
@@ -15,11 +26,9 @@ class Api::V1::BaseController < ApplicationController
     end
   end
 
-  def authorize_by_token
-    params[:token].present? && User.find_by_token(params[:token])
-  end
-
-  def authorize_by_session
-    session[:user_id].present? && User.find_by_id(session[:user_id])
+  def not_authorized(exception)
+    policy_name = exception.policy.class.to_s.underscore
+    error_message = t("#{policy_name}.#{exception.query}", scope: 'pundit.messages', default: :default)
+    render json: { error: error_message, activities: current_user.activities }, status: :forbidden
   end
 end

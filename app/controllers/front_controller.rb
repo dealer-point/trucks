@@ -1,9 +1,10 @@
 class FrontController < ApplicationController
+
   layout false
   before_action :authorize_user!
 
   def index
-    skip_policy_scope
+    # skip_policy_scope
     render file: './public/_index.html', layout: false
   end
 

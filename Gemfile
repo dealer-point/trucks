@@ -10,6 +10,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'active_model_serializers'
 gem 'unicorn'
 gem 'awesome_print'
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug'

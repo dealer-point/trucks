@@ -19,10 +19,11 @@ div#page_content
                             tr
                                 //- th.uk-text-center Key
                                 th #
-                                th Title
-                                th Owner
+                                th Name
+                                th City
                                 //- th Email
-                                th Website
+                                th Country
+                                th Description
                                 //- th Priority
                                 //- th Created
                                 //- th Updated
@@ -32,10 +33,11 @@ div#page_content
                             tr
                                 //- th.uk-text-center Key
                                 th #
-                                th Title
-                                th Owner
+                                th Name
+                                th City
                                 //- th Email
-                                th Website
+                                th Country
+                                th Description
                                 //- th Priority
                                 //- th Created
                                 //- th Updated
@@ -46,12 +48,12 @@ div#page_content
                             //- data-ng-class-odd="'odd'"
                             tr(data-ng-repeat="company in $companiesCtrl.companies.collection | filter: $companiesCtrl.search" data-ng-class-even="'even'")
                                 td(data-ng-bind="company.id")
-                                td(data-ng-bind="company.title")
-                                td(data-ng-bind="company.owner_name")
+                                td(data-ng-bind="company.name")
+                                td(data-ng-bind="company.city")
+                                td(data-ng-bind="company.country")
+                                td(data-ng-bind="company.description")
                                 //- td
                                 //-     a(href="mailto:{{company.email}}" data-ng-bind="company.email")
-                                td
-                                    a(href="{{company.website}}" data-ng-bind="company.website" target="_blank")
                                 td.uk-text-center
                                     a(data-ui-sref="restricted.ecommerce.product_details" href="#")
                                         i.md-icon.material-icons.md-24 &#xE417;
