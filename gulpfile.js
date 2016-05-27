@@ -58,7 +58,9 @@ gulp.task('common_js', function () {
     // waves
     "node_modules/node-waves/dist/waves.js",
     // selectize
-    "node_modules/selectize/dist/js/standalone/selectize.js"
+    "node_modules/selectize/dist/js/standalone/selectize.js",
+    // lodash
+    "node_modules/lodash/lodash.js"
   ])
     .pipe(plugins.concat('common.js'))
     .on('error', function(err) {
