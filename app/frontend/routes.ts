@@ -1,6 +1,6 @@
-let headerTpl: Function         = require("./main/templates/header.jade");
-let sidebarPrimaryTpl: Function = require("./main/templates/sidebarPrimary.jade");
-let restrictedTpl: Function     = require("./main/templates/restricted.jade");
+let headerTpl: Function         = require("./common/templates/header.jade");
+let sidebarPrimaryTpl: Function = require("./common/templates/sidebarPrimary.jade");
+let restrictedTpl: Function     = require("./common/templates/restricted.jade");
 
 RoutesConfig.$inject = ["$stateProvider", "$urlRouterProvider"];
 export default function RoutesConfig(

@@ -1,0 +1,9 @@
+div#page_content(style="padding:20px; text-align: center;")
+    button.md-btn.md-btn-success.md-btn-wave-light.waves-effect.waves-button.waves-light(data-ng-click="$welcomeCtrl.showPreloader()") Показать прелоадер
+    button.md-btn.md-btn-primary.md-btn-wave-light.waves-effect.waves-button.waves-light(data-ng-click="$welcomeCtrl.hidePreloader()") Спрятать прелоадер
+    div.uk-form-row(style="padding-top: 10px; width:250px; margin: 0 auto;")
+        label(for="login_username") Username
+        input.md-input(type="text" data-ng-model="login_username" md-input)
+div.md-fab-wrapper
+    a.md-fab.md-fab-accent(href="javascript:void(0)" data-ng-click="$welcomeCtrl.addCompany()")
+        i.material-icons &#xE145;

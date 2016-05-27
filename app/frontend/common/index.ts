@@ -1,29 +1,42 @@
-import RoutesConfig        from "./routes";
+"use strict";
 
-import CurrentUser         from "./services/current_user_service";
-import CompaniesService    from "./services/companies_service";
+import "./style.scss";
+import "ng-dialog/css/ngDialog.css";
+// import "ng-dialog/css/ngDialog-theme-default.css";
 
-import ActivityDirective   from "./directives/activity";
+// services
+import variables  from "./services/variables";
+import preloaders from "./services/preloaders";
 
-import MainSidebar         from "./controllers/main_sidebar";
-import MainHeader          from "./controllers/main_header_controller";
-import welcomeController   from "./controllers/welcome_controller";
-import companiesController from "./controllers/companies_controller";
+// directives
+import sidebarPrimaryToggle from "./directives/sidebar_primary_toggle";
+import sidebarPrimary       from "./directives/sidebar_primary";
+import customScrollbar      from "./directives/custom_scrollbar";
+import documentEvents       from "./directives/document_events";
+import mainSearchShow       from "./directives/main_search_show";
+import mainSearchHide       from "./directives/main_search_hide";
+import mdInput              from "./directives/md_input";
 
+// controllers
+// import mainSidebar       from "./controllers/main_sidebar";
+// import mainHeader        from "./controllers/main_header_controller";
+// import welcomeController from "./controllers/welcome_controller";
+
+// modules
+import "./modules/selectize";
 
 export default angular
-    .module("app.common", [])
-    .service("CurrentUser",    CurrentUser)
-    .service("Companies",      CompaniesService)
-    .directive("activity",     ActivityDirective)
-    .controller("MainSidebar", MainSidebar)
-    .controller("MainHeader",  MainHeader)
-    .controller("welcomeController", welcomeController)
-    .controller("companiesController", companiesController)
-    .run(["CurrentUser", (currentUser: CurrentUser): void => {
-        currentUser.load().then((): void => {
-            console.log(currentUser, currentUser.can("role:create"));
-        });
-    }])
-    .config(RoutesConfig)
+    .module("main", ["selectize", "ngDialog"])
+    .service("variables",              variables)
+    .service("preloaders",             preloaders)
+    .directive("sidebarPrimaryToggle", sidebarPrimaryToggle)
+    .directive("sidebarPrimary",       sidebarPrimary)
+    .directive("customScrollbar",      customScrollbar)
+    .directive("documentEvents",       documentEvents)
+    .directive("mainSearchShow",       mainSearchShow)
+    .directive("mainSearchHide",       mainSearchHide)
+    .directive("mdInput",              mdInput)
     .name;
+    // .controller("mainSidebar",         mainSidebar)
+    // .controller("mainHeader",          mainHeader)
+    // .controller("welcomeController",   welcomeController)

@@ -10,12 +10,14 @@ export default function RoutesConfig(
         .state("restricted.welcome", {
             url: "/",
             template: require("./templates/welcome.jade")(),
-            controller: "welcomeController"
+            controller: "welcomeController",
+            controllerAs: "$welcomeCtrl"
         })
         .state("restricted.welcome2", {
             url: "/welcome2",
             template: require("./templates/welcome2.jade")(),
-            controller: "welcomeController"
+            controller: "welcomeController",
+            controllerAs: "$welcomeCtrl"
         })
         .state("restricted.companies", {
             url: "/companies",

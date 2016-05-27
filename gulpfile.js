@@ -57,7 +57,6 @@ gulp.task('common_js', function () {
     "node_modules/screenfull/dist/screenfull.js",
     // waves
     "node_modules/node-waves/dist/waves.js",
-
     // selectize
     "node_modules/selectize/dist/js/standalone/selectize.js"
   ])
@@ -67,9 +66,9 @@ gulp.task('common_js', function () {
       this.emit('end');
     })
     .pipe(gulp.dest('public/built/template/js/'))
-    .pipe(plugins.uglify({
-      mangle: true
-    }))
+    // .pipe(plugins.uglify({
+    //   mangle: true
+    // }))
     .pipe(plugins.rename('common.min.js'))
     .pipe(plugins.size({
       showFiles: true
@@ -102,9 +101,9 @@ gulp.task('uikit_js', function () {
   ])
     .pipe(plugins.concat('uikit_custom.js'))
     .pipe(gulp.dest('public/built/template/js/'))
-    .pipe(plugins.uglify({
-        mangle: true
-    }))
+    // .pipe(plugins.uglify({
+    //     mangle: true
+    // }))
     .pipe(plugins.rename('uikit_custom.min.js'))
     .pipe(plugins.size({
         showFiles: true
@@ -121,13 +120,14 @@ gulp.task('angular_common', function () {
     "node_modules/angular-ui-router/release/angular-ui-router.js",
     "node_modules/oclazyload/dist/ocLazyLoad.js",
     "app/frontend/assets/template/js/angular-retina.js",
-    "node_modules/angular-breadcrumb/dist/angular-breadcrumb.js"
+    "node_modules/angular-breadcrumb/dist/angular-breadcrumb.js",
+    "node_modules/ng-dialog/js/ngDialog.js"
   ])
     .pipe(plugins.concat('angular_common.js'))
     .pipe(gulp.dest('public/built/template/js/'))
-    .pipe(plugins.uglify({
-        mangle: true
-    }))
+    // .pipe(plugins.uglify({
+    //     mangle: true
+    // }))
     .pipe(plugins.rename('angular_common.min.js'))
     .pipe(plugins.size({
         showFiles: true

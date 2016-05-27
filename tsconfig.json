@@ -10,8 +10,8 @@
     "node_modules",
     "dist",
     "dev",
-    "typings/main.d.ts",
-    "typings/main",
+    "typings/index.d.ts",
+    "typings/index",
     "reports"
   ]
 }

@@ -12,7 +12,7 @@ import "./app.scss";
 import RootConfig   from "./config";
 import RoutesConfig from "./routes";
 import common       from "./common/index";
-import main         from "./main/index";
+import core         from "./core/index";
 
 angular
     .module("trucksApp", [
@@ -22,7 +22,7 @@ angular
         "ngRetina",
         "ncy-angular-breadcrumb",
         common,
-        main])
+        core])
     .run(RootConfig)
     .config(RoutesConfig)
     .config(["$httpProvider", ($httpProvider: any): void => {

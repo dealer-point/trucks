@@ -1,5 +1,5 @@
-/// <reference path='common/interfaces/user.d.ts' />
-/// <reference path='common/interfaces/company.d.ts' />
+/// <reference path='core/interfaces/user.d.ts' />
+/// <reference path='core/interfaces/company.d.ts' />
 
 // Declarerequire function
 declare function require(string: string): Function;
@@ -23,10 +23,10 @@ interface IModernizr {
 }
 declare var Modernizr: IModernizr;
 
-interface IUIkit {
-    tooltip(target: JQuery, object: Object): void;
-}
-declare var UIkit: IUIkit;
+// interface IUIkit {
+//     tooltip(target: JQuery, object: Object): void;
+// }
+// declare var UIkit: IUIkit;
 
 interface CurrentUser extends IUser {
     logout(): ng.IHttpPromise<CurrentUser>;
