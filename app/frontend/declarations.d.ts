@@ -23,15 +23,6 @@ interface IModernizr {
 }
 declare var Modernizr: IModernizr;
 
-// interface IUIkit {
-//     tooltip(target: JQuery, object: Object): void;
-// }
-// declare var UIkit: IUIkit;
-
-interface CurrentUser extends IUser {
-    logout(): ng.IHttpPromise<CurrentUser>;
-}
-
 interface IAppRootScopeService extends ng.IRootScopeService {
     currentUser:                 CurrentUser;
 
@@ -63,4 +54,27 @@ interface IAppRootScopeService extends ng.IRootScopeService {
 
     content_preloader_show(style?: string, container?: JQuery): void;
     content_preloader_hide(style?: string, container?: JQuery): void;
+}
+
+interface CurrentUser extends IUser {
+    logout(): ng.IHttpPromise<CurrentUser>;
+}
+
+
+
+
+interface IModel {
+  id: number;
+}
+
+/* CORE DECLARATION TYPES SECTION */
+
+interface IResponseCollection<T> {
+  collection: Array<T>;
+  meta: any;
+}
+
+interface IResponseObject<T> {
+  object: T;
+  meta: any;
 }

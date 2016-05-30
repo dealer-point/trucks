@@ -1,5 +1,5 @@
 
-interface IUser {
+interface IUser extends IModel {
     name: string;
     lastname: string;
     phone: string;

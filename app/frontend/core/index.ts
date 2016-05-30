@@ -10,9 +10,10 @@ import MainHeader          from "./controllers/main_header_controller";
 import welcomeController   from "./controllers/welcome_controller";
 import companiesController from "./controllers/companies_controller";
 
+import "./services/company_service";
 
 export default angular
-    .module("app.common", [])
+    .module("core", [])
     .service("CurrentUser",    CurrentUser)
     .service("Companies",      CompaniesService)
     .directive("activity",     ActivityDirective)
@@ -27,3 +28,4 @@ export default angular
     }])
     .config(RoutesConfig)
     .name;
+

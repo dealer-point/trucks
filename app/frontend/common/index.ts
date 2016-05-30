@@ -26,7 +26,7 @@ import mdInput              from "./directives/md_input";
 import "./modules/selectize";
 
 export default angular
-    .module("main", ["selectize", "ngDialog"])
+    .module("common", ["selectize", "ngDialog"])
     .service("variables",              variables)
     .service("preloaders",             preloaders)
     .directive("sidebarPrimaryToggle", sidebarPrimaryToggle)
