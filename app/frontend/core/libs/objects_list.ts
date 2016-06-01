@@ -43,6 +43,10 @@ export default class ObjectsList<T extends IModel> {
         return _.find(this.collection, (x: T) => (x.id === id));
     }
 
+    public push(item: T): void {
+        this.collection.push(item);
+    }
+
     public clear(): void {
         this.collection = [];
     }

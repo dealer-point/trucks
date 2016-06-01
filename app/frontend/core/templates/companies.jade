@@ -46,7 +46,7 @@ div#page_content
                         tbody
                             //- on-last-repeat
                             //- data-ng-class-odd="'odd'"
-                            tr(data-ng-repeat="company in $companiesCtrl.companies.collection | filter: $companiesCtrl.search" data-ng-class-even="'even'")
+                            tr(data-ng-repeat="company in $companiesCtrl.companies.collection | filter: $companiesCtrl.search | orderBy: 'id'" data-ng-class-even="'even'")
                                 td(data-ng-bind="company.id")
                                 td(data-ng-bind="company.name")
                                 td(data-ng-bind="company.city")
@@ -98,5 +98,5 @@ div#page_content
                 //-             option(value="25") 25
                 //-             option(value="50") 50
 div.md-fab-wrapper
-    a.md-fab.md-fab-accent(href="#new_issue" data-uk-modal="{ center:true }")
+    a.md-fab.md-fab-accent(href="javascript:void(0)" data-ng-click="$companiesCtrl.add()")
         i.material-icons &#xE145;

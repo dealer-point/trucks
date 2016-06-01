@@ -16,6 +16,7 @@ import documentEvents       from "./directives/document_events";
 import mainSearchShow       from "./directives/main_search_show";
 import mainSearchHide       from "./directives/main_search_hide";
 import mdInput              from "./directives/md_input";
+import mdPreloader          from "./directives/md_preloader";
 
 // controllers
 // import mainSidebar       from "./controllers/main_sidebar";
@@ -36,6 +37,7 @@ export default angular
     .directive("mainSearchShow",       mainSearchShow)
     .directive("mainSearchHide",       mainSearchHide)
     .directive("mdInput",              mdInput)
+    .directive("mdPreloader",          mdPreloader)
     .name;
     // .controller("mainSidebar",         mainSidebar)
     // .controller("mainHeader",          mainHeader)

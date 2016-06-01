@@ -3,7 +3,7 @@ class Api::V1::CompaniesController < Api::V1::BaseController
   before_action :set_company, only: [:show, :update, :destroy]
 
   def index
-    @companies = policy_scope(Company).page(params[:page])
+    @companies = policy_scope(Company).order(:id).page(params[:page]).per(500000)
 
     render json: @companies, meta: meta_attributes(@companies), root: 'collection', status: :ok
   end
@@ -13,9 +13,12 @@ class Api::V1::CompaniesController < Api::V1::BaseController
   end
 
   def create
+
     company = Company.new company_params
     company.created_by = current_user
+
     authorize company
+
     if company.save
       render json: company, status: :created
     else
@@ -41,12 +44,12 @@ class Api::V1::CompaniesController < Api::V1::BaseController
 
   private
 
-  def company_params
-    params.permit(:name, :city, :country)
-  end
+    def company_params
+      params.permit(:name, :city, :country)
+    end
 
-  def set_company
-    @company = Company.find(params[:id])
-    authorize @company
-  end
+    def set_company
+      @company = Company.find(params[:id])
+      authorize @company
+    end
 end

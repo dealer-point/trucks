@@ -78,3 +78,8 @@ interface IResponseObject<T> {
   object: T;
   meta: any;
 }
+
+interface IResponseObjectErrors<T> {
+    errors: Object;
+    meta: any;
+}
