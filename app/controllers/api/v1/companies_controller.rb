@@ -13,7 +13,6 @@ class Api::V1::CompaniesController < Api::V1::BaseController
   end
 
   def create
-
     company = Company.new company_params
     company.created_by = current_user
 
@@ -45,7 +44,7 @@ class Api::V1::CompaniesController < Api::V1::BaseController
   private
 
     def company_params
-      params.permit(:name, :city, :country)
+      params.permit(:name, :city, :country, :description)
     end
 
     def set_company
