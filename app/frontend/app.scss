@@ -19,3 +19,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
+html {
+    overflow-y: scroll !important;
+}
