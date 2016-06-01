@@ -14,7 +14,8 @@ div#page_content
         div.md-card
             div.md-card-content
                 div.uk-overflow-container.uk-margin-bottom
-                    table#ts_issues.uk-table.uk-table-align-vertical.uk-table-nowrap.tablesorter.tablesorter-altair
+                    table#ts_issues.uk-table.uk-table-align-vertical.tablesorter.tablesorter-altair
+                        //- .uk-table-nowrap
                         thead
                             tr
                                 //- th.uk-text-center Key
@@ -51,11 +52,11 @@ div#page_content
                                 td(data-ng-bind="company.name")
                                 td(data-ng-bind="company.city")
                                 td(data-ng-bind="company.country")
-                                td.td-text-overflow(data-ng-bind="company.description")
+                                td.td-text-overflow(data-ng-bind="company.description" title="{{company.description}}")
                                 //- td
                                 //-     a(href="mailto:{{company.email}}" data-ng-bind="company.email")
-                                td.uk-text-center
-                                    a(data-ui-sref="restricted.ecommerce.product_details" href="#")
+                                td.uk-text-center.td-nowrap
+                                    a(href="javascript:void(0)" data-ng-click="$companiesCtrl.edit(company)")
                                         i.md-icon.material-icons.md-24 &#xE417;
                                     a(href="javascript:void(0)" data-ng-click="$companiesCtrl.remove(company)")
                                         i.md-icon.material-icons.md-24 &#xE872;
