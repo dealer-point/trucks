@@ -1,0 +1,24 @@
+h3 New company
+form.uk-form-stacked
+    div.uk-margin-medium-bottom
+        div.uk-form-row
+            label(for="company_name") Name
+            input.md-input(type="text" data-ng-model="$facCtrl.company.name" data-ng-class="{ 'md-input-danger' : $facCtrl.company.errors.name }" md-input)
+            div.error.uk-text-danger.uk-margin-top-remove.uk-text-right(data-ng-bind="$facCtrl.company.errors.name[0]")
+        div.uk-form-row
+            label(for="company_city") City
+            input.md-input(type="text" data-ng-model="$facCtrl.company.city" data-ng-class="{ 'md-input-danger' : $facCtrl.company.errors.city }" md-input)
+            div.error.uk-text-danger.uk-margin-top-remove.uk-text-right(data-ng-bind="$facCtrl.company.errors.city[0]")
+        div.uk-form-row
+            label(for="company_country") Country
+            input.md-input(type="text" data-ng-model="$facCtrl.company.country" data-ng-class="{ 'md-input-danger' : $facCtrl.company.errors.country }" md-input)
+            div.error.uk-text-danger.uk-margin-top-remove.uk-text-right(data-ng-bind="$facCtrl.company.errors.country[0]")
+        div.uk-form-row
+            label(for="company_description") Description
+            textarea.md-input(type="text" data-ng-model="$facCtrl.company.description" data-ng-class="{ 'md-input-danger' : $facCtrl.company.errors.description }" md-input)
+            div.error.uk-text-danger.uk-margin-top-remove.uk-text-right(data-ng-bind="$facCtrl.company.errors.description[0]")
+div.uk-text-right
+    md-preloader.uk-float-left(success width="35" height="35" stroke-Width="6" data-ng-if="$facCtrl.loading")
+    button.md-btn.md-btn-flat.uk-modal-close(type="button" data-ng-click="closeThisDialog()") Close
+    button#snippet_new_save.md-btn.md-btn-flat.md-btn-flat-primary(type="button" data-ng-click="$facCtrl.save()") Create
+

@@ -1,6 +1,5 @@
 
-interface ICompany {
-    id: number;
+interface ICompany extends IModel {
     name: string;
     city: string;
     country: string;

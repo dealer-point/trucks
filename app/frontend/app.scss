@@ -12,3 +12,19 @@
 //         }
 //     }
 // }
+
+.td-text-overflow {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.td-nowrap {
+    white-space: nowrap;
+}
+
+html {
+    overflow-y: scroll !important;
+}
+

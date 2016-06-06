@@ -16,6 +16,7 @@ import documentEvents       from "./directives/document_events";
 import mainSearchShow       from "./directives/main_search_show";
 import mainSearchHide       from "./directives/main_search_hide";
 import mdInput              from "./directives/md_input";
+import mdPreloader          from "./directives/md_preloader";
 import singleCard           from "./directives/single_card";
 
 // controllers
@@ -27,7 +28,7 @@ import singleCard           from "./directives/single_card";
 import "./modules/selectize";
 
 export default angular
-    .module("main", ["selectize", "ngDialog"])
+    .module("common", ["selectize", "ngDialog"])
     .service("variables",              variables)
     .service("preloaders",             preloaders)
     .directive("sidebarPrimaryToggle", sidebarPrimaryToggle)
@@ -37,6 +38,7 @@ export default angular
     .directive("mainSearchShow",       mainSearchShow)
     .directive("mainSearchHide",       mainSearchHide)
     .directive("mdInput",              mdInput)
+    .directive("mdPreloader",          mdPreloader)
     .directive("singleCard",           singleCard)
     .name;
     // .controller("mainSidebar",         mainSidebar)
