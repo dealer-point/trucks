@@ -123,7 +123,11 @@ gulp.task('angular_common', function () {
     "node_modules/oclazyload/dist/ocLazyLoad.js",
     "app/frontend/assets/template/js/angular-retina.js",
     "node_modules/angular-breadcrumb/dist/angular-breadcrumb.js",
-    "node_modules/ng-dialog/js/ngDialog.js"
+    "node_modules/ng-dialog/js/ngDialog.js",
+    "node_modules/textangular/dist/textAngular-rangy.min.js",
+    "node_modules/textangular/dist/textAngular-sanitize.min.js",
+    "node_modules/textangular/dist/textAngular.min.js",
+    "node_modules/angular-file-upload/dist/angular-file-upload.min.js"
   ])
     .pipe(plugins.concat('angular_common.js'))
     .pipe(gulp.dest('public/built/template/js/'))

@@ -1,0 +1,50 @@
+.textangular-toolbar {
+    .md-btn-group {
+        margin-bottom: 10px;
+        margin-right: 5px;
+        .md-btn {
+            padding: 2px 14px;
+        }
+    }
+}
+.ta-root.focussed > .ta-scroll-window.form-control { border-color: transparent; box-shadow: none; }
+.ta-editor.ta-html, .ta-scroll-window.form-control { min-height: 150px; }
+.ta-scroll-window > .ta-bind { min-height: 150px; }
+
+.editable-block {
+    position: relative;
+    border: 1px solid transparent;
+    margin-bottom: 20px;
+    padding: 10px;
+    &:hover,
+    &.editing {
+        border: 1px solid #3399ff;
+        border-radius: 4px;
+        .block-toolbar { display: block; }
+    }
+    .image-holder {
+        width: 100%;
+        height: 150px;
+        background: url('/pattern.png') 0 0 repeat;
+    }
+    .block-toolbar {
+        display: none;
+        position: absolute;
+        z-index: 2;
+        text-align: center;
+        background-color: #3399ff;
+        top: 0;
+        right: 0;
+        border-radius: 0 0 0 4px;
+        a {
+            padding: 8px;
+            display: block;
+            float: left;
+            &:first-child { border-radius: 0 0 0 4px; }
+            &:hover { background-color: darken(#3399ff, 20%); }
+            i { font-size: 16px; color: #fff; }
+        }
+    }
+    .block-content {
+    }
+}

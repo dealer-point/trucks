@@ -6,7 +6,7 @@ html(class="page_loading" data-ng-app="trucksApp" document-events data-ng-class=
         link(href="http://fonts.googleapis.com/css?family=Roboto:400,300,500,700,400italic&amp;subset=latin" rel="stylesheet" media="all")
         link(href="http://fonts.googleapis.com/css?family=Source+Code+Pro:400,700" rel="stylesheet" media="all")
 
-    body.default_theme(data-uk-observe data-ng-class="{ 'sidebar_main_active' : primarySidebarActive, 'sidebar_main_open' : primarySidebarOpen }")
+    body.default_theme(data-uk-observe data-ng-class="{ 'sidebar_main_active' : primarySidebarActive, 'sidebar_main_open' : primarySidebarOpen, 'header_double_height': headerDoubleHeightActive, 'uk-height-1-1': page_full_height }")
         #page_preloader(data-ng-hide="hidePreloader")
             img(src=require("./assets/template/images/page_preloader.gif") alt="")
 
