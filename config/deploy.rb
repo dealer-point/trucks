@@ -1,3 +1,4 @@
+require 'mina/multistage'
 require 'mina/bundler'
 require 'mina/rails'
 require 'mina/git'
@@ -12,11 +13,12 @@ require 'mina/unicorn'
 #   repository   - Git repo to clone from. (needed by mina/git)
 #   branch       - Branch name to deploy. (needed by mina/git)
 
-set :user, 'deploy'
-set :domain, '192.168.0.10'
-set :deploy_to, '/srv/truckpoint'
-set :repository, 'git@github.com:dealer-point/trucks.git'
-set :branch, 'testcake'
+# set :user, 'deploy'
+# set :domain, '192.168.0.10'
+# set :port, '24683'
+# set :deploy_to, '/srv/truckpoint'
+# set :repository, 'git@github.com:dealer-point/trucks.git'
+# set :branch, 'testcake'
 set :forward_agent, true     # SSH forward_agent.
 set :shared_paths, ['config/database.yml', 'config/secrets.yml', 'log', 'tmp']
 

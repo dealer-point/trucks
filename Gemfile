@@ -26,6 +26,8 @@ end
 group :development do
   gem 'mina'
   gem 'mina-unicorn', :require => false
+  # Multi-stage support for Mina
+  gem 'mina-multistage', require: false
   gem 'foreman'
   gem 'web-console', '~> 3.0'
   gem 'listen', '~> 3.0.5'

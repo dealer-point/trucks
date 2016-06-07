@@ -1,0 +1,6 @@
+set :user, 'deploy'
+set :domain, '192.168.0.10'
+set :port, '24683'
+set :deploy_to, '/srv/truckpoint'
+set :repository, 'git@github.com:dealer-point/trucks.git'
+set :branch, 'testcake'
