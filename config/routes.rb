@@ -22,6 +22,7 @@ Rails.application.routes.draw do
           get :current, on: :collection
         end
         resources :companies
+        resources :offers, only: [:index, :show, :create, :destroy]
       end
     end
   end

@@ -7,6 +7,12 @@ export default function RoutesConfig(
     "use strict";
 
     $stateProvider
+        .state("restricted.offer_generator", {
+            url: "/offer_generator",
+            template: require("./templates/offer_generator.jade")(),
+            controller: "offerGeneratorController",
+            controllerAs: "$offerGeneratorCtrl"
+        })
         .state("restricted.offers", {
             url: "/offers",
             template: require("./templates/offers.jade")(),

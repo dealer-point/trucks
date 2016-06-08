@@ -87,6 +87,12 @@ export default class MainSidebarController {
             title: "Companies",
             icon: "&#xE7FC;",
             link: "restricted.companies"
+        },
+        {
+            id: 1,
+            title: "Offers",
+            icon: "&#xE873;",
+            link: "restricted.offers"
         }
     ];
 

@@ -6,8 +6,8 @@ export default function singleCard($window: ng.IWindowService, $timeout: ng.ITim
         restrict: "A",
         link: (scope: ng.IScope, el: ng.IAugmentedJQuery, attrs: ng.IAttributes): void => {
 
-            let $mdCardSingle: any = $(el);
-            let w: any = angular.element($window);
+            let $mdCardSingle: ng.IAugmentedJQuery = angular.element(el);
+            let w: ng.IAugmentedJQuery = angular.element($window);
 
             function md_card_content_height(): void {
                 let contentHeight: number = w.height() - ((48 * 2) + 12);

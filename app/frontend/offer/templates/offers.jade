@@ -1,70 +1,41 @@
 div#page_content
+    div#page_heading(data-uk-sticky="{ top: 48, media: 960 }")
+        div.uk-width-medium-1-2(style="float: right;")
+            div.uk-input-group
+                span.uk-input-group-addon
+                    .i.material-icons &#xE8B6;
+                label Search
+                input.md-input(type="text" data-ng-model="$offersCtrl.search" md-input)
+        h1(data-ng-bind="$offersCtrl.listTitle")
     div#page_content_inner
-        div.uk-width-9-10.uk-container-center
-            div.uk-grid
-                div.uk-width-8-10
-                    div.md-card.md-card-single(data-single-card)
-                        div.md-card-toolbar
-                            div.md-card-toolbar-actions
-                                i.md-icon.material-icons &#xE161;
-                            h3.md-card-toolbar-heading-text(ng-bind="$offersCtrl.listTitle")
-                        div.md-card-content
-                            p(data-ng-if="!$offersCtrl.currentOffer.length") Use buttons to add a block to the offer
-                            div(data-ng-if="$offersCtrl.currentOffer.length")
-                                div.editable-block(data-ng-repeat="editableBlock in $offersCtrl.currentOffer" data-ng-class="{ editing: editableBlock.editMode }")
-                                    div.block-toolbar.uk-clearfix
-                                        a(href="" data-ng-click="$offersCtrl.toggleBlockEditMode(editableBlock)" data-ng-if="editableBlock.editMode"):  i.material-icons &#xE161;
-                                        a(href="" data-ng-click="$offersCtrl.toggleBlockEditMode(editableBlock)" data-ng-if="!editableBlock.editMode"): i.material-icons &#xE3C9;
-                                        a(href="" data-ng-click="$offersCtrl.removeBlock(editableBlock)"): i.material-icons &#xE872;
-                                    div.block-content
-                                        div(data-ng-switch="editableBlock.kind")
-                                            //- fullText
-                                            div(data-ng-switch-when="fullText")
-                                                div(data-ng-if="editableBlock.editMode"  text-angular data-ng-model="editableBlock.data")
-                                                div(data-ng-if="!editableBlock.editMode" data-ng-bind-html="editableBlock.data")
-                                            //- fullImage
-                                            div(data-ng-switch-when="fullImage")
-                                                div.uk-file-upload(data-ng-if="editableBlock.editMode")
-                                                    p.uk-text Drop file to upload
-                                                    p.uk-text-muted.uk-text-small.uk-margin-small-bottom or
-                                                    span.uk-form-file.md-btn
-                                                        | Choose file
-                                                        input(type="file" data-nv-file-select data-uploader="editableBlock.uploader")
-                                                div.image-holder(data-ng-if="!editableBlock.editMode")
-                                            //- textWithImageLeft
-                                            div.uk-grid(data-ng-switch-when="textWithImageLeft")
-                                                div.uk-width-1-3
-                                                    div.uk-file-upload(data-ng-if="editableBlock.editMode")
-                                                        p.uk-text Drop file to upload
-                                                        p.uk-text-muted.uk-text-small.uk-margin-small-bottom or
-                                                        span.uk-form-file.md-btn
-                                                            | Choose file
-                                                            input(type="file" data-nv-file-select data-uploader="editableBlock.uploader")
-                                                    div.image-holder(data-ng-if="!editableBlock.editMode")
-                                                div.uk-width-2-3
-                                                    div(data-ng-if="editableBlock.editMode"  text-angular data-ng-model="editableBlock.data")
-                                                    div(data-ng-if="!editableBlock.editMode" data-ng-bind-html="editableBlock.data")
-                                            //- textWithImageRight
-                                            div.uk-grid(data-ng-switch-when="textWithImageRight")
-                                                div.uk-width-2-3
-                                                    div(data-ng-if="editableBlock.editMode"  text-angular data-ng-model="editableBlock.data")
-                                                    div(data-ng-if="!editableBlock.editMode" data-ng-bind-html="editableBlock.data")
-                                                div.uk-width-1-3
-                                                    div.uk-file-upload(data-ng-if="editableBlock.editMode")
-                                                        p.uk-text Drop file to upload
-                                                        p.uk-text-muted.uk-text-small.uk-margin-small-bottom or
-                                                        span.uk-form-file.md-btn
-                                                            | Choose file
-                                                            input(type="file" data-nv-file-select data-uploader="editableBlock.uploader")
-                                                    div.image-holder(data-ng-if="!editableBlock.editMode")
-                                            //- divider
-                                            div(data-ng-switch-when="divider")
-                                                div(data-ng-bind-html="editableBlock.data")
-                div.uk-width-2-10
-                    div.md-list-outside-wrapper
-                        ul.md-list.md-list-outside
-                            li.heading_list Blocks
-                            li(data-ng-repeat="block in $offersCtrl.availableBlocks")
-                                a.md-list-content(href="" data-ng-click="$offersCtrl.addBlock(block)")
-                                    span.md-list-heading.uk-text-truncate(data-ng-bind="block")
-                                    span.uk-text-small.uk-text-muted Description
+        div.md-card
+            div.md-card-content
+                div.uk-overflow-container.uk-margin-bottom
+                    table#ts_issues.uk-table.uk-table-align-vertical.tablesorter.tablesorter-altair
+                        thead
+                            tr
+                                th #
+                                th Name
+                                th Data
+                                th.uk-text-center Actions
+                        tbody
+                            tr(data-ng-repeat="offer in $offersCtrl.offers.collection | filter: $offersCtrl.search | orderBy: 'id'" data-ng-class-even="'even'")
+                                td(data-ng-bind="offer.id")
+                                td(data-ng-bind="offer.name")
+                                td(data-ng-bind="offer.data | json")
+                                td.uk-text-center.td-nowrap
+                                    a(href="javascript:void(0)" data-ng-click="$offersCtrl.view(offer)")
+                                        i.md-icon.material-icons.md-24 &#xE417;
+                                    a(href="javascript:void(0)" data-ng-click="$offersCtrl.edit(offer)")
+                                        i.md-icon.material-icons.md-24 &#xE254;
+                                    a(href="javascript:void(0)" data-ng-click="$offersCtrl.remove(offer)")
+                                        i.md-icon.material-icons.md-24 &#xE872;
+                        tfoot
+                            tr
+                                th #
+                                th Name
+                                th Data
+                                th.uk-text-center Actions
+div.md-fab-wrapper
+    a.md-fab.md-fab-accent(href="" data-ui-sref="restricted.offer_generator")
+        i.material-icons &#xE145;
