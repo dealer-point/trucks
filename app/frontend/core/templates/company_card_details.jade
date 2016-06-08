@@ -1,5 +1,4 @@
 div.md-card
-    {{company}}
     div.md-card-toolbar
         h3.md-card-toolbar-heading-text Details
     div.md-card-content
@@ -7,39 +6,63 @@ div.md-card
             div.uk-width-large-1-2
                 div.uk-grid.uk-grid-small
                     div.uk-width-large-1-3
-                        span.uk-text-muted.uk-text-small Product Name
+                        span.uk-text-muted.uk-text-small Name
+                    div.uk-width-large-2-3
+                        span.uk-text-large.uk-text-middle(data-ng-bind="$companyCardCtrl.companyObject.name")
+                hr.uk-grid-divider
+                div.uk-grid.uk-grid-small
+                    div.uk-width-large-1-3
+                        span.uk-text-muted.uk-text-small Owner
                     div.uk-width-large-2-3
                         span.uk-text-large.uk-text-middle
-                            a(href="#") Galaxy S6 edge
+                            span(data-ng-bind="$companyCardCtrl.companyObject.owner_name")
                 hr.uk-grid-divider
                 div.uk-grid.uk-grid-small
                     div.uk-width-large-1-3
-                        span.uk-text-muted.uk-text-small Manufacturer
+                        span.uk-text-muted.uk-text-small Short name
                     div.uk-width-large-2-3
-                        span.uk-text-large.uk-text-middle.ng-binding Samsung
+                        span.uk-text-large.uk-text-middle(data-ng-bind="$companyCardCtrl.companyObject.short_name")
                 hr.uk-grid-divider
                 div.uk-grid.uk-grid-small
                     div.uk-width-large-1-3
-                        span.uk-text-muted.uk-text-small Serial Number
+                        span.uk-text-muted.uk-text-small Country
                     div.uk-width-large-2-3
-                        SM-G925TZKFTMB
+                        span.uk-text-large.uk-text-middle(data-ng-bind="$companyCardCtrl.companyObject.country")
                 hr.uk-grid-divider
                 div.uk-grid.uk-grid-small
                     div.uk-width-large-1-3
-                        span.uk-text-muted.uk-text-small Internal Memory
+                        span.uk-text-muted.uk-text-small City
                     div.uk-width-large-2-3
-                        64GB
+                        span.uk-text-large.uk-text-middle(data-ng-bind="$companyCardCtrl.companyObject.city")
                 hr.uk-grid-divider
                 div.uk-grid.uk-grid-small
                     div.uk-width-large-1-3
-                        span.uk-text-muted.uk-text-small Color
+                        span.uk-text-muted.uk-text-small Phone
                     div.uk-width-large-2-3
-                        Black
+                        span.uk-text-large.uk-text-middle(data-ng-bind="$companyCardCtrl.companyObject.phone")
+                hr.uk-grid-divider
+                div.uk-grid.uk-grid-small
+                    div.uk-width-large-1-3
+                        span.uk-text-muted.uk-text-small Site
+                    div.uk-width-large-2-3
+                        a.uk-text-large.uk-text-middle(data-ng-bind="$companyCardCtrl.companyObject.site")
+                //- hr.uk-grid-divider
+                //- div.uk-grid.uk-grid-small
+                //-     div.uk-width-large-1-3
+                //-         span.uk-text-muted.uk-text-small Internal Memory
+                //-     div.uk-width-large-2-3
+                //-         | 64GB
+                //- hr.uk-grid-divider
+                //- div.uk-grid.uk-grid-small
+                //-     div.uk-width-large-1-3
+                //-         span.uk-text-muted.uk-text-small Color
+                //-     div.uk-width-large-2-3
+                //-         | Black
                 hr.uk-grid-divider.uk-hidden-large
             div.uk-width-large-1-2
-                p
-                    span.uk-text-muted.uk-text-small.uk-display-block.uk-margin-small-bottom Tags
-                hruk-grid-divider
+                //- p
+                //-     span.uk-text-muted.uk-text-small.uk-display-block.uk-margin-small-bottom Tags
+                //- hr.uk-grid-divider
                 p
                     span.uk-text-muted.uk-text-small.uk-display-block.uk-margin-small-bottom Description
-                    span Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam necessitatibus suscipit velit voluptatibus! Ab accusamus ad adipisci alias aliquid at atque consectetur, dicta dignissimos, distinctio dolores esse fugiat iste laborum libero magni maiores maxime modi nemo neque, nesciunt nisi nulla optio placeat quas quia quibusdam quis saepe sit ullam!
+                    span(data-ng-bind="$companyCardCtrl.companyObject.description")

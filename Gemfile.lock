@@ -143,6 +143,7 @@ GEM
     parser (2.3.1.0)
       ast (~> 2.2)
     pg (0.18.4)
+    phonelib (0.6.1)
     powerpack (0.1.1)
     pry (0.10.3)
       coderay (~> 1.1.0)
@@ -277,6 +278,7 @@ DEPENDENCIES
   mina-multistage
   mina-unicorn
   pg
+  phonelib
   pry-rails
   puma
   pundit

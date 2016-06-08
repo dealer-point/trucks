@@ -10,6 +10,10 @@
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  created_by_id :integer
+#  short_name    :string
+#  owner_name    :string
+#  phone         :string
+#  site          :string
 #
 
 class Company < ApplicationRecord
@@ -18,5 +22,6 @@ class Company < ApplicationRecord
 
   validates :name, presence: true, length: { minimum: 4 }
   validates :city, :country, presence: true, length: { minimum: 2 }
+  validates :phone, presence: true, phone: true, if: present?
 
 end

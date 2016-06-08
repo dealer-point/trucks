@@ -56,7 +56,7 @@ div#page_content
                                 //- td
                                 //-     a(href="mailto:{{company.email}}" data-ng-bind="company.email")
                                 td.uk-text-center.td-nowrap
-                                    a(href="javascript:void(0)" data-ng-click="$companiesCtrl.edit(company)")
+                                    a(href="javascript:void(0)" ui-sref="restricted.companies.card.details({ companyId:company.id})")
                                         i.md-icon.material-icons.md-24 &#xE417;
                                     a(href="javascript:void(0)" data-ng-click="$companiesCtrl.remove(company)")
                                         i.md-icon.material-icons.md-24 &#xE872;

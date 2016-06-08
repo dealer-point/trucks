@@ -11,29 +11,33 @@ div#page_content
                 div.md-card
                     div.md-card-content
                         div.uk-text-center
-                            h2.uk-margin-remove Huawei
-                            h3.uk-margin-remove 华为技术有限公司
+                            h2.uk-margin-remove(data-ng-bind="$companyCardCtrl.companyObject.name")
+                            //- h3.uk-margin-remove 华为技术有限公司
                 div.md-card
-                    div.md-card-toolbar
-                        h3.md-card-toolbar-heading-text Data
+                    //- div.md-card-toolbar
+                    //-     h3.md-card-toolbar-heading-text Data
                     div.md-card-content
                         ul.md-list
                             li
                                 div.md-list-content
                                     span.uk-text-small.uk-text-muted.uk-display-block Country
-                                    span.md-list-heading.uk-text-large China
+                                    span.md-list-heading.uk-text-large(data-ng-bind="$companyCardCtrl.companyObject.country")
                             li
                                 div.md-list-content
                                     span.uk-text-small.uk-text-muted.uk-display-block City
-                                    span.md-list-heading.uk-text-large Beijing
-                            li
+                                    span.md-list-heading.uk-text-large(data-ng-bind="$companyCardCtrl.companyObject.city")
+                            //- li
                                 div.md-list-content
                                     span.uk-text-small.uk-text-muted.uk-display-block Owner
-                                    span.md-list-heading.uk-text-large Ren Zhengfei
+                                    span.md-list-heading.uk-text-large --- Ren Zhengfei
                             li
                                 div.md-list-content
-                                    span.uk-text-small.uk-text-muted.uk-display-block Created at
-                                    span.md-list-heading.uk-text-large Administrator
+                                    span.uk-text-small.uk-text-muted.uk-display-block Created by
+                                    span.md-list-heading.uk-text-large
+                                        a(href="javascript:void(0)")
+                                            span(data-ng-bind="$companyCardCtrl.companyObject.created_by.name")
+                                            | &nbsp;
+                                            span(data-ng-bind="$companyCardCtrl.companyObject.created_by.lastname")
             div.uk-width-large-6-10
                 div(data-ui-view autoscroll="false")
             div.uk-width-large-2-10

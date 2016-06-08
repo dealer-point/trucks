@@ -35,6 +35,7 @@ export default function RoutesConfig(
             url: "/{companyId:int}",
             template: require("./templates/company_card.jade")(),
             controller: "CompanyCardController",
+            controllerAs: "$companyCardCtrl",
             resolve: {
                 companyObject: ($http: ng.IHttpService, $stateParams: any): ng.IHttpPromise<Object> => {
                     return $http.get("/api/v1/companies/" + $stateParams.companyId + ".json")

@@ -15,13 +15,11 @@ export default class CompanyCardController {
 
     constructor(
         private $stateParams: IAppRootScopeService,
-        private $scope: angular.dialog.IDialogScope,
+        private $scope: ng.IScope,
         private $http: ng.IHttpService,
         private companyObject: Company)
     {
-        this.company = companyObject;
-        // this.company = new ObjectClass<Company>(this.$http, "/api/v1/companies");
-        console.log(this.company);
+        // this.company = companyObject;
     }
 
     // public save(): void {
