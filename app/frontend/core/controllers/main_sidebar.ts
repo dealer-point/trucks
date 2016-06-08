@@ -86,11 +86,9 @@ export default class MainSidebarController {
             id: 1,
             title: "Companies",
             icon: "&#xE7FC;",
-            link: "restricted.companies"
+            link: "restricted.companies.list"
         }
     ];
-
-
 }
 
 // ,

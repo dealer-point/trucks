@@ -25,6 +25,10 @@
 }
 
 html {
-    overflow-y: scroll !important;
 }
 
+.object-card {
+    li {
+        padding-top: 5px !important;
+    }
+}

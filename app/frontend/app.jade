@@ -1,5 +1,5 @@
 doctype html
-html(class="page_loading" data-ng-app="trucksApp" document-events data-ng-class="{ 'page_loading': pageLoading, 'page_loaded': pageLoaded, 'app_initialized' : appInitialized && (!$state.is('login') && !$state.includes('error')) }" data-ng-click="onClick($event)" data-ng-keyup="onKeyUp($event)")
+html(style="overflow-y: scroll !important;" class="page_loading" data-ng-app="trucksApp" document-events data-ng-class="{ 'page_loading': pageLoading, 'page_loaded': pageLoaded, 'app_initialized' : appInitialized && (!$state.is('login') && !$state.includes('error')) }" data-ng-click="onClick($event)" data-ng-keyup="onKeyUp($event)")
     head
         meta(charset="UTF-8")
         title= htmlWebpackPlugin.options.title
