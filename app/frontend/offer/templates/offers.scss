@@ -3,7 +3,7 @@
         margin-bottom: 10px;
         margin-right: 5px;
         .md-btn {
-            padding: 2px 14px;
+            padding: 2px 12px;
         }
     }
 }
@@ -21,6 +21,14 @@
         border: 1px solid #3399ff;
         border-radius: 4px;
         .block-toolbar { display: block; }
+    }
+    &.editing {
+        .uk-file-upload { display: block; }
+        .image-holder { display: none; }
+    }
+    .uk-file-upload {
+        display: none;
+        background: #fff;
     }
     .image-holder {
         width: 100%;
@@ -44,7 +52,5 @@
             &:hover { background-color: darken(#3399ff, 20%); }
             i { font-size: 16px; color: #fff; }
         }
-    }
-    .block-content {
     }
 }

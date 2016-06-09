@@ -15,51 +15,53 @@ div#page_content
                                     div.block-toolbar.uk-clearfix
                                         a(href="" data-ng-click="$offerGeneratorCtrl.toggleBlockEditMode(editableBlock)" data-ng-if="editableBlock.editMode"):  i.material-icons &#xE161;
                                         a(href="" data-ng-click="$offerGeneratorCtrl.toggleBlockEditMode(editableBlock)" data-ng-if="!editableBlock.editMode"): i.material-icons &#xE3C9;
+                                        a(href="" data-ng-click="$offerGeneratorCtrl.moveBlock(editableBlock, 'up')"):   i.material-icons &#xE316;
+                                        a(href="" data-ng-click="$offerGeneratorCtrl.moveBlock(editableBlock, 'down')"): i.material-icons &#xE313;
                                         a(href="" data-ng-click="$offerGeneratorCtrl.removeBlock(editableBlock)"): i.material-icons &#xE872;
                                     div.block-content
                                         div(data-ng-switch="editableBlock.kind")
                                             //- fullText
                                             div(data-ng-switch-when="fullText")
-                                                div(data-ng-if="editableBlock.editMode"  text-angular data-ng-model="editableBlock.data")
-                                                div(data-ng-if="!editableBlock.editMode" data-ng-bind-html="editableBlock.data")
+                                                div(data-ng-if="editableBlock.editMode"  text-angular data-ng-model="editableBlock.text")
+                                                div(data-ng-if="!editableBlock.editMode" data-ng-bind-html="editableBlock.text")
                                             //- fullImage
                                             div(data-ng-switch-when="fullImage")
-                                                div.uk-file-upload(data-ng-if="editableBlock.editMode")
+                                                div.uk-file-upload
                                                     p.uk-text Drop file to upload
                                                     p.uk-text-muted.uk-text-small.uk-margin-small-bottom or
                                                     span.uk-form-file.md-btn
                                                         | Choose file
                                                         input(type="file" data-nv-file-select data-uploader="editableBlock.uploader")
-                                                div.image-holder(data-ng-if="!editableBlock.editMode")
+                                                div.image-holder
                                             //- textWithImageLeft
                                             div.uk-grid(data-ng-switch-when="textWithImageLeft")
                                                 div.uk-width-1-3
-                                                    div.uk-file-upload(data-ng-if="editableBlock.editMode")
+                                                    div.uk-file-upload
                                                         p.uk-text Drop file to upload
                                                         p.uk-text-muted.uk-text-small.uk-margin-small-bottom or
                                                         span.uk-form-file.md-btn
                                                             | Choose file
                                                             input(type="file" data-nv-file-select data-uploader="editableBlock.uploader")
-                                                    div.image-holder(data-ng-if="!editableBlock.editMode")
+                                                    div.image-holder
                                                 div.uk-width-2-3
-                                                    div(data-ng-if="editableBlock.editMode"  text-angular data-ng-model="editableBlock.data")
-                                                    div(data-ng-if="!editableBlock.editMode" data-ng-bind-html="editableBlock.data")
+                                                    div(data-ng-if="editableBlock.editMode"  text-angular data-ng-model="editableBlock.text")
+                                                    div(data-ng-if="!editableBlock.editMode" data-ng-bind-html="editableBlock.text")
                                             //- textWithImageRight
                                             div.uk-grid(data-ng-switch-when="textWithImageRight")
                                                 div.uk-width-2-3
-                                                    div(data-ng-if="editableBlock.editMode"  text-angular data-ng-model="editableBlock.data")
-                                                    div(data-ng-if="!editableBlock.editMode" data-ng-bind-html="editableBlock.data")
+                                                    div(data-ng-if="editableBlock.editMode"  text-angular data-ng-model="editableBlock.text")
+                                                    div(data-ng-if="!editableBlock.editMode" data-ng-bind-html="editableBlock.text")
                                                 div.uk-width-1-3
-                                                    div.uk-file-upload(data-ng-if="editableBlock.editMode")
+                                                    div.uk-file-upload
                                                         p.uk-text Drop file to upload
                                                         p.uk-text-muted.uk-text-small.uk-margin-small-bottom or
                                                         span.uk-form-file.md-btn
                                                             | Choose file
                                                             input(type="file" data-nv-file-select data-uploader="editableBlock.uploader")
-                                                    div.image-holder(data-ng-if="!editableBlock.editMode")
+                                                    div.image-holder
                                             //- divider
                                             div(data-ng-switch-when="divider")
-                                                div(data-ng-bind-html="editableBlock.data")
+                                                div(data-ng-bind-html="editableBlock.text")
                 div.uk-width-2-10.uk-visible-large
                     div.md-list-outside-wrapper
                         ul.md-list.md-list-outside.file_list
