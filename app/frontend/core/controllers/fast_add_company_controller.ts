@@ -33,7 +33,7 @@ export default class FastAddCompanyController {
             .success(
                 (response: any): void => {
                     self.loading = false;
-                    self.$scope.closeThisDialog(response.company);
+                    self.$scope.closeThisDialog(response.data);
                 })
             .error(
                 (): void => {

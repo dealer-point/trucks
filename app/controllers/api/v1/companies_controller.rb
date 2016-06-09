@@ -19,7 +19,7 @@ class Api::V1::CompaniesController < Api::V1::BaseController
     authorize company
 
     if company.save
-      render json: company, status: :created
+      render_api json: company.as_json(only: [:id, :name, :city, :country, :phone]), status: :created
     else
       render json: { errors: company.errors }, status: :unprocessable_entity
     end
