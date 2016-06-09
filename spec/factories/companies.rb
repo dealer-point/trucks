@@ -14,6 +14,7 @@
 #  owner_name    :string
 #  phone         :string
 #  site          :string
+#  logo          :string
 #
 
 FactoryGirl.define do

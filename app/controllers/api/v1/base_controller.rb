@@ -10,6 +10,10 @@ class Api::V1::BaseController < ApplicationController
   # Enforces access right checks for collections
   after_action :verify_policy_scoped, only: :index
 
+  def render_api args
+    render json: { data: args[:json], meta: args[:meta] }, root: false, status: args[:status]
+  end
+
   def meta_attributes(resource, extra_meta = {})
     {
       current_page: resource.current_page,

@@ -3,13 +3,13 @@ class Api::V1::CompaniesController < Api::V1::BaseController
   before_action :set_company, only: [:show, :update, :destroy]
 
   def index
-    @companies = policy_scope(Company).order(:id).page(params[:page]).per(500000)
+    @companies = policy_scope(Company).includes(:created_by).order(:id).page(params[:page]).per(500000)
 
-    render json: @companies, meta: meta_attributes(@companies), root: 'collection', status: :ok
+    render_api json: @companies.as_json(only: [:id, :name, :city, :country, :phone]), meta: meta_attributes(@companies), status: :ok
   end
 
   def show
-    render json: @company, status: :ok
+    render_api json: @company.as_json(include: { created_by: { only: [:id, :name, :lastname] }}), status: :ok
   end
 
   def create

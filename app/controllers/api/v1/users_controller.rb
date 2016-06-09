@@ -1,22 +1,23 @@
 class Api::V1::UsersController < Api::V1::BaseController
   def index
-    render json: User.all, status: 200
+    render json: User.all, status: :ok
   end
 
   def show
     user = User.find params[:id]
-    render json: user, status: 200
+    render json: user, status: :ok
   end
 
   def current
     authorize current_user
-    render json: current_user, status: 200
+
+    render_api json: current_user.as_json(only: [:id, :name, :lastname], methods: [:activities]), status: :ok
   end
 
   def create
     user = User.new user_params
     if user.save
-      render json: user, status: 200
+      render json: user, status: :ok
     else
       render json: { errors: user.errors }, status: 422
     end
@@ -34,7 +35,7 @@ class Api::V1::UsersController < Api::V1::BaseController
   def destroy
     user = User.find params[:id]
     if user.destroy
-      render json: user, status: 200
+      render json: user, status: :ok
     else
       render json: { errors: user.errors }, status: 422
     end

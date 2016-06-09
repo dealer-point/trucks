@@ -39,8 +39,9 @@ export default function RoutesConfig(
             resolve: {
                 companyObject: ($http: ng.IHttpService, $stateParams: any): ng.IHttpPromise<Object> => {
                     return $http.get("/api/v1/companies/" + $stateParams.companyId + ".json")
-                        .then((response): any => {
-                            return response.data["company"];
+                        .then((response: any): any => {
+                            console.log(response);
+                            return response.data.data;
                         });
                 }
             }

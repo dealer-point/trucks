@@ -22,7 +22,7 @@ export default class ObjectsList<T extends IModel> {
             //     self.collection.push(obj);
             // });
 
-            self.collection = response.collection;
+            self.collection = response.data;
         });
     }
 

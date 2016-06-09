@@ -70,7 +70,7 @@ interface IModel {
 /* CORE DECLARATION TYPES SECTION */
 
 interface IResponseCollection<T> {
-  collection: Array<T>;
+  data: Array<T>;
   meta: any;
 }
 

@@ -7,11 +7,12 @@ gem 'jbuilder', '~> 2.0'
 gem 'pundit'
 gem 'apartment'
 gem 'bcrypt', '~> 3.1.7'
-gem 'active_model_serializers'
 gem 'unicorn'
 gem 'awesome_print'
 gem 'kaminari'
 gem 'phonelib'
+# Classier solution for file uploads for Rails, Sinatra and other Ruby web frameworks
+gem 'carrierwave'
 
 group :development, :test do
   gem 'byebug'

@@ -19,6 +19,7 @@ export default class CompanyCardController {
         private $http: ng.IHttpService,
         private companyObject: Company)
     {
+        // console.log(companyObject);
         // this.company = companyObject;
     }
 
