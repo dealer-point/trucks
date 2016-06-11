@@ -2,8 +2,8 @@ div.md-card
     div.md-card-toolbar
         h3.md-card-toolbar-heading-text Details
     div.md-card-content
-        div.uk-grid.uk-grid-divider.uk-grid-medium
-            div.uk-width-large-1-2
+        div
+            div
                 div.uk-grid.uk-grid-small
                     div.uk-width-large-1-3
                         span.uk-text-muted.uk-text-small Name
@@ -46,6 +46,12 @@ div.md-card
                         span.uk-text-muted.uk-text-small Site
                     div.uk-width-large-2-3
                         a.uk-text-large.uk-text-middle(data-ng-href="{{$companyCardCtrl.companyObject.site}}" data-ng-bind="$companyCardCtrl.companyObject.site" target="_blank")
+                hr.uk-grid-divider
+                div.uk-grid.uk-grid-small
+                    div.uk-width-large-1-3
+                        span.uk-text-muted.uk-text-small Description
+                    div.uk-width-large-2-3
+                        span(data-ng-bind="$companyCardCtrl.companyObject.description") 
                 //- hr.uk-grid-divider
                 //- div.uk-grid.uk-grid-small
                 //-     div.uk-width-large-1-3
@@ -58,11 +64,8 @@ div.md-card
                 //-         span.uk-text-muted.uk-text-small Color
                 //-     div.uk-width-large-2-3
                 //-         | Black
-                hr.uk-grid-divider.uk-hidden-large
-            div.uk-width-large-1-2
+                //- hr.uk-grid-divider.uk-hidden-large
+            //- div.uk-width-large-1-2
                 //- p
                 //-     span.uk-text-muted.uk-text-small.uk-display-block.uk-margin-small-bottom Tags
                 //- hr.uk-grid-divider
-                p
-                    span.uk-text-muted.uk-text-small.uk-display-block.uk-margin-small-bottom Description
-                    span(data-ng-bind="$companyCardCtrl.companyObject.description")

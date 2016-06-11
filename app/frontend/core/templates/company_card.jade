@@ -7,7 +7,8 @@ div#page_content
                 div.md-card(data-ng-if="$companyCardCtrl.companyObject.logo.url")
                     div.md-card-content
                         div.uk-margin-bottom.uk-text-center
-                            img.img_medium(data-ng-src="$companyCardCtrl.companyObject.logo.url" title="{{$companyCardCtrl.companyObject.name}}")
+                            i.material-icons.md-70(data-ng-hide="$companyCardCtrl.companyObject.logo.url") &#xE7EE;
+                            img.img_medium(data-ng-show="$companyCardCtrl.companyObject.logo.url" data-ng-src="{{$companyCardCtrl.companyObject.logo.url}}" title="{{$companyCardCtrl.companyObject.name}}")
                 div.md-card
                     div.md-card-content
                         div.uk-text-center
@@ -20,16 +21,24 @@ div#page_content
                         ul.md-list.object-card
                             li
                                 div.md-list-content
-                                    span.uk-text-small.uk-text-muted.uk-display-block Updated at
-                                    span.md-list-heading.uk-text-large(data-ng-bind="$companyCardCtrl.companyObject.updated_at")
+                                    span.uk-text-small.uk-text-muted.uk-display-block Owner
+                                    span.md-list-heading.uk-text-large(data-ng-bind="$companyCardCtrl.companyObject.owner_name")
                             li
                                 div.md-list-content
-                                    span.uk-text-small.uk-text-muted.uk-display-block Created at
-                                    span.md-list-heading.uk-text-large(data-ng-bind="$companyCardCtrl.companyObject.created_at")
-                            //- li
+                                    span.uk-text-small.uk-text-muted.uk-display-block Country
+                                    span.md-list-heading.uk-text-large(data-ng-bind="$companyCardCtrl.companyObject.country")
+                            li
                                 div.md-list-content
-                                    span.uk-text-small.uk-text-muted.uk-display-block Owner
-                                    span.md-list-heading.uk-text-large --- Ren Zhengfei
+                                    span.uk-text-small.uk-text-muted.uk-display-block City
+                                    span.md-list-heading.uk-text-large(data-ng-bind="$companyCardCtrl.companyObject.city")
+                            li
+                                div.md-list-content
+                                    span.uk-text-small.uk-text-muted.uk-display-block Phone
+                                    span.md-list-heading.uk-text-large(data-ng-bind="$companyCardCtrl.companyObject.phone")
+                            li
+                                div.md-list-content
+                                    span.uk-text-small.uk-text-muted.uk-display-block Site
+                                    a.md-list-heading.uk-text-large(data-ng-href="{{$companyCardCtrl.companyObject.site}}" data-ng-bind="$companyCardCtrl.companyObject.site")
                             li
                                 div.md-list-content
                                     span.uk-text-small.uk-text-muted.uk-display-block Created by
