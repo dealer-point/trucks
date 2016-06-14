@@ -3,7 +3,7 @@
 
 import CompanyService from "../services/company_service";
 import Companies from "../services/companies_service";
-import Company from  "../../libs/company";
+import Company from  "libs/company";
 
 export default class CompaniesController {
 
@@ -16,7 +16,7 @@ export default class CompaniesController {
         private $rootScope: IAppRootScopeService,
         private $scope: ng.IScope,
         private _companies: Companies,
-        private CompanyService: CompanyService)
+        private companyService: CompanyService)
     {
         this.companies = _companies;
         this.listTitle = "Companies";
@@ -48,14 +48,10 @@ export default class CompaniesController {
 
         let self: CompaniesController = this;
 
-        this.CompanyService.fastAdd().then((data: Company): void => {
+        this.companyService.fastAdd().then((data: Company): void => {
             if (typeof(data.id) !== "undefined") {
                 self.companies.push(data);
             }
         });
     }
 }
-
-// angular
-//     .module("companies")
-//     .controller("CompaniesController", CompaniesController);

@@ -2,7 +2,7 @@
 "use strict";
 
 import ObjectsList from "../../libs/objects_list";
-import Company from "../../libs/company";
+import Company from "libs/company";
 
 export default class Companies extends ObjectsList<Company> {
 
@@ -16,7 +16,3 @@ export default class Companies extends ObjectsList<Company> {
         this.url = "/api/v1/companies";
     }
 }
-
-// angular
-//     .module("companies")
-//     .service("Companies", Companies);

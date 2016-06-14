@@ -1,12 +1,12 @@
 
 "use strict";
 
-import Company from  "../libs/company";
+import Company from  "libs/company";
 
 export default class CompanyService {
 
-    public static $inject: string[] = ["$q", "$http", "$rootScope", "ngDialog"];
-    public activities: string[];
+    public static $inject: Array<string> = ["$q", "$http", "$rootScope", "ngDialog"];
+    public activities: Array<string>;
 
     constructor(
         private $q: ng.IQService,
@@ -14,7 +14,6 @@ export default class CompanyService {
         private $rootScope: IAppRootScopeService,
         private ngDialog: ng.dialog.IDialogService)
     {
-
     }
 
     public fastAdd(): ng.IPromise<Company> {
@@ -37,7 +36,3 @@ export default class CompanyService {
         return deferred.promise;
     }
 }
-
-// angular
-//     .module("companies")
-//     .service("CompanyService", CompanyService);

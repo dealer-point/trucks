@@ -41,7 +41,3 @@ export default class FastAddCompanyController {
                 });
     }
 }
-
-// angular
-//     .module("companies")
-//     .controller("FastAddCompanyController", FastAddCompanyController);
