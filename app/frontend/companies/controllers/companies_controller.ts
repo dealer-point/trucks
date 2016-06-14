@@ -49,7 +49,7 @@ export default class CompaniesController {
         let self: CompaniesController = this;
 
         this.companyService.fastAdd().then((data: Company): void => {
-            if (typeof(data.id) !== "undefined") {
+            if (typeof(data) == "object" && typeof (data.id) !== "undefined") {
                 self.companies.push(data);
             }
         });
