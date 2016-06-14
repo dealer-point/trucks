@@ -83,3 +83,10 @@ interface IResponseObjectErrors<T> {
     errors: Object;
     meta: any;
 }
+
+interface ICardTool {
+    translationId: string; // Translation ID for i18n. Example 'modules.companies.tools.contacts'
+    uiState: string; // State for angular-ui-router
+    countable?: boolean; // Set true for show countable-tool
+    position?: number; // Position number in menu
+}
