@@ -14,6 +14,8 @@ import RoutesConfig from "./routes";
 import common       from "./common/index";
 import core         from "./core/index";
 
+import "./companies";
+
 angular
     .module("trucksApp", [
         "ui.router",
@@ -21,6 +23,7 @@ angular
         "ngAnimate",
         "ngRetina",
         "ncy-angular-breadcrumb",
+        "companies",
         common,
         core])
     .run(RootConfig)

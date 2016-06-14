@@ -38,19 +38,6 @@ export default class CompanyService {
     }
 }
 
-    // public load(): ng.IPromise<CurrentUser> {
-
-    //     let scope: CurrentUser = this;
-
-    //     return this.$http.get("/api/v1/users/current")
-    //       .success((response: Object): IUser => {
-    //         angular.extend(scope, response["user"]);
-    //         scope.$rootScope.currentUser = scope;
-    //         return scope;
-    //       });
-    // }
-
-
 // angular
-    // .module("core")
-    // .service("CompanyService", CompanyService);
+//     .module("companies")
+//     .service("CompanyService", CompanyService);

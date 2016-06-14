@@ -1,8 +1,8 @@
 
 "use strict";
 
-import ObjectClass from  "../libs/object";
-import Company from  "../libs/company";
+import ObjectClass from  "../../libs/object";
+import Company from  "../../libs/company";
 
 export default class FastAddCompanyController {
 
@@ -41,3 +41,7 @@ export default class FastAddCompanyController {
                 });
     }
 }
+
+// angular
+//     .module("companies")
+//     .controller("FastAddCompanyController", FastAddCompanyController);

@@ -45,3 +45,7 @@ export default class CompanyCardController {
     //             });
     // }
 }
+
+// angular
+//     .module("companies")
+//     .controller("CompanyCardController", CompanyCardController);

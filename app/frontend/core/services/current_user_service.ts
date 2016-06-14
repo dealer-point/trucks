@@ -1,11 +1,11 @@
 
 "use strict";
 
-import User from "../libs/user";
+import User from "../../libs/user";
 
 export default class CurrentUser extends User {
 
-    public static $inject: string[] = ["$http", "$rootScope"];
+    public static $inject: Array<string> = ["$http", "$rootScope"];
     public activities: string[];
 
     constructor(

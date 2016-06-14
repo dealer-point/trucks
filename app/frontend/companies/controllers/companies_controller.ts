@@ -1,15 +1,9 @@
 
 "use strict";
 
-import CompanyService from "./services/company_service";
+import CompanyService from "../services/company_service";
 import Companies from "../services/companies_service";
-import Company from  "../libs/company";
-
-// interface IScope extends ng.IScope {
-//     companies: Companies;
-// }
-
-"use strict";
+import Company from  "../../libs/company";
 
 export default class CompaniesController {
 
@@ -33,7 +27,7 @@ export default class CompaniesController {
 
         // todo : Добавить модальным окном #ng-dialog
 
-        // todo : сделать через перевод angular-translate
+        // todo : сделать через перевод #angular-translate
 
         if (!confirm("Are you sure you want to delete the company \"" + company.name + "\"?")) {
             return;
@@ -61,3 +55,7 @@ export default class CompaniesController {
         });
     }
 }
+
+// angular
+//     .module("companies")
+//     .controller("CompaniesController", CompaniesController);
