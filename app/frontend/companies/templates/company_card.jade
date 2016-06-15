@@ -6,7 +6,7 @@ div#page_content
             div.uk-width-large-2-10.uk-row-first
                 div.md-card(data-ng-if="$companyCardCtrl.companyObject.logo.url")
                     div.md-card-content
-                        div.uk-margin-bottom.uk-text-center
+                        div.uk-text-center
                             i.material-icons.md-70(data-ng-hide="$companyCardCtrl.companyObject.logo.url") &#xE7EE;
                             img.img_medium(data-ng-show="$companyCardCtrl.companyObject.logo.url" data-ng-src="{{$companyCardCtrl.companyObject.logo.url}}" title="{{$companyCardCtrl.companyObject.name}}")
                 div.md-card
@@ -55,6 +55,6 @@ div#page_content
                         h3.md-card-toolbar-heading-text Menu
                     div.md-card-content
                         ul.md-list.md-list-outside.object-card
-                            li(data-ui-sref-active="md-list-item-active" data-ng-repeat="tool in $companyCardCtrl.cardToolsService.tools | orderBy: tool.position")
+                            li(data-ui-sref-active="md-list-item-active" data-ng-repeat="tool in $companyCardCtrl.companyCardToolsService.tools | orderBy: tool.position")
                                 //- ui-sref-active="md-list-item-active"
                                 a.md-list-content(data-ui-sref="{{tool.uiState}}" data-ng-bind="tool.translationId")
