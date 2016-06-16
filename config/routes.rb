@@ -22,6 +22,7 @@ Rails.application.routes.draw do
           get :current, on: :collection
         end
         resources :companies
+        resources :events, only: [:index, :create]
       end
     end
   end
