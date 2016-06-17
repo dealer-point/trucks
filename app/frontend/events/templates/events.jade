@@ -11,52 +11,52 @@ div#page_content
         div.md-card
             div.md-card-content
                 div.uk-overflow-container.uk-margin-bottom
-                    table#ts_issues.uk-table.uk-table-align-vertical.tablesorter.tablesorter-altair
+                    table#ts_issues.uk-table.uk-table-align-vertical.tablesorter.tablesorter-altair.status-border-left
                         thead
                             tr
-                                th #
+                                //- th #
                                 th Kind
-                                th Status
-                                th Description
                                 th Assigned at
-                                th Created by
+                                th Status
                                 th Assigned by
+                                th Description
                                 th.uk-text-center &nbsp;
                         tfoot
                             tr
-                                th #
+                                //- th #
                                 th Kind
-                                th Status
-                                th Description
                                 th Assigned at
-                                th Created by
+                                th Status
                                 th Assigned by
+                                th Description
+                                //- th Created by
                                 th.uk-text-center &nbsp;
                         tbody
-                            tr(data-ng-repeat="event in $eventsCtrl.events.collection | filter: $eventsCtrl.search | orderBy: 'id'" data-ng-class-even="'even'")
-                                td(data-ng-bind="event.id")
+                            tr(data-ng-repeat="event in $eventsCtrl.events.collection | filter: $eventsCtrl.search" data-ng-class-even="'even'")
+                                //- data-ng-class="{ 'danger even' : event.overdue }"
+                                //- td(data-ng-bind="event.id")
                                 td
                                     nobr(data-ng-switch="event.kind")
                                         span(data-ng-switch-when="incoming_call") Incoming call
                                         span(data-ng-switch-when="outgoing_call") Outgoing call
                                         span(data-ng-switch-when="meet") Meet
                                         span(data-ng-switch-when="request") Request
+                                td(data-ng-bind="event.assigned_at")
                                 td(data-ng-switch="event.status")
                                     span.uk-badge(data-ng-switch-when="pending") Pending
                                     span.uk-badge.uk-badge-success(data-ng-switch-when="done") Done
                                     span.uk-badge.uk-badge-danger(data-ng-switch-when="canceled") Canceled
-                                td(data-ng-bind="event.description")
-                                td(data-ng-bind="event.assigned_at")
-                                td
-                                    a
-                                        span(data-ng-bind="event.created_by.name")
-                                        | &nbsp;
-                                        span(data-ng-bind="event.created_by.lastname")
+                                //- td
+                                //-     a
+                                //-         span(data-ng-bind="event.created_by.name")
+                                //-         | &nbsp;
+                                //-         span(data-ng-bind="event.created_by.lastname")
                                 td
                                     a
                                         span(data-ng-bind="event.assigned_by.name")
                                         | &nbsp;
                                         span(data-ng-bind="event.assigned_by.lastname")
+                                td(data-ng-bind="event.description")
                                 td.uk-text-right
                                     span.uk-badge.uk-badge-danger(data-ng-show="event.overdue") overdue
 //- div.md-fab-wrapper

@@ -32,3 +32,11 @@ html {
         padding-top: 5px !important;
     }
 }
+
+
+table.status-border-left tr {
+    border-left: 3px solid transparent;
+    &.danger {
+        border-left-color: #e53935;
+    }
+}

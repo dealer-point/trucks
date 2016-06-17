@@ -2,21 +2,15 @@
 #
 # Table name: events
 #
-#  id              :integer          not null, primary key
-#  kind            :string
-#  status          :string           default("pending")
-#  created_by_id   :integer
-#  description     :text
-#  assigned_by_id  :integer
-#  processed_by_id :integer
-#  assigned_at     :datetime
-#  processed_at    :datetime
-#  target_type     :string
-#  target_id       :integer
-#  parent_type     :string
-#  parent_id       :integer
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id             :integer          not null, primary key
+#  kind           :string
+#  status         :string           default("pending")
+#  created_by_id  :integer
+#  description    :text
+#  assigned_by_id :integer
+#  assigned_at    :datetime
+#  created_at     :datetime         not null
+#  updated_at     :datetime         not null
 #
 
 FactoryGirl.define do
