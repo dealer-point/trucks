@@ -1,0 +1,65 @@
+div#page_content
+    div#page_heading(data-uk-sticky="{ top: 48, media: 960 }")
+        div.uk-width-medium-1-2(style="float: right;")
+            div.uk-input-group
+                span.uk-input-group-addon
+                    .i.material-icons &#xE8B6;
+                label Search
+                input.md-input(type="text" data-ng-model="$eventsCtrl.search" md-input)
+        h1(data-ng-bind="$eventsCtrl.listTitle")
+    div#page_content_inner
+        div.md-card
+            div.md-card-content
+                div.uk-overflow-container.uk-margin-bottom
+                    table#ts_issues.uk-table.uk-table-align-vertical.tablesorter.tablesorter-altair
+                        thead
+                            tr
+                                th #
+                                th Kind
+                                th Status
+                                th Description
+                                th Assigned at
+                                th Created by
+                                th Assigned by
+                                th.uk-text-center &nbsp;
+                        tfoot
+                            tr
+                                th #
+                                th Kind
+                                th Status
+                                th Description
+                                th Assigned at
+                                th Created by
+                                th Assigned by
+                                th.uk-text-center &nbsp;
+                        tbody
+                            tr(data-ng-repeat="event in $eventsCtrl.events.collection | filter: $eventsCtrl.search | orderBy: 'id'" data-ng-class-even="'even'")
+                                td(data-ng-bind="event.id")
+                                td
+                                    nobr(data-ng-switch="event.kind")
+                                        span(data-ng-switch-when="incoming_call") Incoming call
+                                        span(data-ng-switch-when="outgoing_call") Outgoing call
+                                        span(data-ng-switch-when="meet") Meet
+                                        span(data-ng-switch-when="request") Request
+                                td(data-ng-switch="event.status")
+                                    span.uk-badge(data-ng-switch-when="pending") Pending
+                                    span.uk-badge.uk-badge-success(data-ng-switch-when="done") Done
+                                    span.uk-badge.uk-badge-danger(data-ng-switch-when="canceled") Canceled
+                                td(data-ng-bind="event.description")
+                                td(data-ng-bind="event.assigned_at")
+                                td
+                                    a
+                                        span(data-ng-bind="event.created_by.name")
+                                        | &nbsp;
+                                        span(data-ng-bind="event.created_by.lastname")
+                                td
+                                    a
+                                        span(data-ng-bind="event.assigned_by.name")
+                                        | &nbsp;
+                                        span(data-ng-bind="event.assigned_by.lastname")
+                                td.uk-text-right
+                                    span.uk-badge.uk-badge-danger(data-ng-show="event.overdue") overdue
+//- div.md-fab-wrapper
+//-     a.md-fab.md-fab-accent(href="javascript:void(0)" data-ng-click="$eventsCtrl.add()")
+//-         i.material-icons &#xE145;
+//- c4279938@trbvn.com

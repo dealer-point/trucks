@@ -10,17 +10,15 @@ export default class CompaniesController {
   public static $inject: Array<string> = ["$rootScope", "$scope", "Companies", "CompanyService"];
 
     public listTitle: string;
-    public companies: Companies;
 
     constructor(
         private $rootScope: IAppRootScopeService,
         private $scope: ng.IScope,
-        private _companies: Companies,
+        private companies: Companies,
         private companyService: CompanyService)
     {
-        this.companies = _companies;
         this.listTitle = "Companies";
-        this._companies.load();
+        this.companies.load();
     }
 
     public remove(company: Company): void {

@@ -31,7 +31,5 @@ export default class CompanyCardController {
             translationId: "Commercial proposals",
             uiState: "restricted.companies.card.commercial_proposals"
         });
-
-        console.log(this.companyCardToolsService.tools);
     }
 }

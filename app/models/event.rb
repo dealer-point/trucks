@@ -38,4 +38,8 @@ class Event < ApplicationRecord
 
   validates :processed_by, presence: true, unless: "status.eql?('pending')"
 
+  def overdue
+    DateTime.current > assigned_at and status === 'pending'
+  end
+
 end

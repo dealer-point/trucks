@@ -87,6 +87,12 @@ export default class MainSidebarController {
             title: "Companies",
             icon: "&#xE7FC;",
             link: "restricted.companies.list"
+        },
+        {
+            id: 1,
+            title: "Events",
+            icon: "&#xE878;",
+            link: "restricted.events.list"
         }
     ];
 }
