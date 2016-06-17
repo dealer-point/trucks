@@ -40,3 +40,20 @@ table.status-border-left tr {
         border-left-color: #e53935;
     }
 }
+
+.uk-datepicker {
+    z-index: 10001 !important;
+}
+
+h5.datetime-header {
+    font-weight: 400;
+    color: #727272;
+    padding-left: 3px;
+    margin-top: 12px;
+}
+
+.event-form {
+    .selectize-input {
+        padding-left: 3px !important;
+    }
+}

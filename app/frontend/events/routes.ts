@@ -19,7 +19,3 @@ export default function RoutesConfig(
             controllerAs: "$eventsCtrl"
         });
 }
-
-// angular
-//     .module("companies")
-//     .config(RoutesConfig);
