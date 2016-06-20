@@ -24,9 +24,12 @@ export default class ObjectClass<T> {
 
         let self: ObjectClass<T> = this;
 
-        return this.$http.post(this.url, this).error((response: IResponseObjectErrors<T>): void => {
-            self.errors = response.errors;
-        });
+        return this
+            .$http
+            .post(this.url, this)
+            .error((response: IResponseObjectErrors<T>): void => {
+                self.errors = response.errors;
+            });
     }
 
     public destroy(): ng.IHttpPromise<IResponseObject<T>> {

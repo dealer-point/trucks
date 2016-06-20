@@ -11,6 +11,7 @@
 #  assigned_at    :datetime
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
+#  title          :string
 #
 
 FactoryGirl.define do

@@ -47,6 +47,10 @@ export default class ObjectsList<T extends IModel> {
         this.collection.push(item);
     }
 
+    public unshift(item: T): void {
+        this.collection.unshift(item);
+    }
+
     public clear(): void {
         this.collection = [];
     }

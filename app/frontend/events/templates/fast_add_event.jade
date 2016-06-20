@@ -2,30 +2,50 @@ h3 New event
 form.uk-form-stacked.event-form
     div.uk-margin-medium-bottom
         div.uk-form-row
-            label(for="company_city") Title
-            input.md-input(type="text" data-ng-model="$facCtrl.company.city" data-ng-class="{ 'md-input-danger' : $facCtrl.company.errors.city }" md-input)
-            div.error.uk-text-danger.uk-margin-top-remove.uk-text-right(data-ng-bind="$facCtrl.company.errors.city[0]")
-        div.uk-form-row
-            input(type="text" config="{ maxItems: 1, placeholder: 'Assign by', valueField: 'id', labelField: 'title' }" options="$faeCtrl.selectize_a_data.options" ng-model="$faeCtrl.selectize_a" selectize)
-            //- span.uk-form-help-block Default
-            div.error.uk-text-danger.uk-margin-top-remove.uk-text-right(data-ng-bind="$facCtrl.company.errors.name[0]")
+            label Title
+            input.md-input(type="text"
+                           data-ng-model="$faeCtrl.event.title"
+                           data-ng-class="{ 'md-input-danger' : $faeCtrl.event.errors.title }"
+                           md-input)
+            div.error.uk-text-danger.uk-margin-top-remove.uk-text-right(data-ng-bind="$faeCtrl.event.errors.title[0]")
+        div.uk-form-row(data-ng-class="{ 'selectize-input-danger' : $faeCtrl.event.errors.kind }")
+            input(type="text"
+                  config="{ maxItems: 1, placeholder: 'Kind', valueField: 'symbol', labelField: 'value' }"
+                  options="$faeCtrl.kinds"
+                  data-ng-model="$faeCtrl.event.kind"
+                  selectize)
+            div.error.uk-text-danger.uk-margin-top-remove.uk-text-right(data-ng-bind="$faeCtrl.event.errors.kind[0]")
+        div.uk-form-row(data-ng-class="{ 'selectize-input-danger' : $faeCtrl.event.errors.assigned_by }")
+            input(type="text"
+                  config="{ maxItems: 1, placeholder: 'Assign by', valueField: 'id', labelField: 'title' }"
+                  options="$faeCtrl.users"
+                  data-ng-model="$faeCtrl.event.assigned_by"
+                  selectize)
+            div.error.uk-text-danger.uk-margin-top-remove.uk-text-right(data-ng-bind="$faeCtrl.event.errors.assigned_by[0]")
         div.uk-form-row
             div.uk-width-1-4.uk-float-left
                 h5.datetime-header Assigned at
             div.uk-width-1-3.uk-float-left
-                label(for="company_country") Date
-                input.md-input(type="text" data-ng-model="$facCtrl.company.cou22ntry" data-ng-class="{ 'md-input-danger' : $facCtrl.company.errors.country }" data-uk-datepicker="{format:'DD.MM.YYYY'}" md-input)
+                label Date
+                input.md-input(type="text"
+                               data-ng-model="$faeCtrl.event.date"
+                               data-ng-class="{ 'md-input-danger' : $faeCtrl.event.errors.assigned_at[0] }"
+                               data-uk-datepicker="{ format:'DD.MM.YYYY' }"
+                               md-input)
             div.uk-width-1-3.uk-float-right
-                label(for="company_country") Time
-                input.md-input(type="text" data-ng-model="$facCtrl.company.ci44ty" data-ng-class="{ 'md-input-danger' : $facCtrl.company.errors.country }" data-uk-timepicker md-input)
-            div.error.uk-text-danger.uk-margin-top-remove.uk-text-right(data-ng-bind="$facCtrl.company.errors.country[0]")
+                label Time
+                input.md-input(type="text" data-ng-model="$faeCtrl.event.time" data-ng-class="{ 'md-input-danger' : $faeCtrl.event.errors.assigned_at[0] }" data-uk-timepicker md-input)
+        div.error.uk-text-danger.uk-margin-top-remove.uk-text-right(data-ng-bind="$faeCtrl.event.errors.assigned_at[0]")
             //- span.uk-input-group-addon.material-icons &#xE878;
         div.uk-form-row
-            label(for="company_description") Description
-            textarea.md-input(type="text" data-ng-model="$facCtrl.company.description" data-ng-class="{ 'md-input-danger' : $facCtrl.company.errors.description }" md-input)
-            div.error.uk-text-danger.uk-margin-top-remove.uk-text-right(data-ng-bind="$facCtrl.company.errors.description[0]")
+            label Description
+            textarea.md-input(type="text"
+                              data-ng-model="$faeCtrl.event.description"
+                              data-ng-class="{ 'md-input-danger' : $faeCtrl.event.errors.description }"
+                              md-input)
+            div.error.uk-text-danger.uk-margin-top-remove.uk-text-right(data-ng-bind="$faeCtrl.event.errors.description[0]")
 div.uk-text-right
-    md-preloader.uk-float-left(success width="35" height="35" stroke-Width="6" data-ng-if="$facCtrl.loading")
+    md-preloader.uk-float-left(success width="35" height="35" stroke-Width="6" data-ng-if="$faeCtrl.loading")
     button.md-btn.md-btn-flat.uk-modal-close(type="button" data-ng-click="closeThisDialog()") Close
-    button#snippet_new_save.md-btn.md-btn-flat.md-btn-flat-primary(type="button" data-ng-click="$facCtrl.save()") Create
+    button#snippet_new_save.md-btn.md-btn-flat.md-btn-flat-primary(type="button" data-ng-click="$faeCtrl.save()") Create
 

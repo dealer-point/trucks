@@ -57,3 +57,7 @@ h5.datetime-header {
         padding-left: 3px !important;
     }
 }
+
+.selectize-input-danger > .selectize-control > .selectize-input {
+    border-color: #e53935;
+}
