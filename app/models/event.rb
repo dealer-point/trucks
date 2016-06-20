@@ -33,4 +33,8 @@ class Event < ApplicationRecord
     DateTime.current > assigned_at and status === 'pending'
   end
 
+  def assigned_at_timestamp
+    assigned_at.to_i
+  end
+
 end

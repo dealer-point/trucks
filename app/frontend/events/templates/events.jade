@@ -31,7 +31,7 @@ div#page_content
                                 //- th Description
                                 th.uk-text-center &nbsp;
                         tbody
-                            tr(data-ng-repeat="event in $eventsCtrl.events.collection | filter: $eventsCtrl.search | orderBy: 'assigned_at'" data-ng-class-even="'even'")
+                            tr(data-ng-repeat="event in $eventsCtrl.events.collection | filter: $eventsCtrl.search | orderBy: '-assigned_at_timestamp'" data-ng-class-even="'even'")
                                 td(data-ng-bind="event.title")
                                 td
                                     nobr(data-ng-switch="event.kind")
