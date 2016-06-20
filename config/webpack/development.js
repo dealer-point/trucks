@@ -45,5 +45,18 @@ module.exports = {
           hash: true
         }),
         new ExtractTextPlugin('built/app/css/app.css')
-    ]
+    ],
+    devServer: {
+        host: 'localhost',
+        port: 8000,
+        proxy: {
+            '/api/v1*': {
+                target: 'http://127.0.0.1:3000',
+                secure: true,
+            }
+        },
+        historyApiFallback: {
+            index: '_index.html'
+        }
+    }
 };

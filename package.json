@@ -9,6 +9,7 @@
   "scripts": {
     "start": "webpack --config ./config/webpack/development.js --color --progress",
     "build": "webpack --config ./config/webpack/production.js",
+    "dev" : "webpack-dev-server --config ./config/webpack/development.js --inline --progress --profile --colors --watch --display-error-details --display-cached --hot --content-base public",
     "postinstall": "typings i && gulp build"
   },
   "repository": {
@@ -78,6 +79,7 @@
     "url-loader": "~0.5.7",
     "velocity-animate": "^1.2.3",
     "waypoints": "^4.0.0",
-    "webpack": "~1.12.14"
+    "webpack": "~1.12.14",
+    "webpack-dev-server": "^1.14.1"
   }
 }
