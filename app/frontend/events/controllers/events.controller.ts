@@ -2,7 +2,7 @@
 "use strict";
 
 import EventsService from "../services/events.service";
-import Event from "../services/event.service";
+import EventService from "../services/event.service";
 
 export default class EventsController {
 
@@ -14,7 +14,7 @@ export default class EventsController {
         private $rootScope: IAppRootScopeService,
         private $scope: ng.IScope,
         private events: EventsService,
-        private eventService: Event)
+        private eventService: EventService)
     {
         this.listTitle = "Events";
         this.events.load();
@@ -27,6 +27,16 @@ export default class EventsController {
         this.eventService.fastAdd().then((data: any): void => {
             if (typeof (data) === "object" && typeof (data.id) !== "undefined") {
                 self.events.unshift(data);
+            }
+        });
+    }
+
+    public edit(event: IEvent): void {
+
+        let self: EventsController = this;
+        this.eventService.fastEdit(event).then((response: any): void => {
+            if (typeof response === "object" && typeof response.id !== "undefined") {
+                self.events.update(response);
             }
         });
     }

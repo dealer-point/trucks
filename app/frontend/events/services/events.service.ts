@@ -2,9 +2,9 @@
 "use strict";
 
 import ObjectsList from "../../libs/objects_list";
-import Event from "libs/event";
+// import Event from "libs/event";
 
-export default class Events extends ObjectsList<Event> {
+export default class Events extends ObjectsList<IEvent> {
 
     public static $inject: Array<string> = ["$http", "$rootScope"];
 

@@ -76,7 +76,7 @@ interface IResponseCollection<T> {
 }
 
 interface IResponseObject<T> {
-  object: T;
+  data: T;
   meta: any;
 }
 

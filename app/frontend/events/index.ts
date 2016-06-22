@@ -12,7 +12,4 @@ angular
     .service("EventService", EventService)
     .controller("EventsController", EventsController)
     .controller("FastAddEventController", FastAddEventController)
-    .config(Routes)
-    .run((): void => {
-        console.log("Module \"Events\" initialization completed");
-    });
+    .config(Routes);

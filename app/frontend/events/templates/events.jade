@@ -16,20 +16,22 @@ div#page_content
                             tr
                                 th Title
                                 th Kind
+                                th.uk-text-center
                                 th Assigned at
                                 th Status
                                 th Assigned by
                                 //- th Description
-                                th.uk-text-center &nbsp;
+                                th.uk-text-center Actions
                         tfoot
                             tr
                                 th Title
                                 th Kind
+                                th.uk-text-center
                                 th Assigned at
                                 th Status
                                 th Assigned by
                                 //- th Description
-                                th.uk-text-center &nbsp;
+                                th.uk-text-center Actions
                         tbody
                             tr(data-ng-repeat="event in $eventsCtrl.events.collection | filter: $eventsCtrl.search | orderBy: '-assigned_at_timestamp'" data-ng-class-even="'even'")
                                 td(data-ng-bind="event.title")
@@ -39,6 +41,8 @@ div#page_content
                                         span(data-ng-switch-when="outgoing_call") Outgoing call
                                         span(data-ng-switch-when="meet") Meet
                                         span(data-ng-switch-when="request") Request
+                                td
+                                    span.uk-badge.uk-badge-danger(data-ng-show="event.overdue") overdue
                                 td(data-ng-bind="event.assigned_at")
                                 td(data-ng-switch="event.status")
                                     span.uk-badge(data-ng-switch-when="pending") Pending
@@ -50,8 +54,10 @@ div#page_content
                                         | &nbsp;
                                         span(data-ng-bind="event.assigned_by.lastname")
                                 //- td(data-ng-bind="event.description")
-                                td.uk-text-right
-                                    span.uk-badge.uk-badge-danger(data-ng-show="event.overdue") overdue
+                                td.uk-text-center
+                                    a(href="javascript:void(0)")
+                                         //- data-ng-click="$companiesCtrl.remove(company)"
+                                        i.md-icon.material-icons.md-24(data-ng-click="$eventsCtrl.edit(event)") &#xE254;
 div.md-fab-wrapper
     a.md-fab.md-fab-accent(href="javascript:void(0)" data-ng-click="$eventsCtrl.add()")
         i.material-icons &#xE145;

@@ -37,4 +37,12 @@ class Event < ApplicationRecord
     assigned_at.to_i
   end
 
+  def date
+    assigned_at.strftime('%d.%m.%Y') if assigned_at.present?
+  end
+
+  def time
+    assigned_at.strftime('%H:%M') if assigned_at.present?
+  end
+
 end

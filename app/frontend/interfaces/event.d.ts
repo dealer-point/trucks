@@ -5,8 +5,6 @@ interface IEvent extends IModel {
     description: string;
     created_by: IUser;
     assigned_by: IUser;
-    processed_by: IUser;
     created_at: string;
     assigned_at: string;
-    processed_at: string;
 }

@@ -29,4 +29,8 @@ class User < ApplicationRecord
   def activities
     @activities ||= roles.select(:activities).distinct.map(&:activities).flatten
   end
+
+  def title
+    "#{name} #{lastname}"
+  end
 end

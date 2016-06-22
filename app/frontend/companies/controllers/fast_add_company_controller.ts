@@ -1,14 +1,13 @@
 
 "use strict";
 
-import ObjectClass from  "../../libs/object";
 import Company from  "../../libs/company";
 
 export default class FastAddCompanyController {
 
     public static $inject: Array<string> = ["$rootScope", "$scope", "$http"];
 
-    public company: ObjectClass<Company>;
+    public company: Company;
     public loading: boolean = false;
 
     constructor(
@@ -16,7 +15,7 @@ export default class FastAddCompanyController {
         private $scope: angular.dialog.IDialogScope,
         private $http: ng.IHttpService)
     {
-        this.company = new ObjectClass<Company>(this.$http, "/api/v1/companies");
+        this.company = new Company(this.$http);
     }
 
     public save(): void {

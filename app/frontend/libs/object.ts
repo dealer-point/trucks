@@ -1,8 +1,9 @@
 
 "use strict";
 
-export default class ObjectClass<T> {
+export default class ObjectClass {
 
+    public id: number;
     public $http: ng.IHttpService;
     public url: string = "";
     public errors: Object;
@@ -12,31 +13,37 @@ export default class ObjectClass<T> {
         this.url = url;
     }
 
-    public load(): ng.IHttpPromise<IResponseObject<T>> {
-        let self: ObjectClass<T> = this;
+    public load(): ng.IHttpPromise<IResponseObject<ObjectClass>> {
+        let self: ObjectClass = this;
 
-        return this.$http.get(this.url).success((response: IResponseObject<T>): void => {
-            angular.extend(self, response.object);
+        return this.$http.get(`${this.url}/${this.id}`).success((response: IResponseObject<ObjectClass>): void => {
+            angular.extend(self, response.data);
         });
     }
 
-    public save(): ng.IHttpPromise<ObjectClass<T>> {
+    public save(): ng.IHttpPromise<ObjectClass> {
 
-        let self: ObjectClass<T> = this;
+        let self: ObjectClass = this;
 
-        return this
-            .$http
-            .post(this.url, this)
-            .error((response: IResponseObjectErrors<T>): void => {
+        let httpPromise: ng.IHttpPromise<ObjectClass>;
+
+        if (typeof(this.id) === "undefined") {
+            httpPromise = this.$http.post(this.url, this);
+        } else {
+            httpPromise = this.$http.put(`${this.url}/${this.id}`, this);
+        }
+
+        return httpPromise
+            .error((response: IResponseObjectErrors<ObjectClass>): void => {
                 self.errors = response.errors;
             });
     }
 
-    public destroy(): ng.IHttpPromise<IResponseObject<T>> {
+    public destroy(): ng.IHttpPromise<IResponseObject<ObjectClass>> {
         return this.$http.delete(this.url);
     }
 
-    public extend(obj: T): void {
+    public extend(obj: ObjectClass): void {
         angular.extend(this, obj);
     }
 }

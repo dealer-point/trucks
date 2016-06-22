@@ -6,19 +6,21 @@ interface IEventKind {
     value: string;
 };
 
-import ObjectClass from  "../../libs/object";
 import Event from  "../../libs/event";
+import UsersService from "core/services/users.service";
 
 export default class FastAddEventController {
 
-    public static $inject: Array<string> = ["$rootScope", "$scope", "$http"];
+    public static $inject: Array<string> = ["$rootScope", "$scope", "$http", "event", "UsersService"];
 
-    public event: ObjectClass<Event>;
+    public event: Event;
     public loading: boolean = false;
-
-    public users: any = [
-        { id: 1, title: "Igor Kasparov", value: "i-kasparov" }
-    ];
+    public modeTitle: string = "New event";
+    public preparing: number = 0; // if start preparing - inc value, when stop preparing - dec value
+    public _users: Array<IUser> = [];
+    // public users: Array<IUser> = [
+    //     <IUser>{ id: 1, title: "Igor Kasparov"}
+    // ];
 
     public kinds: Array<IEventKind> = [
         <IEventKind>{ symbol: "incoming_call", value: "Incoming call" },
@@ -30,9 +32,31 @@ export default class FastAddEventController {
     constructor(
         private $rootScope: IAppRootScopeService,
         private $scope: angular.dialog.IDialogScope,
-        private $http: ng.IHttpService)
+        private $http: ng.IHttpService,
+        private _event: Event,
+        private users: UsersService)
     {
-        this.event = new ObjectClass<Event>(this.$http, "/api/v1/events");
+        // this.preparing++;
+        this.event = new Event(this.$http);
+
+        // this.preparing++;
+        this.users.load();
+        // .then(
+        //     (): void => { this.preparing--; },
+        //     (): void => { this.preparing--; }
+        // );
+
+        if (typeof(_event) !== "undefined") {
+            this.modeTitle = "Edit event";
+            this.event.extend(_event);
+            // this.preparing++;
+            this.event.load();
+            // .then(
+            //     (): void => { this.preparing--; },
+            //     (): void => { this.preparing--; }
+            // );
+        }
+        // this.preparing--;
     }
 
     public save(): void {

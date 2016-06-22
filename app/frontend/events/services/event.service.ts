@@ -1,8 +1,6 @@
 
 "use strict";
 
-import Event from  "libs/event";
-
 export default class EventService {
 
     public static $inject: Array<string> = ["$q", "$http", "$rootScope", "ngDialog"];
@@ -16,9 +14,11 @@ export default class EventService {
     {
     }
 
-    public fastAdd(): ng.IPromise<Event> {
+    public fastAdd(_event?: IEvent): ng.IPromise<IEvent> {
 
-        let deferred: ng.IDeferred<Event> = this.$q.defer();
+        _event = _event || undefined;
+
+        let deferred: ng.IDeferred<IEvent> = this.$q.defer();
 
         let dialog: angular.dialog.IDialogOpenResult = this.ngDialog.open({
             template: require("../templates/fast_add_event.jade")(),
@@ -26,7 +26,10 @@ export default class EventService {
             closeByDocument: false,
             showClose: false,
             controller: "FastAddEventController",
-            controllerAs: "$faeCtrl"
+            controllerAs: "$faeCtrl",
+            resolve: {
+                event: (): IEvent => { return _event; }
+            }
         });
 
         dialog.closePromise.then((data: angular.dialog.IDialogClosePromise): void => {
@@ -34,5 +37,10 @@ export default class EventService {
         });
 
         return deferred.promise;
+    }
+
+    public fastEdit(event: IEvent): ng.IPromise<IEvent> {
+        let eventNew: IEvent = angular.copy(event);
+        return this.fastAdd(eventNew);
     }
 }

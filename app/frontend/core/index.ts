@@ -1,6 +1,7 @@
 import RoutesConfig from "./routes";
 
 import CurrentUser from "./services/current_user_service";
+import UsersService from "./services/users.service";
 
 import ActivityDirective from "./directives/activity";
 
@@ -11,6 +12,7 @@ import welcomeController from "./controllers/welcome_controller";
 export default angular
     .module("core", [])
     .service("CurrentUser", CurrentUser)
+    .service("UsersService", UsersService)
     .directive("activity", ActivityDirective)
     .controller("MainSidebar", MainSidebar)
     .controller("MainHeader", MainHeader)

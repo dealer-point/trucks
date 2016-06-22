@@ -8,7 +8,7 @@ html(style="overflow-y: scroll !important;" class="page_loading" data-ng-app="tr
 
     body.default_theme(data-uk-observe data-ng-class="{ 'sidebar_main_active' : primarySidebarActive, 'sidebar_main_open' : primarySidebarOpen }")
         #page_preloader(data-ng-hide="hidePreloader")
-            img(src=require("./assets/template/images/page_preloader.gif") alt="")
+            img(src=require("./assets/template/images/page_preloader.gif") title="Please wait, page is loading")
 
         div(ui-view="main_header")
         div(ui-view id="main_view" ng-class="{'uk-height-1-1': page_full_height }")

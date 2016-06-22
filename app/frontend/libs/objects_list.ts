@@ -55,6 +55,12 @@ export default class ObjectsList<T extends IModel> {
         this.collection = [];
     }
 
+    public update(event: IEvent): void {
+        let _event: any = _.find(this.collection, (x: IEvent) => x.id === event.id);
+        angular.extend(_event, event);
+
+    }
+
     public get length(): number {
         return this.collection.length;
     }
