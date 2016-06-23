@@ -91,3 +91,10 @@ interface ICardTool {
     countable?: boolean; // Set true for show countable-tool
     position?: number; // Position number in menu
 }
+
+declare var autosize: IAutosize;
+
+interface IAutosize {
+    (elem: JQuery): void;
+    update(elem: JQuery): void;
+}

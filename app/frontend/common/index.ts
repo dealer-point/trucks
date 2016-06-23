@@ -17,6 +17,7 @@ import mainSearchShow       from "./directives/main_search_show";
 import mainSearchHide       from "./directives/main_search_hide";
 import mdInput              from "./directives/md_input";
 import mdPreloader          from "./directives/md_preloader";
+import textareaAutosize     from "./directives/textarea_autosize";
 
 // controllers
 // import mainSidebar       from "./controllers/main_sidebar";
@@ -38,6 +39,7 @@ export default angular
     .directive("mainSearchHide",       mainSearchHide)
     .directive("mdInput",              mdInput)
     .directive("mdPreloader",          mdPreloader)
+    .directive("textareaAutosize", textareaAutosize)
     .name;
     // .controller("mainSidebar",         mainSidebar)
     // .controller("mainHeader",          mainHeader)

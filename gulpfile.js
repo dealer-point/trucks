@@ -60,7 +60,9 @@ gulp.task('common_js', function () {
     // selectize
     "node_modules/selectize/dist/js/standalone/selectize.js",
     // lodash
-    "node_modules/lodash/lodash.js"
+    "node_modules/lodash/lodash.js",
+    // autosize
+    "app/frontend/assets/template/js/autosize.js"
   ])
     .pipe(plugins.concat('common.js'))
     .on('error', function(err) {

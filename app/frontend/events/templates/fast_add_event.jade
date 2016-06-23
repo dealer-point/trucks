@@ -42,7 +42,7 @@ form.uk-form-stacked.event-form(data-ng-show="$faeCtrl.preparing == 0")
             textarea.md-input(type="text"
                               data-ng-model="$faeCtrl.event.description"
                               data-ng-class="{ 'md-input-danger' : $faeCtrl.event.errors.description }"
-                              md-input)
+                              md-input textarea-autosize)
             div.error.uk-text-danger.uk-margin-top-remove.uk-text-right(data-ng-bind="$faeCtrl.event.errors.description[0]")
 div.uk-text-right
     md-preloader.uk-float-left(success width="35" height="35" stroke-Width="6" data-ng-if="$faeCtrl.loading || $faeCtrl.preparing > 0")
