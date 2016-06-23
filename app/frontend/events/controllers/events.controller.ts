@@ -40,4 +40,25 @@ export default class EventsController {
             }
         });
     }
+
+    public remove(event: IEvent): void {
+
+        // todo : Добавить модальным окном #ng-dialog
+
+        // todo : сделать через перевод #angular-translate
+
+        if (!confirm("Are you sure you want to delete the event \"" + event.title + "\"?")) {
+            return;
+        }
+
+        this.$rootScope.content_preloader_show();
+
+        this.events.remove(event).then((): void => {
+
+            // todo : состояние обработки выписывать уведомелнием
+
+            this.$rootScope.content_preloader_hide();
+        });
+
+    }
 }

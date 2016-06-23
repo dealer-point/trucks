@@ -5,6 +5,7 @@ import ObjectClass from "../libs/object";
 
 export default class Event extends ObjectClass implements IEvent {
     public id: number;
+    public title: string;
     public kind: string;
     public status: string;
     public description: string;

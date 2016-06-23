@@ -56,8 +56,9 @@ div#page_content
                                 //- td(data-ng-bind="event.description")
                                 td.uk-text-center
                                     a(href="javascript:void(0)")
-                                         //- data-ng-click="$companiesCtrl.remove(company)"
                                         i.md-icon.material-icons.md-24(data-ng-click="$eventsCtrl.edit(event)") &#xE254;
+                                    a(href="javascript:void(0)")
+                                        i.md-icon.material-icons.md-24(data-ng-click="$eventsCtrl.remove(event)") &#xE872;
 div.md-fab-wrapper
     a.md-fab.md-fab-accent(href="javascript:void(0)" data-ng-click="$eventsCtrl.add()")
         i.material-icons &#xE145;

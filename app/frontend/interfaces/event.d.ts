@@ -1,5 +1,6 @@
 
 interface IEvent extends IModel {
+    title: string;
     kind: string;
     status: string;
     description: string;

@@ -75,6 +75,18 @@ class Api::V1::EventsController < Api::V1::BaseController
     end
   end
 
+  def destroy
+    event = Event.find(params[:id])
+
+    authorize(event)
+
+    if event.destroy
+      head :ok
+    else
+      head :errors
+    end
+  end
+
 private
 
   def event_params
