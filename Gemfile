@@ -1,11 +1,14 @@
 source 'https://rubygems.org'
 
-gem 'rails', '>= 5.0.0.rc1', '< 5.1'
+# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '~> 5.0.0'
 gem 'pg'
-gem 'puma'
-gem 'jbuilder', '~> 2.0'
+# Use Puma as the app server
+gem 'puma', '~> 3.0'
+gem 'jbuilder', '~> 2.5'
 gem 'pundit'
 gem 'apartment'
+# Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 gem 'unicorn'
 gem 'awesome_print'
@@ -15,10 +18,12 @@ gem 'phonelib'
 gem 'carrierwave'
 
 group :development, :test do
-  gem 'byebug'
-  gem 'rspec', '~> 3.5.0.beta2'
-  gem 'rspec-core', '~> 3.5.0.beta2'
-  gem 'rspec-rails', '~> 3.5.0.beta2'
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platform: :mri
+
+  gem 'rspec'
+  gem 'rspec-core'
+  gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'database_cleaner'
@@ -26,15 +31,17 @@ group :development, :test do
 end
 
 group :development do
-  gem 'mina'
-  gem 'mina-unicorn', :require => false
-  # Multi-stage support for Mina
-  gem 'mina-multistage', require: false
-  gem 'foreman'
-  gem 'web-console', '~> 3.0'
   gem 'listen', '~> 3.0.5'
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  # Deploy
+  gem 'mina'
+  gem 'mina-unicorn', :require => false
+  gem 'mina-multistage', require: false
+
+  gem 'foreman'
   gem 'pry-rails'
   gem 'rubocop', require: false
   gem 'guard'
