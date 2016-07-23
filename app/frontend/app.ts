@@ -21,8 +21,6 @@ let dependencies: Array<string> = [
     "ui.router",
     "ngSanitize",
     "ngAnimate",
-    "ngRetina",
-    "ncy-angular-breadcrumb",
     "companies",
     "events",
     "common",

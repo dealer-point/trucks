@@ -122,9 +122,6 @@ gulp.task('angular_common', function () {
     "node_modules/angular-sanitize/angular-sanitize.js",
     "node_modules/angular-animate/angular-animate.js",
     "node_modules/angular-ui-router/release/angular-ui-router.js",
-    "node_modules/oclazyload/dist/ocLazyLoad.js",
-    "app/frontend/assets/template/js/angular-retina.js",
-    "node_modules/angular-breadcrumb/dist/angular-breadcrumb.js",
     "node_modules/ng-dialog/js/ngDialog.js"
   ])
     .pipe(plugins.concat('angular_common.js'))

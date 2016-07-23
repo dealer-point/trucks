@@ -3,7 +3,6 @@
     "align": [
       true,
       "parameters",
-      // "arguments",
       "statements"
     ],
     "ban": false,
@@ -72,9 +71,7 @@
     "object-literal-sort-keys": false,
     "one-line": [
       true,
-      // "check-open-brace",
       "check-catch",
-      // "check-else",
       "check-finally",
       "check-whitespace"
     ],
