@@ -1,3 +1,6 @@
+
+import './style.scss';
+
 import RoutesConfig from './routes';
 
 import CurrentUser from './services/current_user_service';
