@@ -83,12 +83,9 @@ gulp.task('common_js', function () {
 // custom uikit
 gulp.task('uikit_js', function () {
   return gulp.src([
-    // // uikit core
     "node_modules/uikit/dist/js/uikit.js",
-    // // uikit components
     "node_modules/uikit/dist/js/components/accordion.js",
     "node_modules/uikit/dist/js/components/autocomplete.js",
-    "app/frontend/assets/template/js/uikit_datepicker.js",
     "node_modules/uikit/dist/js/components/form-password.js",
     "node_modules/uikit/dist/js/components/form-select.js",
     "node_modules/uikit/dist/js/components/grid.js",
@@ -99,8 +96,9 @@ gulp.task('uikit_js', function () {
     "node_modules/uikit/dist/js/components/sortable.js",
     "node_modules/uikit/dist/js/components/sticky.js",
     "node_modules/uikit/dist/js/components/tooltip.js",
-    "app/frontend/assets/template/js/uikit_timepicker.js",
+    "node_modules/uikit/dist/js/components/timepicker.js",
     "node_modules/uikit/dist/js/components/upload.js",
+    "app/frontend/assets/template/js/uikit_datepicker.js",
     "app/frontend/assets/template/js/uikit_beforeready.js"
   ])
     .pipe(plugins.concat('uikit_custom.js'))
