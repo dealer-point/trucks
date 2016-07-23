@@ -1,51 +1,50 @@
-"use strict";
+'use strict';
 
 /**
  * Show/hide elements based on provided activities/roles
  *
  * @example
- * <div activity only="['role:show']"></div>
- * <div activity only="['role:show', 'role:update']" except="['role:destroy']"></div>
- * <div activity except="role:update"></div>
+ * <div activity only='['role:show']'></div>
+ * <div activity only='['role:show', 'role:update']' except='['role:destroy']'></div>
+ * <div activity except='role:update'></div>
  */
 
 export default function ActivityDirective(): ng.IDirective {
-    "use strict";
+    'use strict';
     return {
         bindToController: {
-            except: "=",
-            only: "="
+            except: '=',
+            only: '='
         },
         controller: ActivityController,
-        controllerAs: "activity",
-        restrict: "A",
+        controllerAs: 'activity',
+        restrict: 'A',
         scope: true
     };
 };
 
 class ActivityController {
-    public static $inject: Array<string> = ["$scope", "$element", "CurrentUser"];
+    public static $inject: Array<string> = ['$scope', '$element', 'CurrentUser'];
     public only: Array<string>;
     public except: Array<string>;
 
     constructor(
         private $scope: ng.IScope,
         private $element: ng.IAugmentedJQuery,
-        private currentUser: IUser)
-    {
+        private currentUser: IUser) {
 
         let ctrl: ActivityController = this;
 
-        $scope.$watchGroup(["currentUser.activities", "activity.only", "activity.except"],
+        $scope.$watchGroup(['currentUser.activities', 'activity.only', 'activity.except'],
             (): void => {
                 try {
                     if (ctrl.check()) {
-                        $element.removeClass("ng-hide");
+                        $element.removeClass('ng-hide');
                     } else {
-                        $element.addClass("ng-hide");
+                        $element.addClass('ng-hide');
                     }
                 } catch (e) {
-                    $element.addClass("ng-hide");
+                    $element.addClass('ng-hide');
                     console.error(e);
                 }
             }
@@ -56,7 +55,7 @@ class ActivityController {
         let ctrl: ActivityController = this;
         if (ctrl.currentUser && ctrl.currentUser.activities) {
             if (ctrl.except) {
-                let count: number = 0;
+                let count = 0;
                 angular.forEach(ctrl.except, (activity: string): void => {
                     if (ctrl.currentUser.activities.indexOf(activity) >= 0) {
                         count++;

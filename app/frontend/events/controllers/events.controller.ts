@@ -1,12 +1,17 @@
 
-"use strict";
+'use strict';
 
-import EventsService from "../services/events.service";
-import EventService from "../services/event.service";
+import EventsService from '../services/events.service';
+import EventService from '../services/event.service';
 
 export default class EventsController {
 
-    public static $inject: Array<string> = ["$rootScope", "$scope", "EventsService", "EventService"];
+    public static $inject: Array<string> = [
+        '$rootScope',
+        '$scope',
+        'EventsService',
+        'EventService'
+    ];
 
     public listTitle: string;
 
@@ -14,9 +19,9 @@ export default class EventsController {
         private $rootScope: IAppRootScopeService,
         private $scope: ng.IScope,
         private events: EventsService,
-        private eventService: EventService)
-    {
-        this.listTitle = "Events";
+        private eventService: EventService) {
+
+        this.listTitle = 'Events';
         this.events.load();
     }
 
@@ -25,7 +30,7 @@ export default class EventsController {
         let self: EventsController = this;
 
         this.eventService.fastAdd().then((data: any): void => {
-            if (typeof (data) === "object" && typeof (data.id) !== "undefined") {
+            if (typeof (data) === 'object' && typeof (data.id) !== 'undefined') {
                 self.events.unshift(data);
             }
         });
@@ -35,7 +40,7 @@ export default class EventsController {
 
         let self: EventsController = this;
         this.eventService.fastEdit(event).then((response: any): void => {
-            if (typeof response === "object" && typeof response.id !== "undefined") {
+            if (typeof response === 'object' && typeof response.id !== 'undefined') {
                 self.events.update(response);
             }
         });
@@ -47,7 +52,7 @@ export default class EventsController {
 
         // todo : сделать через перевод #angular-translate
 
-        if (!confirm("Are you sure you want to delete the event \"" + event.title + "\"?")) {
+        if (!confirm(`Are you sure you want to delete the event "${event.title}"?`)) {
             return;
         }
 

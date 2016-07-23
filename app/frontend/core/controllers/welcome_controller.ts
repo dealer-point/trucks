@@ -1,9 +1,9 @@
 
-// import { Modal } from "../../common/services/modal";
+// import { Modal } from '../../common/services/modal';
 
 export default class WelcomeController {
 
-    public static $inject: Array<string> = ["$rootScope", "ngDialog"];
+    public static $inject: Array<string> = ['$rootScope', 'ngDialog'];
 
     constructor(
         private $rootScope: IAppRootScopeService,
@@ -21,7 +21,7 @@ export default class WelcomeController {
     public addCompany(): void {
 
         this.ngDialog.open({
-            template: require("../templates/mymodal.jade")(),
+            template: require('../templates/mymodal.jade')(),
             plain: true,
             closeByDocument: false,
             showClose: false

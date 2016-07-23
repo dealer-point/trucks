@@ -1,5 +1,15 @@
 
-RootConfig.$inject = ["$rootScope", "$state", "$stateParams", "$http", "$window", "$timeout", "variables", "preloaders"];
+RootConfig.$inject = [
+    '$rootScope',
+    '$state',
+    '$stateParams',
+    '$http',
+    '$window',
+    '$timeout',
+    'variables',
+    'preloaders'
+];
+
 export default function RootConfig(
     $rootScope: IAppRootScopeService,
     $state: ng.ui.IStateProvider,
@@ -8,14 +18,13 @@ export default function RootConfig(
     $window: Window,
     $timeout: ng.ITimeoutService,
     variables: any,
-    preloaders: any): void
-{
-    "use strict";
+    preloaders: any): void {
+    'use strict';
 
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
 
-    $rootScope.$on("$stateChangeSuccess", () => {
+    $rootScope.$on('$stateChangeSuccess', () => {
 
         let animateParams: Object = {
             scrollTop: 0
@@ -28,17 +37,26 @@ export default function RootConfig(
 
         function PreparePlugins(): void {
             $rootScope.pageLoaded = $rootScope.appInitialized = true;
-            Waves.attach(".md-btn-wave,.md-fab-wave", ["waves-button"]);
-            Waves.attach(".md-btn-wave-light,.md-fab-wave-light", ["waves-button", "waves-light"]);
+            Waves.attach('.md-btn-wave,.md-fab-wave', ['waves-button']);
+            Waves.attach('.md-btn-wave-light,.md-fab-wave-light', [
+                'waves-button',
+                'waves-light'
+            ]);
         }
 
-        $("html, body").animate(animateParams, 200);
+        $('html, body').animate(animateParams, 200);
         $timeout(PerparePage, 300);
         $timeout(PreparePlugins, 600);
 
     });
 
-    $rootScope.$on("$stateChangeStart", (event: angular.IAngularEvent, toState: any, toParams: any, fromState: any, fromParams: any) => {
+    $rootScope.$on('$stateChangeStart', (
+        event: angular.IAngularEvent,
+        toState: any,
+        toParams: any,
+        fromState: any,
+        fromParams: any) => {
+
         // main search
         $rootScope.mainSearchActive = false;
         // single card
@@ -64,7 +82,7 @@ export default function RootConfig(
             $rootScope.primarySidebarActive = false;
             $rootScope.hide_content_sidebar = false;
         }
-        if (!toParams.hasOwnProperty("hidePreloader")) {
+        if (!toParams.hasOwnProperty('hidePreloader')) {
             $rootScope.pageLoading = true;
             $rootScope.pageLoaded = false;
         }
@@ -77,7 +95,7 @@ export default function RootConfig(
 
     $rootScope.largeScreen = w.width() >= 1220;
 
-    w.on("resize", () => {
+    w.on('resize', () => {
         return $rootScope.largeScreen = w.width() >= 1220;
     });
 

@@ -8,17 +8,17 @@ interface IJQuery extends JQuery {
     velocity(slideToogle: string): Function;
 }
 
-let template: Function = require("../templates/main_search_hide.jade");
+let template: Function = require('../templates/main_search_hide.jade');
 
-mainSearchHide.$inject = ["$rootScope", "$window", "$timeout", "variables"];
+mainSearchHide.$inject = ['$rootScope', '$window', '$timeout', 'variables'];
 export default function mainSearchHide(
     $rootScope: IAppRootScopeService,
     $window: Window,
     variables: any): ng.IDirective {
-    "use strict";
+    'use strict';
 
     return {
-        restrict: "E",
+        restrict: 'E',
         template: template(),
         replace: true,
         scope: true,
@@ -26,25 +26,25 @@ export default function mainSearchHide(
             scope.hideSearch = ($event: ng.IAngularEvent) => {
                 $event.preventDefault();
 
-                let $headerMain: IJQuery = <IJQuery>$("#header_main");
+                let $headerMain: IJQuery = <IJQuery>$('#header_main');
 
                 (<IJQuery>$headerMain
-                    .children(".header_main_search_form"))
-                    .velocity("transition.slideUpBigOut", {
+                    .children('.header_main_search_form'))
+                    .velocity('transition.slideUpBigOut', {
                         duration: 280,
                         easing: variables.easingSwiftOut,
                         begin: (): void => {
-                            $headerMain.velocity("reverse");
+                            $headerMain.velocity('reverse');
                             $rootScope.mainSearchActive = false;
                         },
                         complete: (): void => {
                             (<IJQuery>$headerMain
-                                .children(".header_main_content"))
-                                .velocity("transition.slideDownBigIn", {
+                                .children('.header_main_content'))
+                                .velocity('transition.slideDownBigIn', {
                                     duration: 280,
                                     easing: variables.easingSwiftOut,
                                     complete: (): void => {
-                                        $(".header_main_search_input").blur().val("");
+                                        $('.header_main_search_input').blur().val('');
                                     }
                                 });
                         }

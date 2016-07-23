@@ -9,17 +9,16 @@ interface IScope extends ng.IScope {
     onKeyUp: Function;
 }
 
-documentEvents.$inject = ["$rootScope", "$window", "$timeout", "variables"];
+documentEvents.$inject = ['$rootScope', '$window', '$timeout', 'variables'];
 export default function documentEvents(
     $rootScope: IAppRootScopeService,
     $window: Window,
     $timeout: ng.ITimeoutService,
-    variables: any): ng.IDirective
-{
-    "use strict";
+    variables: any): ng.IDirective {
+    'use strict';
 
     return {
-        restrict: "A",
+        restrict: 'A',
         link: (scope: IScope, el: ng.IAugmentedJQuery, attrs: ng.IAttributes): void => {
             let hidePrimarySidebar: Function = () => {
                 $rootScope.primarySidebarActive = false;
@@ -36,24 +35,24 @@ export default function documentEvents(
             };
 
             let hideMainSearch: Function = () => {
-                let $headerMain: IJQuery = <IJQuery>$("#header_main");
+                let $headerMain: IJQuery = <IJQuery>$('#header_main');
                 (<IJQuery>$headerMain
-                    .children(".header_main_search_form"))
-                    .velocity("transition.slideUpBigOut", {
+                    .children('.header_main_search_form'))
+                    .velocity('transition.slideUpBigOut', {
                         duration: 280,
                         easing: variables.easingSwiftOut,
                         begin: (): void => {
-                            $headerMain.velocity("reverse");
+                            $headerMain.velocity('reverse');
                             $rootScope.mainSearchActive = false;
                         },
                         complete: (): void => {
                             (<IJQuery>$headerMain
-                                .children(".header_main_content"))
-                                .velocity("transition.slideDownBigIn", {
+                                .children('.header_main_content'))
+                                .velocity('transition.slideDownBigIn', {
                                     duration: 280,
                                     easing: variables.easingSwiftOut,
                                     complete: (): void => {
-                                        $(".header_main_search_input").blur().val("");
+                                        $('.header_main_search_input').blur().val('');
                                     }
                                 });
                         }
@@ -64,26 +63,26 @@ export default function documentEvents(
             scope.onClick = ($event: JQueryEventObject) => {
                 // primary sidebar
                 if ($rootScope.primarySidebarActive &&
-                    !$($event.target).closest("#sidebar_main").length &&
-                    !$($event.target).closest("#sSwitch_primary").length &&
+                    !$($event.target).closest('#sidebar_main').length &&
+                    !$($event.target).closest('#sSwitch_primary').length &&
                     !$rootScope.largeScreen) {
                     hidePrimarySidebar();
                 }
                 // secondary sidebar
                 if ($rootScope.secondarySidebarActive &&
-                    !$($event.target).closest("#sidebar_secondary").length &&
-                    !$($event.target).closest("#sSwitch_secondary").length) {
+                    !$($event.target).closest('#sidebar_secondary').length &&
+                    !$($event.target).closest('#sSwitch_secondary').length) {
                     hideSecondarySidebar();
                 }
                 // main search form
                 if ($rootScope.mainSearchActive &&
-                    !$($event.target).closest(".header_main_search_form").length &&
-                    !$($event.target).closest("#main_search_btn").length) {
+                    !$($event.target).closest('.header_main_search_form').length &&
+                    !$($event.target).closest('#main_search_btn').length) {
                     hideMainSearch();
                 }
                 // style switcher
                 if ($rootScope.styleSwitcherActive &&
-                    !$($event.target).closest("#style_switcher").length) {
+                    !$($event.target).closest('#style_switcher').length) {
                     $rootScope.styleSwitcherActive = false;
                 }
             };
@@ -91,7 +90,8 @@ export default function documentEvents(
             // hide components on key press (esc)
             scope.onKeyUp = ($event: JQueryEventObject) => {
                 // primary sidebar
-                if ( $rootScope.primarySidebarActive && !$rootScope.largeScreen && $event.keyCode === 27) {
+                if ( $rootScope.primarySidebarActive &&
+                    !$rootScope.largeScreen && $event.keyCode === 27) {
                     hidePrimarySidebar();
                 }
                 // secondary sidebar

@@ -3,17 +3,16 @@ interface ISidebarPrimaryScope extends ng.IScope {
     togglePrimarySidebar: Function;
 }
 
-let template: Function = require("../templates/sidebar_primary_toggle.jade");
+let template: Function = require('../templates/sidebar_primary_toggle.jade');
 
 export default function sidebarPrimaryToggle(
     $rootScope: IAppRootScopeService,
     $window: Window,
-    $timeout: ng.ITimeoutService): ng.IDirective
-{
-    "use strict";
+    $timeout: ng.ITimeoutService): ng.IDirective {
+    'use strict';
 
     return {
-        restrict: "E",
+        restrict: 'E',
         replace: true,
         scope: true,
         template: template(),
@@ -22,21 +21,16 @@ export default function sidebarPrimaryToggle(
 
                 $event.preventDefault();
 
-                if ($rootScope.primarySidebarActive)
-                {
+                if ($rootScope.primarySidebarActive) {
                     $rootScope.primarySidebarHiding = true;
-                    if ($rootScope.largeScreen)
-                    {
+                    if ($rootScope.largeScreen) {
                         $timeout(() => {
                             $rootScope.primarySidebarHiding = false;
                             $(window).resize();
                         }, 290);
                     }
-                }
-                else
-                {
-                    if ($rootScope.largeScreen)
-                    {
+                } else {
+                    if ($rootScope.largeScreen) {
                         $timeout(() => {
                             $(window).resize();
                         }, 290);
@@ -45,13 +39,16 @@ export default function sidebarPrimaryToggle(
 
                 $rootScope.primarySidebarActive = !$rootScope.primarySidebarActive;
 
-                if (!$rootScope.largeScreen)
-                {
-                    $rootScope.hide_content_sidebar = $rootScope.primarySidebarActive ? true : false;
+                if (!$rootScope.largeScreen) {
+                    if ($rootScope.primarySidebarActive) {
+                        $rootScope.hide_content_sidebar =  true;
+                    } else {
+                        $rootScope.hide_content_sidebar =  false;
+                    }
+
                 }
 
-                if ($rootScope.primarySidebarOpen)
-                {
+                if ($rootScope.primarySidebarOpen) {
                     $rootScope.primarySidebarOpen = false;
                     $rootScope.primarySidebarActive = false;
                 }
@@ -62,4 +59,4 @@ export default function sidebarPrimaryToggle(
     };
 };
 
-sidebarPrimaryToggle.$inject = ["$rootScope", "$window", "$timeout"];
+sidebarPrimaryToggle.$inject = ['$rootScope', '$window', '$timeout'];

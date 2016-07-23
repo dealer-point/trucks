@@ -1,7 +1,7 @@
 
-"use strict";
+'use strict';
 
-import ObjectClass from "../libs/object";
+import ObjectClass from '../libs/object';
 
 export default class Event extends ObjectClass implements IEvent {
     public id: number;
@@ -15,6 +15,6 @@ export default class Event extends ObjectClass implements IEvent {
     public assigned_at: string;
 
     constructor(http: ng.IHttpService) {
-        super(http, "/api/v1/events");
+        super(http, '/api/v1/events');
     }
 }

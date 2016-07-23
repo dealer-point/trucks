@@ -1,18 +1,18 @@
 
-"use strict";
+'use strict';
 
-import ObjectsList from "../../libs/objects_list";
-// import Company from "libs/company";
+import ObjectsList from '../../libs/objects_list';
+// import Company from 'libs/company';
 
 export default class Companies extends ObjectsList<ICompany> {
 
-    public static $inject: Array<string> = ["$http", "$rootScope"];
+    public static $inject: Array<string> = ['$http', '$rootScope'];
 
     constructor(
         $http: ng.IHttpService,
-        $rootScope: IAppRootScopeService)
-    {
+        $rootScope: IAppRootScopeService) {
+
         super($http);
-        this.url = "/api/v1/companies";
+        this.url = '/api/v1/companies';
     }
 }

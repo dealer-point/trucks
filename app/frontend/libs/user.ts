@@ -1,5 +1,5 @@
 
-"use strict";
+'use strict';
 
 export default class User implements IUser {
     public id: number;

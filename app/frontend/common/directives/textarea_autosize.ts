@@ -1,14 +1,14 @@
 
-"use strict";
+'use strict';
 
 console.log(autosize);
 
-textareaAutosize.$inject = ["$timeout"];
+textareaAutosize.$inject = ['$timeout'];
 export default function textareaAutosize($timeout: ng.ITimeoutService): ng.IDirective {
-    "use strict";
+    'use strict';
 
     return {
-        restrict: "A",
+        restrict: 'A',
         link: (scope: ng.IScope, elem: ng.IAugmentedJQuery, attrs: ng.IAttributes): void => {
             autosize($(elem));
             $timeout((): void => {

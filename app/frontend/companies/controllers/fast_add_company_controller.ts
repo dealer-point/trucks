@@ -1,11 +1,11 @@
 
-"use strict";
+'use strict';
 
-import Company from  "../../libs/company";
+import Company from  '../../libs/company';
 
 export default class FastAddCompanyController {
 
-    public static $inject: Array<string> = ["$rootScope", "$scope", "$http"];
+    public static $inject: Array<string> = ['$rootScope', '$scope', '$http'];
 
     public company: Company;
     public loading: boolean = false;
@@ -13,8 +13,7 @@ export default class FastAddCompanyController {
     constructor(
         private $rootScope: IAppRootScopeService,
         private $scope: angular.dialog.IDialogScope,
-        private $http: ng.IHttpService)
-    {
+        private $http: ng.IHttpService) {
         this.company = new Company(this.$http);
     }
 

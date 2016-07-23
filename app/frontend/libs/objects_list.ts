@@ -1,13 +1,13 @@
 
-"use strict";
+'use strict';
 
 export default class ObjectsList<T extends IModel> {
 
-    public static $inject: Array<string> = ["$http"];
+    public static $inject: Array<string> = ['$http'];
 
     public collection: Array<T> = [];
     public $http: ng.IHttpService;
-    public url: string = "";
+    public url: string = '';
 
     constructor(http: ng.IHttpService) {
         this.$http = http;
@@ -16,11 +16,10 @@ export default class ObjectsList<T extends IModel> {
     public load(): ng.IHttpPromise<ObjectsList<T>> {
         let self: ObjectsList<T> = this;
 
-        return this.$http.get(this.url).success((response: IResponseCollection<T>): void => {
-            // angular.forEach(response.collection, (item: T): void => {
-            //     let obj: ObjectClass<T> = new ObjectClass<T>(self.$http);
-            //     self.collection.push(obj);
-            // });
+        return this
+            .$http
+            .get(this.url)
+            .success((response: IResponseCollection<T>): void => {
 
             self.collection = response.data;
         });
@@ -28,13 +27,12 @@ export default class ObjectsList<T extends IModel> {
 
     public remove(object: T): ng.IHttpPromise<IResponseObject<T>> {
 
-        // console.log(id);
-
         let self: ObjectsList<T> = this;
 
-        // let obj: T = this.find(id);
-
-        return this.$http.delete(this.url + "/" + object.id).success((response: IResponseObject<T>): void => {
+        return this
+            .$http
+            .delete(this.url + '/' + object.id)
+            .success((response: IResponseObject<T>): void => {
             _.remove(self.collection, object);
         });
     }

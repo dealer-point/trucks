@@ -1,11 +1,11 @@
 
-"use strict";
+'use strict';
 
-import User from "../../libs/user";
+import User from '../../libs/user';
 
 export default class CurrentUser extends User {
 
-    public static $inject: Array<string> = ["$http", "$rootScope"];
+    public static $inject: Array<string> = ['$http', '$rootScope'];
     public activities: string[];
 
     constructor(
@@ -19,9 +19,9 @@ export default class CurrentUser extends User {
 
         let scope: CurrentUser = this;
 
-        return this.$http.get("/api/v1/users/current")
-            .success((response: Object): IUser => {
-                angular.extend(scope, response["data"]);
+        return this.$http.get('/api/v1/users/current')
+            .success((response: IResponseObject<IUser>): IUser => {
+                angular.extend(scope, response.data);
                 scope.$rootScope.currentUser = scope;
                 return scope;
             });
@@ -34,6 +34,6 @@ export default class CurrentUser extends User {
 
     public logout(): ng.IHttpPromise<CurrentUser> {
 
-        return this.$http.delete("/sessions");
+        return this.$http.delete('/sessions');
     }
 }

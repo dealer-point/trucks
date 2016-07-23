@@ -1,7 +1,7 @@
 
-"use strict";
+'use strict';
 
-import ObjectClass from "../libs/object";
+import ObjectClass from '../libs/object';
 
 export default class Company extends ObjectClass implements ICompany {
     public id: number;
@@ -11,6 +11,6 @@ export default class Company extends ObjectClass implements ICompany {
     public description: string;
 
     constructor(http: ng.IHttpService) {
-        super(http, "/api/v1/events");
+        super(http, '/api/v1/events');
     }
 }

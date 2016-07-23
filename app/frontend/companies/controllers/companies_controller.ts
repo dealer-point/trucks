@@ -1,13 +1,13 @@
 
-"use strict";
+'use strict';
 
-import CompanyService from "../services/company_service";
-import Companies from "../services/companies_service";
-import Company from  "libs/company";
+import CompanyService from '../services/company_service';
+import Companies from '../services/companies_service';
+import Company from  'libs/company';
 
 export default class CompaniesController {
 
-  public static $inject: Array<string> = ["$rootScope", "$scope", "Companies", "CompanyService"];
+  public static $inject: Array<string> = ['$rootScope', '$scope', 'Companies', 'CompanyService'];
 
     public listTitle: string;
 
@@ -15,9 +15,8 @@ export default class CompaniesController {
         private $rootScope: IAppRootScopeService,
         private $scope: ng.IScope,
         private companies: Companies,
-        private companyService: CompanyService)
-    {
-        this.listTitle = "Companies";
+        private companyService: CompanyService) {
+        this.listTitle = 'Companies';
         this.companies.load();
     }
 
@@ -27,7 +26,7 @@ export default class CompaniesController {
 
         // todo : сделать через перевод #angular-translate
 
-        if (!confirm("Are you sure you want to delete the company \"" + company.name + "\"?")) {
+        if (!confirm(`Are you sure you want to delete the company "${company.name}"?`)) {
             return;
         }
 
@@ -47,7 +46,7 @@ export default class CompaniesController {
         let self: CompaniesController = this;
 
         this.companyService.fastAdd().then((data: Company): void => {
-            if (typeof(data) === "object" && typeof (data.id) !== "undefined") {
+            if (typeof(data) === 'object' && typeof (data.id) !== 'undefined') {
                 self.companies.push(data);
             }
         });
