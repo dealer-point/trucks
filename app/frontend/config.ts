@@ -70,7 +70,7 @@ export default function RootConfig(
         // full header
         $rootScope.fullHeaderActive = false;
         // full height
-        $rootScope.page_full_height = false;
+        $rootScope.page_full_height = true;
         // secondary sidebar
         $rootScope.sidebar_secondary = false;
         $rootScope.secondarySidebarHiddenLarge = false;
@@ -91,13 +91,13 @@ export default function RootConfig(
     FastClick.attach(document.body);
     $rootScope.Modernizr = Modernizr;
 
-    let w: any = angular.element($window);
+    // let w: any = angular.element($window);
 
-    $rootScope.largeScreen = w.width() >= 1220;
+    // $rootScope.largeScreen = w.width() >= 1220;
 
-    w.on('resize', () => {
-        return $rootScope.largeScreen = w.width() >= 1220;
-    });
+    // w.on('resize', () => {
+    //     return $rootScope.largeScreen = w.width() >= 1220;
+    // });
 
     // show/hide main menu on page load
     $rootScope.primarySidebarOpen = false; // = ($rootScope.largeScreen) ? true : false;

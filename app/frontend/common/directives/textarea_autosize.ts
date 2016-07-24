@@ -1,8 +1,6 @@
 
 'use strict';
 
-console.log(autosize);
-
 textareaAutosize.$inject = ['$timeout'];
 export default function textareaAutosize($timeout: ng.ITimeoutService): ng.IDirective {
     'use strict';
