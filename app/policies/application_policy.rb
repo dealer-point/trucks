@@ -14,6 +14,7 @@ class ApplicationPolicy
     "#{@record.class.name.downcase}:#{method}"
   end
 
+  # rubocop:disable MethodMissing
   def method_missing(name, *args)
     if name.to_s.last == '?'
       user_activities.include?(inferred_activity(name.to_s.delete('?')))
@@ -21,6 +22,7 @@ class ApplicationPolicy
       super
     end
   end
+  # rubocop:enable MethodMissing
 
   def scope
     Pundit.policy_scope!(user, record.class)

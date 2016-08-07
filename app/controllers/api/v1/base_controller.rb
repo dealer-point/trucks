@@ -10,7 +10,7 @@ class Api::V1::BaseController < ApplicationController
   # Enforces access right checks for collections
   after_action :verify_policy_scoped, only: :index
 
-  def render_api args
+  def render_api(args)
     render json: { data: args[:json], meta: args[:meta] }, root: false, status: args[:status]
   end
 
@@ -25,14 +25,14 @@ class Api::V1::BaseController < ApplicationController
   private
 
   def authorize_user!
-    if current_user.blank?
-      render(json: { errors: 'Unauthorized' }, status: 401) && return
-    end
+    render(json: { errors: 'Unauthorized' }, status: 401) && return if current_user.blank?
   end
 
   def not_authorized(exception)
     policy_name = exception.policy.class.to_s.underscore
-    error_message = t("#{policy_name}.#{exception.query}", scope: 'pundit.messages', default: :default)
+    error_message = I18n.t("#{policy_name}.#{exception.query}",
+                           scope: 'pundit.messages',
+                           default: :default)
     render json: { error: error_message, activities: current_user.activities }, status: :forbidden
   end
 end

@@ -1,17 +1,15 @@
 class Api::V1::EventsController < Api::V1::BaseController
   def index
-    @events = policy_scope(Event)
-      .includes(:created_by, :assigned_by)
-      .page(params[:page])
-      .per(500000)
-      # .order(id: :desc)
+    @events = policy_scope(Event).includes(:created_by, :assigned_by)
+                                 .page(params[:page])
+                                 .per(500_000)
 
     render_api json: @events.as_json(only: [:id, :kind, :status, :assigned_at, :title],
-                                  methods: [:overdue, :assigned_at_timestamp],
-                                  include: {
-                                    created_by: { only: [:id, :name, :lastname] },
-                                    assigned_by: { only: [:id, :name, :lastname] }
-                                  }),
+                                     methods: [:overdue, :assigned_at_timestamp],
+                                     include: {
+                                       created_by: { only: [:id, :name, :lastname] },
+                                       assigned_by: { only: [:id, :name, :lastname] }
+                                     }),
                meta: meta_attributes(@events), status: :ok
   end
 
@@ -40,11 +38,11 @@ class Api::V1::EventsController < Api::V1::BaseController
 
     if event.save
       render_api json: event.as_json(only: [:id, :kind, :status, :assigned_at, :title],
-                                  methods: [:overdue, :assigned_at_timestamp, :date, :time],
-                                  include: {
-                                    created_by: { only: [:id, :name, :lastname] },
-                                    assigned_by: { only: [:id, :name, :lastname] }
-                                  }),
+                                     methods: [:overdue, :assigned_at_timestamp, :date, :time],
+                                     include: {
+                                       created_by: { only: [:id, :name, :lastname] },
+                                       assigned_by: { only: [:id, :name, :lastname] }
+                                     }),
                  status: :ok
     else
       render json: { errors: event.errors }, status: :unprocessable_entity
@@ -63,11 +61,12 @@ class Api::V1::EventsController < Api::V1::BaseController
 
     if event.save
       render_api json: event.as_json(only: [:id, :kind, :status, :assigned_at, :title],
-        methods: [:overdue, :assigned_at_timestamp, :date, :time],
-        include: {
-          created_by: { only: [:id, :name, :lastname] },
-          assigned_by: { only: [:id, :name, :lastname] }
-        }), status: :ok
+                                     methods: [:overdue, :assigned_at_timestamp, :date, :time],
+                                     include: {
+                                       created_by: { only: [:id, :name, :lastname] },
+                                       assigned_by: { only: [:id, :name, :lastname] }
+                                     }),
+                 status: :ok
     else
       render json: { errors: event.errors }, status: :unprocessable_entity
     end
