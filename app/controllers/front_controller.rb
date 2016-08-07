@@ -1,5 +1,4 @@
 class FrontController < ApplicationController
-
   layout false
   before_action :authorize_user!
 

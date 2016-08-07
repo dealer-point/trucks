@@ -23,11 +23,11 @@ FactoryGirl.define do
     description { Faker::Lorem.sentence }
 
     assigned_by { User.all.sample }
-    assigned_at {
+    assigned_at do
       to = DateTime.current.to_f
       from = 1.month.from_now.to_f
-      Time.at(rand * (to - from) + from)
-    }
+      Time.zone.at(rand * (to - from) + from)
+    end
     # processed_by { User.all.sample }
     # processed_at {
     #   to = DateTime.current.to_f

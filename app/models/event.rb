@@ -15,9 +15,8 @@
 #
 
 class Event < ApplicationRecord
-
-  KINDS = %w(incoming_call outgoing_call meet request)
-  STATUSES = %w(pending done canceled)
+  KINDS = %w(incoming_call outgoing_call meet request).freeze
+  STATUSES = %w(pending done canceled).freeze
 
   belongs_to :created_by, class_name: 'User'
   belongs_to :assigned_by, class_name: 'User'
@@ -30,7 +29,7 @@ class Event < ApplicationRecord
   validates :assigned_at, presence: true
 
   def overdue
-    DateTime.current > assigned_at and status === 'pending'
+    DateTime.current > assigned_at && status == 'pending'
   end
 
   def assigned_at_timestamp
@@ -44,5 +43,4 @@ class Event < ApplicationRecord
   def time
     assigned_at.strftime('%H:%M') if assigned_at.present?
   end
-
 end

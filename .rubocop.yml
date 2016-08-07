@@ -26,3 +26,5 @@ AsciiComments:
   Enabled: false
 Rails/HasAndBelongsToMany:
   Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false

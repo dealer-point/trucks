@@ -1,5 +1,4 @@
 class Api::V1::EventsController < Api::V1::BaseController
-
   def index
     @events = policy_scope(Event)
       .includes(:created_by, :assigned_by)
@@ -64,12 +63,11 @@ class Api::V1::EventsController < Api::V1::BaseController
 
     if event.save
       render_api json: event.as_json(only: [:id, :kind, :status, :assigned_at, :title],
-                                  methods: [:overdue, :assigned_at_timestamp, :date, :time],
-                                  include: {
-                                    created_by: { only: [:id, :name, :lastname] },
-                                    assigned_by: { only: [:id, :name, :lastname] }
-                                  }),
-                 status: :ok
+        methods: [:overdue, :assigned_at_timestamp, :date, :time],
+        include: {
+          created_by: { only: [:id, :name, :lastname] },
+          assigned_by: { only: [:id, :name, :lastname] }
+        }), status: :ok
     else
       render json: { errors: event.errors }, status: :unprocessable_entity
     end
@@ -87,16 +85,14 @@ class Api::V1::EventsController < Api::V1::BaseController
     end
   end
 
-private
+  private
 
   def event_params
-
-    if params[:date].present? and params[:time].present?
+    if params[:date].present? && params[:time].present?
       time = params[:time].to_datetime
       params[:assigned_at] = params[:date].to_datetime + time.hour.hours + time.minute.minutes
     end
 
     params.permit(:title, :assigned_at, :description, :kind)
   end
-
 end

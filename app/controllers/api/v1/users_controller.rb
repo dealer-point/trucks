@@ -1,6 +1,6 @@
 class Api::V1::UsersController < Api::V1::BaseController
   def index
-    @users = policy_scope(User).page(params[:page]).per(500000)
+    @users = policy_scope(User).page(params[:page]).per(500_000)
     render_api json: @users.as_json(only: [:id, :name, :lastname], methods: [:title]), status: :ok
   end
 

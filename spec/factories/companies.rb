@@ -25,8 +25,8 @@ FactoryGirl.define do
     description { Faker::Lorem.sentence }
     created_by { User.last }
     short_name { Faker::Company.name.slice(0, 5) }
-    owner_name { "#{Faker::StarWars.character}" }
-    phone { "+7 904 #{rand(8888888) + 1111111}" }
+    owner_name { Faker::StarWars.character.to_s }
+    phone { "+7 904 #{rand(8_888_888) + 1_111_111}" }
     site { "http://#{Faker::Internet.domain_name}" }
   end
 end
